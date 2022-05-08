@@ -1,7 +1,7 @@
 extends Node2D
 
 const Player = preload("res://Player/Player.tscn")
-# const Exit = preload("res://ExitDoor.tscn")
+const Exit = preload("res://Levels/ExitDoor.tscn")
 
 # Borders, makes it 1 tile border, makes 38 long and 21 high room to choose from
 var borders = Rect2(2,2,77,45)
@@ -21,10 +21,10 @@ func generate_level():
 	add_child(player)
 	player.position = map.front() * 32
 	
-	#var exit = Exit.instance()
-	#add_child(exit)
-	#exit.position = walker.get_end_room().position * 32 #depending on if distance from exit or whatever object being generated matters, get_end_room can be replaced with rooms.back()
-	#exit.connect("leaving_level", self, "reload_level")
+	var exit = Exit.instance()
+	add_child(exit)
+	exit.position = walker.get_end_room().position * 32 #depending on if distance from exit or whatever object being generated matters, get_end_room can be replaced with rooms.back()
+	exit.connect("leaving_level", self, "reload_level")
 	
 	walker.queue_free()
 	for location in map:
