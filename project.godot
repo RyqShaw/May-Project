@@ -8,10 +8,27 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Walker",
+"language": "GDScript",
+"path": "res://Levels/Walker.gd"
+} ]
+_global_script_class_icons={
+"Walker": ""
+}
+
 [application]
 
 config/name="MayProject"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [global]
 
