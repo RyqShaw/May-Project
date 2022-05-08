@@ -1,7 +1,8 @@
 extends Node2D
 
 const Player = preload("res://Player/Player.tscn")
-# const Exit = preload("res://ExitDoor.tscn")
+const Exit = preload("res://Levels/ExitDoor.tscn")
+const Enemy = preload("res://Levels/EnemyTester.tscn")
 
 # Borders, makes it 1 tile border, makes 38 long and 21 high room to choose from
 var borders = Rect2(2,2,77,45)
@@ -16,15 +17,24 @@ func _ready():
 func generate_level():
 	var walker = Walker.new(Vector2(38,22),borders)
 	var map = walker.walk(400)
+	var rooms = walker.get_rooms()
 	
 	var player = Player.instance()
 	add_child(player)
-	player.position = map.front() * 32
+	player.position = map.pop_front() * 32
 	
-	#var exit = Exit.instance()
-	#add_child(exit)
-	#exit.position = walker.get_end_room().position * 32 #depending on if distance from exit or whatever object being generated matters, get_end_room can be replaced with rooms.back()
-	#exit.connect("leaving_level", self, "reload_level")
+	var exit = Exit.instance()
+	add_child(exit)
+	exit.position = walker.get_end_room().position * 32 #depending on if distance from exit or whatever object being generated matters, get_end_room can be replaced with rooms.back()
+	exit.connect("leaving_level", self, "reload_level")
+	
+	for i in rooms:
+		if randf() < 0.75:
+			var enemy = Enemy.instance()
+			add_child(enemy)
+			enemy.position = walker.get_room().position * 32
+			if player.position.distance_to(enemy.position) <= 32 or exit.position.distance_to(enemy.position) <= 32:
+				enemy.free()
 	
 	walker.queue_free()
 	for location in map:
