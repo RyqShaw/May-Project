@@ -1,6 +1,6 @@
 extends Node2D
 
-# const Player = preload("res://Player.tscn")
+const Player = preload("res://Player/Player.tscn")
 # const Exit = preload("res://ExitDoor.tscn")
 
 # Borders, makes it 1 tile border, makes 38 long and 21 high room to choose from
@@ -17,9 +17,9 @@ func generate_level():
 	var walker = Walker.new(Vector2(38,22),borders)
 	var map = walker.walk(400)
 	
-	# var player = Player.instance()
-	#add_child(player)
-	#player.position = map.front() * 32
+	var player = Player.instance()
+	add_child(player)
+	player.position = map.front() * 32
 	
 	#var exit = Exit.instance()
 	#add_child(exit)
