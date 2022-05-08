@@ -75,3 +75,15 @@ func get_end_room():
 		if starting_position.distance_to(room.position) > starting_position. distance_to(end_room.position):
 			end_room = room
 	return end_room
+
+func get_rooms():
+	return rooms
+
+func get_room():
+	rooms.shuffle()
+	var room
+	if randf() < 0.5:
+		room = rooms.pop_back()
+	else:
+		room = rooms.pop_front()
+	return room
