@@ -2,7 +2,7 @@ extends Node2D
 
 const Player = preload("res://Player/Player.tscn")
 const Exit = preload("res://Levels/ExitDoor.tscn")
-const Enemy = preload("res://Levels/EnemyTester.tscn")
+const Enemy = preload("res://Enemies/BasicEnemy.tscn")
 
 # Borders, makes it 1 tile border, makes 38 long and 21 high room to choose from
 var borders = Rect2(2,2,77,45)
