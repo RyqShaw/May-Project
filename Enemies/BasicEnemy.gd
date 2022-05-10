@@ -10,15 +10,16 @@ signal battleStarted
 enum {
 	IDLE,
 	WANDER,
-	FIGHT
+	CHASE
 }
 
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
-var state = FIGHT
+var state = CHASE
 
 onready var playerDetectionZone = $EnemyGaze/PlayerDetection
 onready var wanderController = $WanderController
+onready var sightZone = $SightZone
 
 func _ready():
 	state = pick_random_state([WANDER, IDLE])
@@ -30,7 +31,7 @@ func _physics_process(delta):
 			seek_player()
 			if wanderController.get_time_left() == 0:
 				update_wander()
-				
+			
 		WANDER:
 			seek_player()
 			if wanderController.get_time_left() == 0:
@@ -39,12 +40,17 @@ func _physics_process(delta):
 			if global_position.distance_to(wanderController.target_position) <= wanderTargetRange:
 				update_wander()
 			
-		FIGHT:
-			var player = playerDetectionZone.player
+		CHASE:
+			var player = sightZone.player
 			if player != null:
-				emit_signal("battleStarted")
+				accelerate_towards_point(player.global_position, delta)
 			else:
 				state = IDLE
+			
+#			if player != null:
+#				emit_signal("battleStarted")
+#			else:
+#				state = IDLE
 
 func accelerate_towards_point(point, delta):
 	var direction = global_position.direction_to(point)
@@ -53,7 +59,7 @@ func accelerate_towards_point(point, delta):
 
 func seek_player():
 	if playerDetectionZone.can_see_player():
-		state = FIGHT
+		state = CHASE
 
 func update_wander():
 	state = pick_random_state([IDLE, WANDER])
