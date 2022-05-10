@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "PlayerStats",
+"language": "GDScript",
+"path": "res://Battle/Player/PlayerStats.gd"
+}, {
+"base": "Resource",
+"class": "TurnManager",
+"language": "GDScript",
+"path": "res://Battle/TurnManager.gd"
+}, {
 "base": "Node",
 "class": "Walker",
 "language": "GDScript",
 "path": "res://Levels/Walker.gd"
 } ]
 _global_script_class_icons={
+"PlayerStats": "",
+"TurnManager": "",
 "Walker": ""
 }
 
