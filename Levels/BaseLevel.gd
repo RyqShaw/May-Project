@@ -28,6 +28,7 @@ func generate_level():
 	exit.position = walker.get_end_room().position * 32 #depending on if distance from exit or whatever object being generated matters, get_end_room can be replaced with rooms.back()
 	exit.connect("leaving_level", self, "reload_level")
 	
+	# Enemy Generation
 	for i in rooms:
 		if randf() < 0.60:
 			var enemy = Enemy.instance()
@@ -39,6 +40,11 @@ func generate_level():
 	walker.queue_free()
 	for location in map:
 		tileMap.set_cellv(location, -1)
+		#Random Objects?
+#		if randf() < 0.025:
+#			var object = Player.instance()
+#			add_child(object)
+#			object.position = location * 32
 	tileMap.update_bitmask_region(borders.position, borders.end)
 
 func reload_level():
