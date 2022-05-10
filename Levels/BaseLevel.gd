@@ -5,7 +5,7 @@ const Exit = preload("res://Levels/ExitDoor.tscn")
 const Enemy = preload("res://Levels/EnemyTester.tscn")
 
 # Borders, makes it 1 tile border, makes 38 long and 21 high room to choose from
-var borders = Rect2(2,2,77,45)
+var borders = Rect2(1,1,100,50)
 
 onready var tileMap = $TileMap
 
@@ -15,8 +15,8 @@ func _ready():
 
 # Creates Walker, makes it walk and takes step history, sets tile map cells to delete at positions recorded
 func generate_level():
-	var walker = Walker.new(Vector2(38,22),borders)
-	var map = walker.walk(400)
+	var walker = Walker.new(Vector2(50,25),borders)
+	var map = walker.walk(300)
 	var rooms = walker.get_rooms()
 	
 	var player = Player.instance()
@@ -29,7 +29,7 @@ func generate_level():
 	exit.connect("leaving_level", self, "reload_level")
 	
 	for i in rooms:
-		if randf() < 0.75:
+		if randf() < 0.60:
 			var enemy = Enemy.instance()
 			add_child(enemy)
 			enemy.position = walker.get_room().position * 32

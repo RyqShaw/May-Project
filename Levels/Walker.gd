@@ -81,9 +81,5 @@ func get_rooms():
 
 func get_room():
 	rooms.shuffle()
-	var room
-	if randf() < 0.5:
-		room = rooms.pop_back()
-	else:
-		room = rooms.pop_front()
+	var room = rooms.pop_front()
 	return room
