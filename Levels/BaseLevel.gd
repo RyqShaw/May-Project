@@ -41,10 +41,10 @@ func generate_level():
 	for location in map:
 		tileMap.set_cellv(location, -1)
 		#Random Objects?
-		if randf() < 0.025:
-			var object = Player.instance()
-			add_child(object)
-			object.position = location * 32
+#		if randf() < 0.025:
+#			var object = Player.instance()
+#			add_child(object)
+#			object.position = location * 32
 	tileMap.update_bitmask_region(borders.position, borders.end)
 
 func reload_level():
