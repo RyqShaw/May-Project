@@ -32,9 +32,9 @@ texture = ExtResource( 1 )
 anims/Attack = SubResource( 1 )
 
 [node name="confidenceLabel" type="Label" parent="."]
-margin_left = -32.0
+margin_left = -87.0
 margin_top = -48.0
-margin_right = 32.0
+margin_right = 86.0
 margin_bottom = -32.0
 text = "HP"
 align = 1
