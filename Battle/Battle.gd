@@ -21,10 +21,12 @@ func _ready():
 		cardHandler.deck.append(load("res://Battle/Cards/AttackCardButton.tscn").instance())
 	create_hand()
 	
-	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n\n" + str(cardHandler.deck.size())
+	update_deck_label()
 	turnManager.turn = turnManager.PLAYER_TURN
 	
 func _player_turn_started():
+	if hand.get_child_count() != 7: deal_card()
+	update_deck_label()
 	$UI.show()
 	var player = battleUnits.PlayerStats
 	player.moves = player.max_moves
@@ -69,3 +71,5 @@ func _on_Confirm_pressed():
 	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n\n" + str(cardHandler.deck.size())
 	turnManager.turn = turnManager.ENEMY_TURN
 	
+func update_deck_label():
+	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n\n" + str(cardHandler.deck.size())
