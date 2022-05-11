@@ -62,6 +62,10 @@ text = "Cofnirm"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
+frame = 0
+
+[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="1"]
+frame = 0
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )

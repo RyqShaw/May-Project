@@ -59,11 +59,10 @@ func add_hand(card):
 		battleUnits.PlayerStats.moves += card.moveValue
 	
 func add_selected(card):
-	if selectedCards.get_child_count() < battleUnits.PlayerStats.moves:
+	if selectedCards.get_child_count() <= battleUnits.PlayerStats.moves:
 		hand.remove_child(card)
 		selectedCards.add_child(card)
 		battleUnits.PlayerStats.moves -= card.moveValue
-
 
 func _on_Confirm_pressed():
 	for i in selectedCards.get_children():
