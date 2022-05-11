@@ -8,7 +8,6 @@ var bar = max_bar setget set_bar
 onready var confidence = $PlayerConfBar/Filling
 
 func _ready():
-	print((player.confidence / player.max_confidence))
 	player.connect("confidence_changed",self, "set_bar")
 	
 func set_bar(value):

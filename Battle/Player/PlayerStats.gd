@@ -6,9 +6,7 @@ const turnManager = preload("res://Battle/TurnManager.tres")
 export var max_confidence = 3 setget set_max_confidence
 var confidence = max_confidence setget set_confidence
 
-export var speed = 1 setget set_speed
-
-export var max_moves = 1 setget set_max_moves
+export var max_moves = 3 setget set_max_moves
 var moves = max_moves setget set_moves
 
 signal no_confidence()
@@ -28,16 +26,10 @@ func set_confidence(value):
 	emit_signal("confidence_changed", confidence)
 	if confidence == 0:
 		emit_signal("no_confidence")
-
-func set_speed(value):
-	speed = value
-	emit_signal("speed_changed", speed)
 	
 func set_moves(value):
 	moves = clamp(value, 0, max_moves)
 	emit_signal("moves_changed", moves)
-	if moves == 0:
-		turnManager.turn = turnManager.ENEMY_TURN
 
 func set_max_moves(value):
 	max_moves = value

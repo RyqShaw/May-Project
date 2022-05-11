@@ -6,3 +6,4 @@
 [node name="AttackCardButton" instance=ExtResource( 1 )]
 text = "Attack"
 script = ExtResource( 2 )
+moveValue = 2

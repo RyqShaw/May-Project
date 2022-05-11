@@ -16,7 +16,8 @@ func _ready():
 	player.connect("no_confidence", self, "on_Player_died")
 	
 	#Init Deck for testing purposes
-	for i in 40:
+	cardHandler.deck.append(load("res://Battle/Cards/CardButton.tscn").instance())
+	for i in 39:
 		cardHandler.deck.append(load("res://Battle/Cards/AttackCardButton.tscn").instance())
 	create_hand()
 	
@@ -36,8 +37,11 @@ func _enemy_turn_started():
 
 func create_hand():
 	for i in 7:
-		var card = cardHandler.deck.pop_front()
-		get_tree().get_root().get_node("Battle/UI/Cards").add_child(card)
+		deal_card()
+
+func deal_card():
+	var card = cardHandler.deck.pop_front()
+	get_tree().get_root().get_node("Battle/UI/Cards").add_child(card)
 
 func on_Player_died():
 #	$Player.queue_free()
@@ -49,11 +53,13 @@ func add_hand(card):
 	if hand.get_child_count() < 7:
 		selectedCards.remove_child(card)
 		hand.add_child(card)
+		battleUnits.PlayerStats.moves += card.moveValue
 	
 func add_selected(card):
-	if selectedCards.get_child_count() < 3:
+	if selectedCards.get_child_count() < battleUnits.PlayerStats.moves:
 		hand.remove_child(card)
 		selectedCards.add_child(card)
+		battleUnits.PlayerStats.moves -= card.moveValue
 
 
 func _on_Confirm_pressed():
