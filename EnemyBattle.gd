@@ -7,13 +7,13 @@ export(int) var confidence = 25 setget set_confidence
 export(int) var damage = 3
 
 var target = null
-#onready var confidenceLabel = $confidenceLabel
+onready var confidenceLabel = $confidenceLabel
 onready var animationPlayer = $AnimationPlayer
 
 signal on_death
 
 func _ready():
-#	confidenceLabel.text = str(confidence) + " confidence"
+	confidenceLabel.text = str(confidence) + " confidence"
 	battleUnits.Enemy = self
 
 func _exit_tree():
