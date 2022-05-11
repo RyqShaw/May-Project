@@ -18,7 +18,7 @@ animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "default",
-"speed": 3.0
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=1]
@@ -68,7 +68,6 @@ frame = 10
 [node name="emptybarPart2" type="AnimatedSprite" parent="EnemyConfBar"]
 position = Vector2( 3, -4 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
