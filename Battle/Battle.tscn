@@ -28,14 +28,27 @@ animations = [ {
 [node name="Battle" type="Node"]
 script = ExtResource( 3 )
 
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.458824, 0.298039, 0.337255, 1 )
+
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Background" type="ColorRect" parent="UI"]
+[node name="Deck" type="Panel" parent="UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = -163.0
+margin_right = 200.0
+margin_bottom = -3.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Deck"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.458824, 0.298039, 0.337255, 1 )
+text = "Number Of Cards Left in Deck"
 
 [node name="Cards" type="HBoxContainer" parent="UI"]
 anchor_top = 1.0
@@ -73,7 +86,7 @@ margin_right = 982.0
 margin_bottom = 194.0
 percent_visible = false
 
-[node name="Button" type="Button" parent="UI"]
+[node name="Confirm" type="Button" parent="UI"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -88,6 +101,7 @@ text = "Cofnirm"
 position = Vector2( 426, 360 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="HPLabel" type="Label" parent="Player"]
@@ -103,15 +117,4 @@ script = ExtResource( 6 )
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )
 
-[node name="Panel" type="Panel" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 100.0
-margin_top = -163.0
-margin_right = 200.0
-margin_bottom = -3.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "Number Of Cards Left in Deck"
+[connection signal="pressed" from="UI/Confirm" to="." method="_on_Confirm_pressed"]
