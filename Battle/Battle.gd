@@ -42,6 +42,7 @@ func create_hand():
 func on_Player_died():
 #	$Player.queue_free()
 #	yield(get_tree().create_timer(5), "timeout")
+	yield()
 	get_tree().change_scene("res://Levels/BaseLevel.tscn")
 	
 func add_hand(card):
