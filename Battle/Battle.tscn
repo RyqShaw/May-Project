@@ -15,10 +15,6 @@ anchor_bottom = 1.0
 [node name="Background" type="ColorRect" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 14.0
-margin_top = -1.0
-margin_right = 14.0
-margin_bottom = -1.0
 color = Color( 0.458824, 0.298039, 0.337255, 1 )
 
 [node name="Cards" type="HBoxContainer" parent="UI"]
@@ -70,15 +66,15 @@ text = "Cofnirm"
 
 [node name="Player" type="Sprite" parent="."]
 position = Vector2( 426, 360 )
+scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 vframes = 2
 
 [node name="HPLabel" type="Label" parent="Player"]
-margin_left = -128.0
-margin_top = -216.0
-margin_right = -68.0
-margin_bottom = -196.0
-rect_scale = Vector2( 4, 4 )
+margin_left = -32.0
+margin_top = -48.0
+margin_right = 28.0
+margin_bottom = -28.0
 text = "HP"
 align = 1
 valign = 1
