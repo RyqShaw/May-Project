@@ -9,4 +9,5 @@ func _on_CardButton_pressed():
 	elif get_parent().name == "SelectedCards":
 		get_tree().get_root().get_node("Battle").add_hand(self)
 		
-	
+func action():
+	pass

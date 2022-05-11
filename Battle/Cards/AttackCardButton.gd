@@ -1,6 +1,6 @@
 extends "res://Battle/Cards/CardButton.gd"
 
-func _on_CardButton_pressed():
+func action():
 	var enemy = battleUnits.Enemy
 	var player = battleUnits.PlayerStats
 	if enemy != null and player != null:

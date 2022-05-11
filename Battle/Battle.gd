@@ -4,14 +4,11 @@ const turnManager = preload("res://Battle/TurnManager.tres")
 const battleUnits = preload("res://Battle/BattleUnits.tres")
 const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
 
-#export(Array, PackedScene) var deck = []
-
-onready var buttons = $UI/Cards
 onready var hand = get_tree().get_root().get_node("Battle/UI/Cards")
 onready var selectedCards = get_tree().get_root().get_node("Battle/UI/SelectedCards")
 
 func _ready():
-	buttons.hide()
+	$UI.hide()
 	var player = battleUnits.PlayerStats
 	
 	turnManager.connect("player_turn_started",self,"_player_turn_started")
@@ -19,19 +16,20 @@ func _ready():
 	player.connect("no_confidence", self, "on_Player_died")
 	
 	#Init Deck for testing purposes
-	for i in 7:
-		cardHandler.deck.append(load("res://Battle/Cards/CardButton.tscn").instance())
+	for i in 40:
+		cardHandler.deck.append(load("res://Battle/Cards/AttackCardButton.tscn").instance())
 	create_hand()
 	
+	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n\n" + str(cardHandler.deck.size())
 	turnManager.turn = turnManager.PLAYER_TURN
 	
 func _player_turn_started():
-	buttons.show()
+	$UI.show()
 	var player = battleUnits.PlayerStats
 	player.moves = player.max_moves
 
 func _enemy_turn_started():
-	buttons.hide()
+	$UI.hide()
 	var enemy = battleUnits.Enemy
 	if enemy != null:
 		enemy.attack()
@@ -44,6 +42,7 @@ func create_hand():
 func on_Player_died():
 #	$Player.queue_free()
 #	yield(get_tree().create_timer(5), "timeout")
+	yield()
 	get_tree().change_scene("res://Levels/BaseLevel.tscn")
 	
 func add_hand(card):
@@ -55,3 +54,12 @@ func add_selected(card):
 	if selectedCards.get_child_count() < 3:
 		hand.remove_child(card)
 		selectedCards.add_child(card)
+
+
+func _on_Confirm_pressed():
+	for i in selectedCards.get_children():
+		i.action()
+		selectedCards.remove_child(i)
+	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n\n" + str(cardHandler.deck.size())
+	turnManager.turn = turnManager.ENEMY_TURN
+	

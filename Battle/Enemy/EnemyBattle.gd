@@ -4,11 +4,17 @@ const player = preload("res://Battle/Player/PlayerStats.tres")
 const turnManager = preload("res://Battle/TurnManager.tres")
 const battleUnits = preload("res://Battle/BattleUnits.tres")
 
-export(int) var confidence = 3 setget set_confidence
+export(int) var max_confidence = 3
+var confidence = max_confidence setget set_confidence
+
 export(int) var damage = 1
 
-var target = null
+
+const max_bar = 56
+var bar = max_bar
+
 onready var confidenceLabel = $confidenceLabel
+onready var confidenceBar = $EnemyConfBar/Filling
 onready var animationPlayer = $AnimationPlayer
 
 signal on_death
@@ -23,6 +29,11 @@ func _exit_tree():
 func set_confidence(new_confidence):
 	confidence = new_confidence
 	$confidenceLabel.text = str(confidence) + " confidence"
+	bar = clamp(new_confidence, 0, max_bar)
+	if confidenceBar != null:
+		confidenceBar.rect_size.x = confidence * 18
+	if confidence == max_confidence:
+		confidenceBar.rect_size.x = max_bar
 
 func attack() -> void:
 	yield(get_tree().create_timer(0.4), "timeout")

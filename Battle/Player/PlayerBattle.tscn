@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Battle/Player/ConfidenceDisplay.gd" type="Script" id=1]
+[ext_resource path="res://Battle/ArtAssets/LONGbar.png" type="Texture" id=2]
+[ext_resource path="res://Battle/Player/dotpicty.png" type="Texture" id=3]
+[ext_resource path="res://Battle/Player/PlayerBattle.gd" type="Script" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "aboveHalf",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "belowHalf",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "belowTen",
+"speed": 5.0
+} ]
+
+[node name="Player" type="AnimatedSprite"]
+scale = Vector2( 4, 4 )
+frames = SubResource( 4 )
+frame = 1
+playing = true
+script = ExtResource( 4 )
+
+[node name="PlayerConfBar" type="Node2D" parent="."]
+position = Vector2( 15.5, -32 )
+
+[node name="Filling" type="ColorRect" parent="PlayerConfBar"]
+margin_left = -41.0
+margin_top = -12.0
+margin_right = 15.0
+margin_bottom = -7.0
+color = Color( 0.0862745, 0.682353, 0.207843, 1 )
+
+[node name="emptyBarPart1" type="AnimatedSprite" parent="PlayerConfBar"]
+position = Vector2( -32, -4 )
+frames = SubResource( 7 )
+animation = "aboveHalf"
+playing = true
+
+[node name="emptybarPart2" type="Sprite" parent="PlayerConfBar"]
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 4
+frame = 10
+
+[node name="HPLabel" type="Label" parent="."]
+visible = false
+margin_left = -32.0
+margin_top = -48.0
+margin_right = 28.0
+margin_bottom = -28.0
+text = "HP"
+align = 1
+valign = 1
+script = ExtResource( 1 )
