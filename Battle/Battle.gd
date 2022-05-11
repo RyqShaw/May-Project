@@ -2,10 +2,13 @@ extends Node
 
 const turnManager = preload("res://Battle/TurnManager.tres")
 const battleUnits = preload("res://Battle/BattleUnits.tres")
+const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
 
-export(Array, PackedScene) var deck = []
+#export(Array, PackedScene) var deck = []
 
 onready var buttons = $UI/Cards
+onready var hand = get_tree().get_root().get_node("Battle/UI/Cards")
+onready var selectedCards = get_tree().get_root().get_node("Battle/UI/SelectedCards")
 
 func _ready():
 	buttons.hide()
@@ -14,18 +17,20 @@ func _ready():
 	turnManager.connect("player_turn_started",self,"_player_turn_started")
 	turnManager.connect("enemy_turn_started",self,"_enemy_turn_started")
 	player.connect("no_confidence", self, "on_Player_died")
+	
+	#Init Deck for testing purposes
+	for i in 7:
+		cardHandler.deck.append(load("res://Battle/Cards/CardButton.tscn").instance())
 	create_hand()
+	
 	turnManager.turn = turnManager.PLAYER_TURN
-
+	
 func _player_turn_started():
-	print("Player Turn Started")
-	print(battleUnits.PlayerStats.confidence)
 	buttons.show()
 	var player = battleUnits.PlayerStats
 	player.moves = player.max_moves
 
 func _enemy_turn_started():
-	print("Enemy Turn Started")
 	buttons.hide()
 	var enemy = battleUnits.Enemy
 	if enemy != null:
@@ -33,12 +38,20 @@ func _enemy_turn_started():
 
 func create_hand():
 	for i in 7:
-		var card = deck.pop_front().instance()
+		var card = cardHandler.deck.pop_front()
 		get_tree().get_root().get_node("Battle/UI/Cards").add_child(card)
-		deck.append(load("res://Battle/Cards/CardButton.tscn").instance())
-	print(deck)
 
 func on_Player_died():
 #	$Player.queue_free()
 #	yield(get_tree().create_timer(5), "timeout")
 	get_tree().change_scene("res://Levels/BaseLevel.tscn")
+	
+func add_hand(card):
+	if hand.get_child_count() < 7:
+		selectedCards.remove_child(card)
+		hand.add_child(card)
+	
+func add_selected(card):
+	if selectedCards.get_child_count() < 3:
+		hand.remove_child(card)
+		selectedCards.add_child(card)

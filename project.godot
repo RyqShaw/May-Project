@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://BattleUnits.gd"
 }, {
 "base": "Resource",
+"class": "CardHandler",
+"language": "GDScript",
+"path": "res://CardHandler.gd"
+}, {
+"base": "Resource",
 "class": "PlayerStats",
 "language": "GDScript",
 "path": "res://Battle/Player/PlayerStats.gd"
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BattleUnits": "",
+"CardHandler": "",
 "PlayerStats": "",
 "TurnManager": "",
 "Walker": ""
