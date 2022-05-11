@@ -27,8 +27,10 @@ func _ready():
 func _player_turn_started():
 	if hand.get_child_count() != 7: deal_card()
 	update_deck_label()
-	$UI.show()
 	var player = battleUnits.PlayerStats
+	if player.confidence == 0:
+		on_Player_died()
+	$UI.show()
 	player.moves = player.max_moves
 
 func _enemy_turn_started():
@@ -48,7 +50,6 @@ func deal_card():
 func on_Player_died():
 #	$Player.queue_free()
 #	yield(get_tree().create_timer(5), "timeout")
-	yield()
 	get_tree().change_scene("res://Levels/BaseLevel.tscn")
 	
 func add_hand(card):

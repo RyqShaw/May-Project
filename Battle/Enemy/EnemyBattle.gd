@@ -4,7 +4,7 @@ const player = preload("res://Battle/Player/PlayerStats.tres")
 const turnManager = preload("res://Battle/TurnManager.tres")
 const battleUnits = preload("res://Battle/BattleUnits.tres")
 
-export(int) var max_confidence = 3
+export(int) var max_confidence = 7
 var confidence = max_confidence setget set_confidence
 
 export(int) var damage = 1
@@ -31,7 +31,7 @@ func set_confidence(new_confidence):
 	$confidenceLabel.text = str(confidence) + " confidence"
 	bar = clamp(new_confidence, 0, max_bar)
 	if confidenceBar != null:
-		confidenceBar.rect_size.x = confidence * 18
+		confidenceBar.rect_size.x = confidence * (max_bar/max_confidence)
 	if confidence == max_confidence:
 		confidenceBar.rect_size.x = max_bar
 

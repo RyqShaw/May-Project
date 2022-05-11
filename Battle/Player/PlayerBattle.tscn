@@ -72,6 +72,7 @@ color = Color( 0.0862745, 0.682353, 0.207843, 1 )
 position = Vector2( -32, -4 )
 frames = SubResource( 7 )
 animation = "aboveHalf"
+frame = 1
 playing = true
 
 [node name="emptybarPart2" type="Sprite" parent="PlayerConfBar"]

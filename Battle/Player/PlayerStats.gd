@@ -24,8 +24,6 @@ func set_max_confidence(value):
 func set_confidence(value):
 	confidence = clamp(value, 0, max_confidence)
 	emit_signal("confidence_changed", confidence)
-	if confidence == 0:
-		emit_signal("no_confidence")
 	
 func set_moves(value):
 	moves = clamp(value, 0, max_moves)
