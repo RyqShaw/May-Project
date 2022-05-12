@@ -62,6 +62,9 @@ text = "Confirm"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
+frame = 2
+
+[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
 frame = 0
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]

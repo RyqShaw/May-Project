@@ -4,21 +4,18 @@ const player = preload("res://Battle/Player/PlayerStats.tres")
 const turnManager = preload("res://Battle/TurnManager.tres")
 const battleUnits = preload("res://Battle/BattleUnits.tres")
 
-export(int) var max_confidence = 54
+export(int) var max_confidence = 30
 var confidence = max_confidence setget set_confidence
 
 export(int) var damage = 5
 
-const max_bar = 54
-var bar = max_bar
-
-onready var confidenceBar = $EnemyConfBar/Filling
+onready var confBar = $EnemyConfBar/TextureProgress
 onready var animationPlayer = $AnimationPlayer
 
 signal on_death
 
 func _ready():
-	confidenceBar.rect_size.x = max_bar
+	confBar.max_value = max_confidence
 	battleUnits.Enemy = self
 
 func _exit_tree():
@@ -26,11 +23,7 @@ func _exit_tree():
 
 func set_confidence(new_confidence):
 	confidence = new_confidence
-	bar = clamp(new_confidence, 0, max_bar)
-	if confidenceBar != null:
-		confidenceBar.rect_size.x = confidence * (max_bar/max_confidence)
-		if confidence == max_confidence:
-			confidenceBar.rect_size.x = max_bar
+	confBar.value = new_confidence
 
 func attack() -> void:
 	yield(get_tree().create_timer(0.4), "timeout")
@@ -45,6 +38,7 @@ func take_damage(amount):
 	self.confidence -= amount
 	if is_dead():
 		emit_signal("on_death")
+		yield(get_tree().create_timer(0.4), "timeout")
 		queue_free()
 #	else:
 #		animationPlayer.play("Shake")
