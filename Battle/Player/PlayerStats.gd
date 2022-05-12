@@ -3,7 +3,7 @@ class_name PlayerStats
 
 const turnManager = preload("res://Battle/TurnManager.tres")
 
-export var max_confidence = 3 setget set_max_confidence
+export var max_confidence = 50 setget set_max_confidence
 var confidence = max_confidence setget set_confidence
 
 export var max_moves = 3 setget set_max_moves

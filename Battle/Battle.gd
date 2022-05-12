@@ -9,6 +9,7 @@ onready var selectedCards = get_tree().get_root().get_node("Battle/UI/SelectedCa
 
 func _ready():
 	$UI.hide()
+	cardHandler.deck.shuffle()
 	var player = battleUnits.PlayerStats
 	
 	turnManager.connect("player_turn_started",self,"_player_turn_started")
@@ -26,7 +27,7 @@ func _ready():
 	turnManager.turn = turnManager.PLAYER_TURN
 	
 func _player_turn_started():
-	if hand.get_child_count() != 7: deal_card()
+	if hand.get_child_count() != 5: deal_card()
 	update_deck_label()
 	var player = battleUnits.PlayerStats
 	if player.confidence == 0:
@@ -41,10 +42,14 @@ func _enemy_turn_started():
 		enemy.attack()
 
 func create_hand():
-	for i in 7:
+	for i in 5:
 		deal_card()
 
 func deal_card():
+	if cardHandler.deck.size() == 0:
+		cardHandler.discardPile.shuffle()
+		cardHandler.deck.append_array(cardHandler.discardPile)
+		cardHandler.discardPile = []
 	var card = cardHandler.deck.pop_front()
 	get_tree().get_root().get_node("Battle/UI/Cards").add_child(card)
 
@@ -54,7 +59,7 @@ func on_Player_died():
 	get_tree().change_scene("res://Levels/BaseLevel.tscn")
 	
 func add_hand(card):
-	if hand.get_child_count() < 7:
+	if hand.get_child_count() < 5:
 		battleUnits.PlayerStats.moves += card.moveValue
 		selectedCards.remove_child(card)
 		hand.add_child(card)
@@ -68,6 +73,7 @@ func add_selected(card):
 func _on_Confirm_pressed():
 	for i in selectedCards.get_children():
 		i.action()
+		cardHandler.discardPile.append(i)
 		selectedCards.remove_child(i)
 	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n\n" + str(cardHandler.deck.size())
 	turnManager.turn = turnManager.ENEMY_TURN

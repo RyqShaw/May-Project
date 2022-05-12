@@ -4,10 +4,10 @@ const player = preload("res://Battle/Player/PlayerStats.tres")
 const turnManager = preload("res://Battle/TurnManager.tres")
 const battleUnits = preload("res://Battle/BattleUnits.tres")
 
-export(int) var max_confidence = 7
+export(int) var max_confidence = 30
 var confidence = max_confidence setget set_confidence
 
-export(int) var damage = 1
+export(int) var damage = 5
 
 
 const max_bar = 56
