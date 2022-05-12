@@ -10,6 +10,16 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
+"class": "BattleUnits",
+"language": "GDScript",
+"path": "res://BattleUnits.gd"
+}, {
+"base": "Resource",
+"class": "CardHandler",
+"language": "GDScript",
+"path": "res://CardHandler.gd"
+}, {
+"base": "Resource",
 "class": "PlayerStats",
 "language": "GDScript",
 "path": "res://Battle/Player/PlayerStats.gd"
@@ -25,6 +35,8 @@ _global_script_classes=[ {
 "path": "res://Levels/Walker.gd"
 } ]
 _global_script_class_icons={
+"BattleUnits": "",
+"CardHandler": "",
 "PlayerStats": "",
 "TurnManager": "",
 "Walker": ""

@@ -1,20 +1,33 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Battle/Cards/CardButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Battle/Player/PlayerBattle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=3]
+[ext_resource path="res://Battle/Enemy/Enemy.tscn" type="PackedScene" id=4]
 
 [node name="Battle" type="Node"]
 script = ExtResource( 3 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.458824, 0.298039, 0.337255, 1 )
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Background" type="ColorRect" parent="UI"]
+[node name="Deck" type="Panel" parent="UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = -163.0
+margin_right = 200.0
+margin_bottom = -3.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Deck"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.482353, 0.647059, 0.823529, 1 )
+text = "Number Of Cards Left in Deck"
 
 [node name="Cards" type="HBoxContainer" parent="UI"]
 anchor_top = 1.0
@@ -26,54 +39,37 @@ margin_right = -256.0
 rect_min_size = Vector2( 768, 160 )
 alignment = 1
 
-[node name="CardButton" parent="UI/Cards" instance=ExtResource( 2 )]
-margin_left = 22.0
-margin_right = 122.0
+[node name="SelectedCards" type="HBoxContainer" parent="UI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 270.0
+margin_top = -707.0
+margin_right = -702.0
+margin_bottom = -547.0
+alignment = 1
 
-[node name="CardButton2" parent="UI/Cards" instance=ExtResource( 2 )]
-margin_left = 126.0
-margin_right = 226.0
+[node name="Confirm" type="Button" parent="UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -210.0
+margin_top = -125.0
+margin_right = -50.0
+margin_bottom = -25.0
+text = "Cofnirm"
 
-[node name="CardButton3" parent="UI/Cards" instance=ExtResource( 2 )]
-margin_left = 230.0
-margin_right = 330.0
-
-[node name="CardButton4" parent="UI/Cards" instance=ExtResource( 2 )]
-margin_left = 334.0
-margin_right = 434.0
-
-[node name="CardButton5" parent="UI/Cards" instance=ExtResource( 2 )]
-margin_left = 438.0
-margin_right = 538.0
-
-[node name="CardButton6" parent="UI/Cards" instance=ExtResource( 2 )]
-margin_left = 542.0
-margin_right = 642.0
-
-[node name="CardButton7" parent="UI/Cards" instance=ExtResource( 2 )]
-margin_left = 646.0
-margin_right = 746.0
-
-[node name="PlayerConfidence" type="ProgressBar" parent="UI"]
-margin_left = 298.0
-margin_top = 180.0
-margin_right = 554.0
-margin_bottom = 194.0
-percent_visible = false
-
-[node name="EnemyConfidence" type="ProgressBar" parent="UI"]
-margin_left = 726.0
-margin_top = 180.0
-margin_right = 982.0
-margin_bottom = 194.0
-percent_visible = false
-
-[node name="Player" type="Sprite" parent="."]
+[node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 1 )
+frame = 2
 
-[node name="Enemy" type="Sprite" parent="."]
+[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="1"]
+frame = 0
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 1 )
+
+[connection signal="pressed" from="UI/Confirm" to="." method="_on_Confirm_pressed"]
+
+[editable path="Player"]

@@ -4,6 +4,5 @@
 
 [resource]
 script = ExtResource( 1 )
-max_confidence = 1
-speed = 1
-max_moves = 1
+max_confidence = 3
+max_moves = 3
