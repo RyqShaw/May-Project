@@ -10,7 +10,7 @@ script = ExtResource( 3 )
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.458824, 0.298039, 0.337255, 1 )
+color = Color( 0.0666667, 0.0392157, 0.247059, 1 )
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
@@ -62,10 +62,10 @@ text = "Confirm"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-frame = 2
+frame = 1
 
 [node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
-frame = 0
+frame = 1
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )
