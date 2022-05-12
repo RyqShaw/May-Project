@@ -19,9 +19,9 @@ func _ready():
 	
 	#Init Deck for testing purposes
 	for i in 3:
-		cardHandler.deck.append(load("res://Battle/Cards/CardButton.tscn").instance())
+		cardHandler.deck.append(load("res://Battle/Cards/BaseCard/CardButton.tscn").instance())
 	for i in 3:
-		cardHandler.deck.append(load("res://Battle/Cards/AttackCardButton.tscn").instance())
+		cardHandler.deck.append(load("res://Battle/Cards/TheWhip.tscn").instance())
 		
 	cardHandler.deck.shuffle()
 	create_hand()
@@ -66,6 +66,7 @@ func add_hand(card):
 		battleUnits.PlayerStats.moves += card.moveValue
 		selectedCards.remove_child(card)
 		hand.add_child(card)
+
 	
 func add_selected(card):
 	if battleUnits.PlayerStats.moves - card.moveValue >= 0:
