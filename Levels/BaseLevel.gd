@@ -47,6 +47,9 @@ func generate_level():
 #			object.position = location * 32
 	tileMap.update_bitmask_region(borders.position, borders.end)
 
+func reload_level():
+	get_tree().reload_current_scene()
+
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		get_tree().reload_current_scene()
