@@ -58,12 +58,10 @@ margin_left = -210.0
 margin_top = -125.0
 margin_right = -50.0
 margin_bottom = -25.0
-text = "Cofnirm"
+text = "Confirm"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-
-[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="1"]
 frame = 0
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]

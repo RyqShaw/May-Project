@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Battle/Player/ConfidenceDisplay.gd" type="Script" id=1]
 [ext_resource path="res://Battle/ArtAssets/LONGbar.png" type="Texture" id=2]
 [ext_resource path="res://Battle/Player/dotpicty.png" type="Texture" id=3]
 [ext_resource path="res://Battle/Player/PlayerBattle.gd" type="Script" id=4]
@@ -58,6 +57,7 @@ animations = [ {
 [node name="Player" type="AnimatedSprite"]
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
+frame = 2
 playing = true
 script = ExtResource( 4 )
 
@@ -82,14 +82,3 @@ texture = ExtResource( 2 )
 hframes = 3
 vframes = 4
 frame = 10
-
-[node name="HPLabel" type="Label" parent="."]
-visible = false
-margin_left = -32.0
-margin_top = -48.0
-margin_right = 28.0
-margin_bottom = -28.0
-text = "HP"
-align = 1
-valign = 1
-script = ExtResource( 1 )
