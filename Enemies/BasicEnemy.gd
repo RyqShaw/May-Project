@@ -46,11 +46,6 @@ func _physics_process(delta):
 				accelerate_towards_point(player.global_position, delta)
 			else:
 				state = IDLE
-			
-#			if player != null:
-#				emit_signal("battleStarted")
-#			else:
-#				state = IDLE
 
 func accelerate_towards_point(point, delta):
 	var direction = global_position.direction_to(point)

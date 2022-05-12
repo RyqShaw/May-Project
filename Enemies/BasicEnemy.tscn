@@ -42,5 +42,8 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D" parent="SightZone" index="0"]
 shape = SubResource( 3 )
 
+[connection signal="body_entered" from="SightZone" to="SightZone" method="_on_SightZone_body_entered"]
+[connection signal="body_exited" from="SightZone" to="SightZone" method="_on_SightZone_body_exited"]
+
 [editable path="EnemyGaze/PlayerDetection"]
 [editable path="SightZone"]
