@@ -32,10 +32,13 @@ func attack() -> void:
 	turnManager.turn = turnManager.PLAYER_TURN
 
 func deal_damage():
-	player.confidence -= damage
+	if player.resistance > damage: player.resistance = damage
+	var damage_dealt = damage - player.resistance
+	player.confidence -= damage_dealt
 	
 func take_damage(amount):
 	self.confidence -= amount
+	print(self.confidence)
 	if is_dead():
 		emit_signal("on_death")
 		yield(get_tree().create_timer(0.4), "timeout")

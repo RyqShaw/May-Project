@@ -11,18 +11,15 @@ func _ready():
 	randomize()
 	$UI.hide()
 	cardHandler.deck.shuffle()
-	var player = battleUnits.PlayerStats
+	var player = battleUnits.Player
 	
+	battleUnits.Battle = self
 	turnManager.connect("player_turn_started",self,"_player_turn_started")
 	turnManager.connect("enemy_turn_started",self,"_enemy_turn_started")
 	player.connect("no_confidence", self, "on_Player_died")
 	
 	#Init Deck for testing purposes
-	for i in 3:
-		cardHandler.deck.append(load("res://Battle/Cards/BaseCard/CardButton.tscn").instance())
-	for i in 3:
-		cardHandler.deck.append(load("res://Battle/Cards/TheWhip.tscn").instance())
-		
+	if cardHandler.deck.empty() : cardHandler.init_starter()
 	cardHandler.deck.shuffle()
 	create_hand()
 	
@@ -32,11 +29,14 @@ func _ready():
 func _player_turn_started():
 	if hand.get_child_count() != 5: deal_card()
 	update_deck_label()
-	var player = battleUnits.PlayerStats
+	var player = battleUnits.Player
+	player.resistance = player.default_resistance
+	player.damage_mod = player.default_damage_mod
 	if player.confidence == 0:
 		on_Player_died()
 	$UI.show()
 	player.moves = player.max_moves
+	print(player.moves)
 
 func _enemy_turn_started():
 	$UI.hide()
@@ -63,14 +63,14 @@ func on_Player_died():
 	
 func add_hand(card):
 	if hand.get_child_count() < 5:
-		battleUnits.PlayerStats.moves += card.moveValue
+		battleUnits.Player.moves += card.moveValue
 		selectedCards.remove_child(card)
 		hand.add_child(card)
 
 	
 func add_selected(card):
-	if battleUnits.PlayerStats.moves - card.moveValue >= 0:
-		battleUnits.PlayerStats.moves -= card.moveValue
+	if battleUnits.Player.moves - card.moveValue >= 0:
+		battleUnits.Player.moves -= card.moveValue
 		hand.remove_child(card)
 		selectedCards.add_child(card)
 
