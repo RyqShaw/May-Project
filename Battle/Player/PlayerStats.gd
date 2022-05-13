@@ -9,6 +9,11 @@ var confidence = max_confidence setget set_confidence
 export var max_moves = 3 setget set_max_moves
 var moves = max_moves setget set_moves
 
+export var default_resistance = 0
+var resistance = default_resistance
+export var default_damage_mod = 1
+var damage_mod = default_resistance
+
 signal no_confidence()
 signal confidence_changed(value)
 signal max_confidence_changed()

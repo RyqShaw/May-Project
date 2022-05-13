@@ -6,3 +6,5 @@
 script = ExtResource( 1 )
 max_confidence = 50
 max_moves = 3
+default_resistance = 0
+default_damage_mod = 1

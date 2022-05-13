@@ -3,5 +3,6 @@ class_name BattleUnits
 
 const player = preload("res://Battle/Player/PlayerStats.tres")
 
-var PlayerStats = player
+var Battle = null
+var Player = player
 var Enemy = null
