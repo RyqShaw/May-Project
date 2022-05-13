@@ -5,8 +5,6 @@ export var maxSpeed = 50
 export var friction = 200
 export var wanderTargetRange = 4
 
-signal battleStarted
-
 enum {
 	IDLE,
 	WANDER,

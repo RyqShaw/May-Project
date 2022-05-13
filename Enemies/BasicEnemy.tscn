@@ -33,6 +33,7 @@ height = 48.0
 radius = 160.0
 
 [node name="BasicEnemy" type="KinematicBody2D"]
+collision_layer = 4
 collision_mask = 3
 script = ExtResource( 3 )
 
