@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Battle/Player/PlayerBattle.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Battle/PlayerSpace.gd" type="Script" id=2]
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=3]
 [ext_resource path="res://Battle/Enemy/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Battle/ArtAssets/CardBack.png" type="Texture" id=5]
 
 [node name="Battle" type="Node"]
 pause_mode = 2
@@ -22,34 +23,20 @@ anchor_bottom = 1.0
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 100.0
-margin_top = -163.0
-margin_right = 200.0
+margin_top = -195.0
+margin_right = 220.0
 margin_bottom = -3.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Deck"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "Number Of Cards Left in Deck"
 
-[node name="Cards" type="HBoxContainer" parent="UI"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 256.0
-margin_top = -160.0
-margin_right = -256.0
-rect_min_size = Vector2( 768, 160 )
-alignment = 1
-
-[node name="SelectedCards" type="HBoxContainer" parent="UI"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 270.0
-margin_top = -707.0
-margin_right = -702.0
-margin_bottom = -547.0
-alignment = 1
+[node name="Sprite" type="Sprite" parent="UI/Deck"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+centered = false
 
 [node name="Confirm" type="Button" parent="UI"]
 anchor_left = 1.0
@@ -64,19 +51,18 @@ text = "Confirm"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-frame = 1
-
-[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
-frame = 1
+frame = 0
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )
 
-[node name="CardBase" parent="." instance=ExtResource( 2 )]
-margin_left = 379.0
-margin_top = 557.0
-margin_right = 479.0
-margin_bottom = 717.0
+[node name="PlayerSpace" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Cards" type="Node" parent="PlayerSpace"]
+
+[node name="Deck" type="Node2D" parent="PlayerSpace"]
+position = Vector2( 100, 525 )
 
 [connection signal="pressed" from="UI/Confirm" to="." method="_on_Confirm_pressed"]
 
