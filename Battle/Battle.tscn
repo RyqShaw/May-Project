@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Battle/Player/PlayerBattle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=3]
 [ext_resource path="res://Battle/Enemy/Enemy.tscn" type="PackedScene" id=4]
 
@@ -63,10 +64,19 @@ text = "Confirm"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-frame = 0
+frame = 1
+
+[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
+frame = 1
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )
+
+[node name="CardBase" parent="." instance=ExtResource( 2 )]
+margin_left = 379.0
+margin_top = 557.0
+margin_right = 479.0
+margin_bottom = 717.0
 
 [connection signal="pressed" from="UI/Confirm" to="." method="_on_Confirm_pressed"]
 
