@@ -38,10 +38,9 @@ func deal_damage():
 	
 func take_damage(amount):
 	self.confidence -= amount
-	print(self.confidence)
 	if is_dead():
-		emit_signal("on_death")
 		yield(get_tree().create_timer(0.4), "timeout")
+		emit_signal("on_death")
 		queue_free()
 #	else:
 #		animationPlayer.play("Shake")

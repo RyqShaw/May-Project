@@ -3,9 +3,13 @@ extends Node
 const turnManager = preload("res://Battle/TurnManager.tres")
 const battleUnits = preload("res://Battle/BattleUnits.tres")
 const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
+const worldPlayer = preload("res://Player/Player.tscn")
 
 onready var hand = get_tree().get_root().get_node("Battle/UI/Cards")
 onready var selectedCards = get_tree().get_root().get_node("Battle/UI/SelectedCards")
+onready var camera = $Camera2D
+
+signal gameOver
 
 func _ready():
 	randomize()
@@ -25,6 +29,7 @@ func _ready():
 	
 	update_deck_label()
 	turnManager.turn = turnManager.PLAYER_TURN
+	camera.current = true
 	
 func _player_turn_started():
 	if hand.get_child_count() != 5: deal_card()
@@ -36,7 +41,6 @@ func _player_turn_started():
 		on_Player_died()
 	$UI.show()
 	player.moves = player.max_moves
-	print(player.moves)
 
 func _enemy_turn_started():
 	$UI.hide()
@@ -57,9 +61,10 @@ func deal_card():
 	get_tree().get_root().get_node("Battle/UI/Cards").add_child(card)
 
 func on_Player_died():
-#	$Player.queue_free()
-#	yield(get_tree().create_timer(5), "timeout")
-	get_tree().change_scene("res://Levels/BaseLevel.tscn")
+	$Player.queue_free()
+	emit_signal("gameOver")
+	# quit is temp line
+	get_tree().quit()
 	
 func add_hand(card):
 	if hand.get_child_count() < 5:
@@ -84,3 +89,8 @@ func _on_Confirm_pressed():
 	
 func update_deck_label():
 	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n\n" + str(cardHandler.deck.size())
+
+func _on_Enemy_on_death():
+	get_tree().paused = false
+	get_tree().get_root().get_node("BaseLevel/Player/Camera2D").current = true
+	queue_free()
