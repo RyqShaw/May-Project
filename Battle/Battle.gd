@@ -3,8 +3,13 @@ extends Node
 const turnManager = preload("res://Battle/TurnManager.tres")
 const battleUnits = preload("res://Battle/BattleUnits.tres")
 const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
+const worldPlayer = preload("res://Player/Player.tscn")
 
 onready var playerSpace = $PlayerSpace
+onready var camera = $Camera2D
+
+signal gameOver
+
 
 func _ready():
 	randomize()
@@ -24,6 +29,7 @@ func _ready():
 	
 	update_deck_label()
 	turnManager.turn = turnManager.PLAYER_TURN
+	camera.current = true
 	
 func _player_turn_started():
 	if $PlayerSpace/Cards.get_child_count() < 5: deal_card()
@@ -55,7 +61,11 @@ func deal_card():
 		cardHandler.discardPile = []
 
 func on_Player_died():
-	get_tree().change_scene("res://Levels/BaseLevel.tscn")
+	$Player.queue_free()
+	emit_signal("gameOver")
+	# quit is temp line
+	get_tree().quit()
+	
 
 func _on_Confirm_pressed():
 	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n\n" + str(cardHandler.deck.size())
@@ -63,3 +73,8 @@ func _on_Confirm_pressed():
 	
 func update_deck_label():
 	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n\n" + str(cardHandler.deck.size())
+
+func _on_Enemy_on_death():
+	get_tree().paused = false
+	get_tree().get_root().get_node("BaseLevel/Player/Camera2D").current = true
+	queue_free()

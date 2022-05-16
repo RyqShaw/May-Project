@@ -70,6 +70,10 @@ script = ExtResource( 2 )
 [node name="Deck" type="Node2D" parent="PlayerSpace"]
 position = Vector2( 100, 525 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 640, 360 )
+
 [connection signal="pressed" from="UI/Confirm" to="." method="_on_Confirm_pressed"]
+[connection signal="on_death" from="Enemy" to="." method="_on_Enemy_on_death"]
 
 [editable path="Player"]
