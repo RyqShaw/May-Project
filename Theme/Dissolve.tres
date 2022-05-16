@@ -1,0 +1,13 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform float dissolveState : hint_range(0,1) = 0.5;
+
+void fragment() {
+	vec4 textureColor = texture(TEXTURE, UV);
+	float brightness = (textureColor.r + textureColor.g + textureColor.b) / 3.0;
+	COLOR = textureColor;
+	COLOR.a *= step(dissolveState, brightness);
+}"
