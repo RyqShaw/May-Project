@@ -1,4 +1,4 @@
-extends "res://Battle/Cards/BaseCard/CardBase.gd"
+extends "res://Battle/Cards/BaseCard/CardButton.gd"
 
 func action():
 	var enemy = battleUnits.Enemy
