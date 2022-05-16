@@ -12,6 +12,7 @@ onready var tileMap = $TileMap
 func _ready():
 	randomize()
 	generate_level()
+	$FadeAnimator.play("Fade")
 
 # Creates Walker, makes it walk and takes step history, sets tile map cells to delete at positions recorded
 func generate_level():
@@ -49,7 +50,7 @@ func generate_level():
 
 func reload_level():
 	get_tree().reload_current_scene()
-
+	get_tree().change_scene("res://Levels/BaseLevel.tscn")
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		get_tree().reload_current_scene()
