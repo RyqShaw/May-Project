@@ -68,6 +68,10 @@ frame = 0
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 640, 360 )
+
 [connection signal="pressed" from="UI/Confirm" to="." method="_on_Confirm_pressed"]
+[connection signal="on_death" from="Enemy" to="." method="_on_Enemy_on_death"]
 
 [editable path="Player"]
