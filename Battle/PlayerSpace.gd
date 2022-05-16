@@ -24,6 +24,9 @@ enum {
 
 #var xcoord = radius1 * cos angle
 #var ycoord = radius2 * sin angle
+func _ready():
+	battleUnits.playerSpace = self
+
 func _input(event):
 	if Input.is_action_just_pressed("RightClick"): deal_card()
 
@@ -32,7 +35,6 @@ func deal_card():
 	if cardHandler.deck.size() != 0:
 		angle = PI/2 - card_spread*(float(num_card_hand)/2-num_card_hand)
 		var card = cardHandler.deck.pop_front()
-		card.connect("card_used", self, 'ReParentCard', [card])
 		OvalAngleVector = Vector2(hor_radius * cos(angle), - vert_radius * sin(angle))
 		card.rect_position = deckPos
 		card.targetpos = CentralCardOval + OvalAngleVector - (card.rect_size/2)
@@ -58,7 +60,7 @@ func ReParentCard(card):
 	card.action()
 	battleUnits.Player.moves -= card.moveValue
 	cardHandler.discardPile.append(card)
-	card.queue_free()
+	card.rect_position = Vector2(100,525)
 	organize_hand()
 
 func organize_hand():

@@ -37,8 +37,6 @@ var num_card_hand = 0
 var cnum = 0
 var move_neighbor_check = false
 
-signal card_used
-
 func _ready():
 	$Border/Name.text = card_name
 	$Border/Cost.text = str(card_cost)
@@ -68,7 +66,7 @@ func _input(event):
 						CARD_SELECT = true
 					elif rect_position.y <= 488:
 						#Play card & Animation
-						emit_signal("card_used")
+						battleUnits.playerSpace.ReParentCard(self)
 
 func _physics_process(delta):
 	match state:
@@ -194,6 +192,11 @@ func _on_mouse_exited():
 			setup = true
 			targetpos = cardpos
 			state = ReOrganizeHand
+			
+func reset():
+	setup = true
+	$CardBack.visible = true
+	state = MoveDrawnCardToHand
 
 func action():
 	pass

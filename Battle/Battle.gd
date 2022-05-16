@@ -77,4 +77,6 @@ func update_deck_label():
 func _on_Enemy_on_death():
 	get_tree().paused = false
 	get_tree().get_root().get_node("BaseLevel/Player/Camera2D").current = true
+	for card in battleUnits.playerSpace.get_node("Cards").get_children():
+		cardHandler.deck.append(card)
 	queue_free()
