@@ -12,6 +12,7 @@ signal gameOver
 
 
 func _ready():
+	$AnimationPlayer.play("Scroll")
 	randomize()
 	$UI.hide()
 	cardHandler.deck.shuffle()

@@ -1,23 +1,69 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Battle/Player/PlayerBattle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/PlayerSpace.gd" type="Script" id=2]
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=3]
 [ext_resource path="res://Battle/Enemy/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Battle/ArtAssets/CardBack.png" type="Texture" id=5]
+[ext_resource path="res://Battle/ArtAssets/New_Piskel-2.png_2.png" type="Texture" id=6]
+[ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=7]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3840, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Scroll"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -2560, 0 ) ]
+}
 
 [node name="Battle" type="Node"]
 pause_mode = 2
 script = ExtResource( 3 )
 
 [node name="Background" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.0666667, 0.0392157, 0.247059, 1 )
 
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( -3840, 0 )
+scale = Vector2( 8, 8 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/Scroll = SubResource( 2 )
+
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 7 )
 
 [node name="Deck" type="Panel" parent="UI"]
 anchor_top = 1.0
@@ -33,7 +79,7 @@ anchor_top = -0.734
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.04
-margin_top = -8.07199
+margin_top = 38.928
 text = "Number Of Cards Left in Deck"
 
 [node name="Sprite" type="Sprite" parent="UI/Deck"]
@@ -54,10 +100,7 @@ text = "Confirm"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-frame = 1
-
-[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
-frame = 1
+frame = 0
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )

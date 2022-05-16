@@ -67,6 +67,7 @@ Negates 5 CP"
 autowrap = true
 
 [node name="CardBack" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 3, 3 )
 texture = ExtResource( 5 )
 centered = false
