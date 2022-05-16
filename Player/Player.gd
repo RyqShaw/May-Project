@@ -1,10 +1,12 @@
 extends KinematicBody2D
 
-const maxSpeed = 175
-const acceleration = 500
-const friction = 600
+export var acceleration = 500
+export var maxSpeed = 110
+export var friction = 500
 
 var velocity = Vector2.ZERO
+
+onready var sprite = $AnimatedSprite
 
 func _physics_process(delta):
 	
@@ -15,7 +17,10 @@ func _physics_process(delta):
 	
 	if inputVector != Vector2.ZERO:
 		velocity = velocity.move_toward(inputVector * maxSpeed, acceleration * delta)
+		sprite.set_animation("Walk")
+		sprite.flip_h = velocity.x < 0
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+		sprite.set_animation("Idle")
 	
 	velocity = move_and_slide(velocity)
