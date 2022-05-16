@@ -6,7 +6,7 @@ const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
 
 onready var CentralCardOval = get_viewport().size * Vector2(0.5, 1.1)
 onready var hor_radius = get_viewport().size.x * 0.25
-onready var vert_radius = get_viewport().size.y * 0.3
+onready var vert_radius = get_viewport().size.y * 0.2
 var angle = 0
 var card_spread = 0.2
 var num_card_hand = 0
