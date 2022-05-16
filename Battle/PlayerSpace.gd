@@ -46,12 +46,18 @@ func deal_card():
 		angle += 0.3
 		num_card_hand += 1
 		$Cards.add_child(card)
+	elif cardHandler.deck.size == 0:
+		cardHandler.discardPile.shuffle()
+		cardHandler.deck.append_array(cardHandler.discardPile)
+		cardHandler.discardPile = []
 
 func ReParentCard(card):
 	num_card_hand -= 1
 	cnum = 0
 	$Cards.remove_child(card)
 	card.action()
+	battleUnits.Player.moves -= card.moveValue
+	cardHandler.discardPile.append(card)
 	card.queue_free()
 	organize_hand()
 

@@ -28,9 +28,12 @@ margin_right = 220.0
 margin_bottom = -3.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Deck"]
-visible = false
+anchor_left = 0.033
+anchor_top = -0.734
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 0.04
+margin_top = -8.07199
 text = "Number Of Cards Left in Deck"
 
 [node name="Sprite" type="Sprite" parent="UI/Deck"]
@@ -51,6 +54,10 @@ text = "Confirm"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
+frame = 1
+
+[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
+frame = 1
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )

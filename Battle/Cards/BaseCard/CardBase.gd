@@ -1,7 +1,6 @@
 extends MarginContainer
 
 const battleUnits = preload("res://Battle/BattleUnits.tres")
-const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
 
 export var moveValue = 1
 
@@ -59,7 +58,10 @@ func _input(event):
 					state = InMouse
 					CARD_SELECT = false
 			if event.is_action_released("LeftClick"):
-				if CARD_SELECT == false:
+				if battleUnits.Player.moves <=0:
+					state = old_state
+					CARD_SELECT = true
+				elif CARD_SELECT == false:
 					state = old_state
 					if rect_position.y > 488:
 						state = old_state
@@ -67,7 +69,6 @@ func _input(event):
 					elif rect_position.y <= 488:
 						#Play card & Animation
 						emit_signal("card_used")
-					CARD_SELECT = true
 
 func _physics_process(delta):
 	match state:
