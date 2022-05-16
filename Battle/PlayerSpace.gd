@@ -25,14 +25,16 @@ enum {
 #var xcoord = radius1 * cos angle
 #var ycoord = radius2 * sin angle
 func _input(event):
-	if Input.is_action_just_pressed("LeftClick"): deal_card()
-	
+	if Input.is_action_just_pressed("RightClick"): deal_card()
+
+onready var deckPos = $Deck.position 
 func deal_card():
 	if cardHandler.deck.size() != 0:
 		angle = PI/2 - card_spread*(float(num_card_hand)/2-num_card_hand)
 		var card = cardHandler.deck.pop_front()
+		card.connect("card_used", self, 'ReParentCard', [card])
 		OvalAngleVector = Vector2(hor_radius * cos(angle), - vert_radius * sin(angle))
-		card.startpos = $Deck.position 
+		card.rect_position = deckPos
 		card.targetpos = CentralCardOval + OvalAngleVector - (card.rect_size/2)
 		card.cardpos = card.targetpos
 		card.startrot = 0
@@ -40,20 +42,31 @@ func deal_card():
 		card.state = MoveDrawnCardToHand
 		card.cnum = num_card_hand
 		cnum = 0
-		for Card in $Cards.get_children():
-			angle = PI/2 - card_spread*(float(num_card_hand)/2-cnum)
-			OvalAngleVector = Vector2(hor_radius * cos(angle), - vert_radius * sin(angle))
-			Card.targetpos = CentralCardOval + OvalAngleVector - (Card.rect_size/2)
-			Card.cardpos = Card.targetpos
-			Card.startrot = Card.rect_rotation
-			Card.targetrot = (90 - rad2deg(angle))/6
-			if Card.state == InHand: 
-				Card.state = ReOrganizeHand
-				Card.startpos = Card.rect_position
-			elif Card.state == MoveDrawnCardToHand:
-				Card.startpos = Card.targetpos - ((Card.targetpos - Card.rect_position)/(1-Card.t))
-			Card.cnum = cnum
-			cnum+=1
+		organize_hand()
 		angle += 0.3
 		num_card_hand += 1
 		$Cards.add_child(card)
+
+func ReParentCard(card):
+	num_card_hand -= 1
+	cnum = 0
+	$Cards.remove_child(card)
+	card.action()
+	card.queue_free()
+	organize_hand()
+
+func organize_hand():
+	for Card in $Cards.get_children():
+		angle = PI/2 - card_spread*(float(num_card_hand)/2-cnum)
+		OvalAngleVector = Vector2(hor_radius * cos(angle), - vert_radius * sin(angle))
+		Card.targetpos = CentralCardOval + OvalAngleVector - (Card.rect_size/2)
+		Card.cardpos = Card.targetpos
+		Card.startrot = Card.rect_rotation
+		Card.targetrot = (90 - rad2deg(angle))/6
+		if Card.state == InHand: 
+			Card.setup = true
+			Card.state = ReOrganizeHand
+		elif Card.state == MoveDrawnCardToHand:
+			Card.startpos = Card.targetpos - ((Card.targetpos - Card.rect_position)/(1-Card.t))
+		Card.cnum = cnum
+		cnum+=1

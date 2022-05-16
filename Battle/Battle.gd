@@ -5,8 +5,6 @@ const battleUnits = preload("res://Battle/BattleUnits.tres")
 const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
 
 onready var playerSpace = $PlayerSpace
-#onready var hand = get_tree().get_root().get_node("Battle/UI/Cards")
-#onready var selectedCards = get_tree().get_root().get_node("Battle/UI/SelectedCards")
 
 func _ready():
 	randomize()

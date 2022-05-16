@@ -1,5 +1,10 @@
 extends MarginContainer
 
+const battleUnits = preload("res://Battle/BattleUnits.tres")
+const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
+
+export var moveValue = 1
+
 export(String) var card_name
 export(int) var card_cost
 export(String) var card_info
@@ -31,12 +36,38 @@ var zoom_size = 1.5
 var zoom_time = 0.2
 var num_card_hand = 0
 var cnum = 0
+var move_neighbor_check = false
+
+signal card_used
 
 func _ready():
 	$Border/Name.text = card_name
 	$Border/Cost.text = str(card_cost)
 	$Border/Info.text = card_info
 	$CardBack.visible = true
+	
+var CARD_SELECT = true
+var old_state = INF
+var in_mouse_time = 0.1
+func _input(event):
+	match state:
+		InMouse, FocusInHand:
+			if event.is_action_pressed("LeftClick"):
+				if CARD_SELECT:
+					setup = true
+					old_state = state
+					state = InMouse
+					CARD_SELECT = false
+			if event.is_action_released("LeftClick"):
+				if CARD_SELECT == false:
+					state = old_state
+					if rect_position.y > 488:
+						state = old_state
+						CARD_SELECT = true
+					elif rect_position.y <= 488:
+						#Play card & Animation
+						emit_signal("card_used")
+					CARD_SELECT = true
 
 func _physics_process(delta):
 	match state:
@@ -45,7 +76,16 @@ func _physics_process(delta):
 		InPlay:
 			pass
 		InMouse:
-			pass
+			if setup:
+				set_up()
+			if t <= 1:
+				rect_position = startpos.linear_interpolate(get_global_mouse_position() - (rect_size/2), t)
+				rect_rotation = startrot *(1-t) + 0*t
+				rect_scale =  startscale *(1-t) + orig_scale*t
+				t += delta/float(in_mouse_time)
+			else:
+				rect_rotation = 0
+				rect_position = get_global_mouse_position() - (rect_size/2)
 		FocusInHand:
 			if setup:
 				set_up()
@@ -66,10 +106,12 @@ func _physics_process(delta):
 				if cnum + 2 <= num_card_hand:
 					Move_Neighbor_Card(cnum + 2,false,0.75)
 			else:
-				rect_rotation = targetrot
+				rect_rotation = 0
 				rect_position = targetpos
 				rect_scale = orig_scale*zoom_size
 		MoveDrawnCardToHand:
+			if setup:
+				set_up()
 			if t <= 1:
 				rect_position = startpos.linear_interpolate(targetpos, t)
 				rect_rotation = startrot *(1-t) + targetrot*t
@@ -87,6 +129,8 @@ func _physics_process(delta):
 			if setup:
 				set_up()
 			if t <= 1:
+				if move_neighbor_check:
+					move_neighbor_check = false
 				rect_position = startpos.linear_interpolate(targetpos, t)
 				rect_rotation = startrot *(1-t) + targetrot*t
 				rect_scale = startscale *(1-t) + orig_scale*t
@@ -116,15 +160,17 @@ func Move_Neighbor_Card(num,left,spread):
 		neighbor.targetpos = neighbor.targetpos - spread*Vector2(4,0) # edit number
 	neighbor.setup = true
 	neighbor.state = ReOrganizeHand
+	neighbor.move_neighbor_check = true
 
 func Reset_Neighbor(num):
 	var neighbor = $'../'.get_child(num)
-	neighbor.targetpos = neighbor.cardpos
-	neighbor.setup = true
-	if neighbor.state != FocusInHand: 
-		neighbor.state = ReOrganizeHand
-		targetpos = cardpos
-		setup = true
+	if neighbor.move_neighbor_check == false:
+		neighbor.targetpos = neighbor.cardpos
+		neighbor.setup = true
+		if neighbor.state != FocusInHand: 
+			neighbor.state = ReOrganizeHand
+			targetpos = cardpos
+			setup = true
 
 func set_up():
 	startpos = rect_position
@@ -147,3 +193,6 @@ func _on_mouse_exited():
 			setup = true
 			targetpos = cardpos
 			state = ReOrganizeHand
+
+func action():
+	pass
