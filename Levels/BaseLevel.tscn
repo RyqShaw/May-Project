@@ -65,13 +65,12 @@ tracks/1/keys = {
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -1024.0
-margin_top = -768.0
-margin_right = 3744.0
-margin_bottom = 2368.0
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( -1024, -768 )
 texture = ExtResource( 3 )
-stretch_mode = 2
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 4885.64, 3310.19 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )

@@ -68,6 +68,8 @@ func reshuffleDeck():
 			cardHandler.deck.append(preload("res://Battle/Cards/Pirou.tscn").instance())
 		elif each == "Caffinate":
 			cardHandler.deck.append(preload("res://Battle/Cards/Caffinate.tscn").instance())
+		elif each == "The Whip":
+			cardHandler.deck.append(preload("res://Battle/Cards/The Whip.tscn").instance())
 	cardHandler.discardPile = []
 
 func on_Player_died():
