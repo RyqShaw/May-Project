@@ -57,7 +57,7 @@ func _input(event):
 					state = InMouse
 					CARD_SELECT = false
 			if event.is_action_released("LeftClick"):
-				if battleUnits.Player.moves <=0:
+				if battleUnits.Player.moves - self.moveValue < 0:
 					state = old_state
 					CARD_SELECT = true
 				elif CARD_SELECT == false:
