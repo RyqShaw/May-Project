@@ -28,5 +28,5 @@ func _on_Extras_pressed():
 
 func _on_Quit_pressed():
 	SoundManager.play_ui_sound(load("res://SoundAffects/blipSelect.wav"))
-	yield(get_tree().create_timer(0.1), "timeout")
+	yield(get_tree().create_timer(0.2), "timeout")
 	get_tree().quit()
