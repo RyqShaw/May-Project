@@ -51,6 +51,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SoundManager="*res://addons/sound_manager/sound_manager.tscn"
+GlobalInfo="*res://GlobalInfo.gd"
 
 [debug]
 

@@ -49,6 +49,7 @@ func generate_level():
 	tileMap.update_bitmask_region(borders.position, borders.end)
 
 func reload_level():
+	GlobalInfo.rooms += 1
 	get_tree().reload_current_scene()
 	get_tree().change_scene("res://Levels/BaseLevel.tscn")
 func _input(event):

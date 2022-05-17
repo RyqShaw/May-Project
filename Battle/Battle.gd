@@ -81,8 +81,10 @@ func update_deck_label():
 	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n" + str(cardHandler.deck.size())
 
 func _on_Enemy_on_death():
+	SoundManager.play_sound(load("res://SoundAffects/YouWin.wav"))
 	get_tree().paused = false
 	get_tree().get_root().get_node("BaseLevel/Player/Camera2D").current = true
 	for card in battleUnits.playerSpace.get_node("Cards").get_children():
 		cardHandler.deck.append(card)
+	cardHandler.deck.append_array(cardHandler.discardPile)
 	queue_free()
