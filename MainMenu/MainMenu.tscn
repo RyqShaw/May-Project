@@ -427,3 +427,5 @@ anims/RESET = SubResource( 5 )
 [connection signal="pressed" from="OptionsPanel/Leave Options" to="." method="_on_Leave_Options_pressed"]
 [connection signal="pressed" from="Buttons/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Buttons/Option" to="." method="_on_Option_pressed"]
+[connection signal="pressed" from="Buttons/Extras" to="." method="_on_Extras_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]

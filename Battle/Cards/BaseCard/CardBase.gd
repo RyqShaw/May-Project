@@ -57,15 +57,15 @@ func _input(event):
 					state = InMouse
 					CARD_SELECT = false
 			if event.is_action_released("LeftClick"):
-				if battleUnits.Player.moves <=0:
+				if battleUnits.Player.moves - self.moveValue < 0:
 					state = old_state
 					CARD_SELECT = true
 				elif CARD_SELECT == false:
 					state = old_state
-					if rect_position.y > 488:
+					if rect_position.y > 400:
 						state = old_state
 						CARD_SELECT = true
-					elif rect_position.y <= 488:
+					elif rect_position.y <= 400:
 						#Play card & Animation
 						battleUnits.playerSpace.ReParentCard(self)
 

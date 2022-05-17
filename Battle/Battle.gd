@@ -24,7 +24,7 @@ func _ready():
 	#Init Deck for testing purposes
 	if cardHandler.deck.empty() : cardHandler.init_starter()
 	cardHandler.deck.shuffle()
-	create_hand()
+#	create_hand()
 	
 	update_deck_label()
 	turnManager.turn = turnManager.PLAYER_TURN
@@ -32,7 +32,7 @@ func _ready():
 	$FadeAnimator.play("Fade")
 	
 func _player_turn_started():
-	if $PlayerSpace/Cards.get_child_count() < 5: deal_card() #Change if we need to
+	while $PlayerSpace/Cards.get_child_count() < 5: deal_card() #Change if we need to
 	update_deck_label()
 	var player = battleUnits.Player
 	player.resistance = player.default_resistance
