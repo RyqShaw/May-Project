@@ -30,6 +30,7 @@ func _ready():
 	update_deck_label()
 	turnManager.turn = turnManager.PLAYER_TURN
 	camera.current = true
+	$FadeAnimator.play("Fade")
 	
 func _player_turn_started():
 	if $PlayerSpace/Cards.get_child_count() < 5: deal_card() #Change if we need to

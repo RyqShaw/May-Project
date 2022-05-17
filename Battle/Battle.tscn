@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Battle/Player/PlayerBattle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/PlayerSpace.gd" type="Script" id=2]
@@ -38,6 +38,64 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( -2560, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Fade"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Buttons:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [node name="Battle" type="Node"]
@@ -102,10 +160,7 @@ text = "Confirm"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-frame = 1
-
-[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
-frame = 1
+frame = 0
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )
@@ -120,6 +175,20 @@ position = Vector2( 100, 525 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 640, 360 )
+
+[node name="Fade" type="ColorRect" parent="."]
+margin_left = -6.0
+margin_top = -6.0
+margin_right = 1285.0
+margin_bottom = 734.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="FadeAnimator" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Fade")
+anims/Fade = SubResource( 3 )
+anims/FadeOut = SubResource( 4 )
+anims/RESET = SubResource( 5 )
 
 [connection signal="pressed" from="UI/Confirm" to="." method="_on_Confirm_pressed"]
 [connection signal="on_death" from="Enemy" to="." method="_on_Enemy_on_death"]
