@@ -13,7 +13,6 @@ func _ready():
 	$AnimationPlayer.play("Scroll")
 	randomize()
 	$UI.hide()
-	$PlayerSpace.hide()
 	cardHandler.deck.shuffle()
 	var player = battleUnits.Player
 	
@@ -40,12 +39,10 @@ func _player_turn_started():
 	if player.confidence == 0:
 		on_Player_died()
 	$UI.show()
-	$PlayerSpace.show()
 	player.moves = player.max_moves
 
 func _enemy_turn_started():
 	$UI.hide()
-	$PlayerSpace.hide()
 	var enemy = battleUnits.Enemy
 	if enemy != null:
 		enemy.attack()
