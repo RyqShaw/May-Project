@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/YouWin.wav-7d5ea27e383862eabb33af9c4182af3b.sample"
+
+[deps]
+
+source_file="res://SoundAffects/YouWin.wav"
+dest_files=[ "res://.import/YouWin.wav-7d5ea27e383862eabb33af9c4182af3b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

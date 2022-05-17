@@ -6,6 +6,7 @@ func _ready():
 
 func _on_Option_pressed():
 	$VBoxContainer/OptionsPanel.show()
+	SoundManager.play_ui_sound(load("res://SoundAffects/blipSelect.wav"))
 	$Buttons.hide()
 
 func _on_Leave_Options_pressed():

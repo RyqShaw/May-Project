@@ -69,11 +69,11 @@ func on_Player_died():
 	
 
 func _on_Confirm_pressed():
-	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n\n" + str(cardHandler.deck.size())
+	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n" + str(cardHandler.deck.size())
 	turnManager.turn = turnManager.ENEMY_TURN
 	
 func update_deck_label():
-	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n\n" + str(cardHandler.deck.size())
+	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n" + str(cardHandler.deck.size())
 
 func _on_Enemy_on_death():
 	get_tree().paused = false
