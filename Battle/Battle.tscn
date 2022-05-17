@@ -55,6 +55,8 @@ position = Vector2( -3840, 0 )
 scale = Vector2( 8, 8 )
 texture = ExtResource( 6 )
 centered = false
+region_enabled = true
+region_rect = Rect2( -0.367714, 0, 1358.69, 90.4925 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
@@ -100,7 +102,10 @@ text = "Confirm"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-frame = 0
+frame = 1
+
+[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
+frame = 1
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )
