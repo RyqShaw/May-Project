@@ -36,7 +36,7 @@ func set_moves(value):
 
 func set_max_moves(value):
 	max_moves = value
-	self.moves = min(max_moves, max_moves)
+#	self.moves = min(max_moves, max_moves)
 
 func _ready():
 	self.confidence = max_confidence
