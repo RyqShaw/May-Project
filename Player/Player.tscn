@@ -66,5 +66,6 @@ margin_top = -80.0
 margin_right = -64.0
 margin_bottom = -61.0
 rect_scale = Vector2( 0.5, 0.5 )
+
 theme = ExtResource( 4 )
 text = "Room: "
