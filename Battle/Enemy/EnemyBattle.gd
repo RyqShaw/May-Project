@@ -28,6 +28,7 @@ func set_confidence(new_confidence):
 func attack() -> void:
 	yield(get_tree().create_timer(0.4), "timeout")
 	animationPlayer.play("Attack")
+	SoundManager.play_sound(load("res://SoundAffects/explosion.wav"))
 	yield(animationPlayer, "animation_finished")
 	turnManager.turn = turnManager.PLAYER_TURN
 
