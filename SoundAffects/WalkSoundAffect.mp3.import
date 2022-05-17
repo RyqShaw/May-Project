@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WalkSoundAffect.mp3-56efa2fd80b6c9f830c5d71c4e231b86.mp3str"
+
+[deps]
+
+source_file="res://SoundAffects/WalkSoundAffect.mp3"
+dest_files=[ "res://.import/WalkSoundAffect.mp3-56efa2fd80b6c9f830c5d71c4e231b86.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

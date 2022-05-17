@@ -27,9 +27,6 @@ enum {
 func _ready():
 	battleUnits.playerSpace = self
 
-func _input(event):
-	if Input.is_action_just_pressed("RightClick"): deal_card()
-
 onready var deckPos = $Deck.position 
 
 func deal_card():
