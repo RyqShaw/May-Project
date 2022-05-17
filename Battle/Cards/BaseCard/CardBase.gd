@@ -1,5 +1,6 @@
 extends MarginContainer
 
+const turnManager = preload("res://Battle/TurnManager.tres")
 const battleUnits = preload("res://Battle/BattleUnits.tres")
 
 export var moveValue = 1
@@ -69,6 +70,10 @@ func _input(event):
 						battleUnits.playerSpace.ReParentCard(self)
 
 func _physics_process(delta):
+	if turnManager.turn == turnManager.ENEMY_TURN:
+		self.visible = false
+	else:
+		self.visible = true
 	match state:
 		InHand:
 			pass
@@ -133,7 +138,7 @@ func _physics_process(delta):
 				rect_position = startpos.linear_interpolate(targetpos, t)
 				rect_rotation = startrot *(1-t) + targetrot*t
 				rect_scale = startscale *(1-t) + orig_scale*t
-				t += delta/float(drawTime/1.5)
+				t += delta/float(drawTime/4)
 				if reorganize_neighbors == false:
 					reorganize_neighbors = true
 					if cnum - 1 >= 0:
