@@ -24,32 +24,30 @@ enum {
 
 #var xcoord = radius1 * cos angle
 #var ycoord = radius2 * sin angle
+func _ready():
+	battleUnits.playerSpace = self
+
 func _input(event):
 	if Input.is_action_just_pressed("RightClick"): deal_card()
 
 onready var deckPos = $Deck.position 
+
 func deal_card():
-	if cardHandler.deck.size() != 0:
-		angle = PI/2 - card_spread*(float(num_card_hand)/2-num_card_hand)
-		var card = cardHandler.deck.pop_front()
-		card.connect("card_used", self, 'ReParentCard', [card])
-		OvalAngleVector = Vector2(hor_radius * cos(angle), - vert_radius * sin(angle))
-		card.rect_position = deckPos
-		card.targetpos = CentralCardOval + OvalAngleVector - (card.rect_size/2)
-		card.cardpos = card.targetpos
-		card.startrot = 0
-		card.targetrot = (90 - rad2deg(angle))/6
-		card.state = MoveDrawnCardToHand
-		card.cnum = num_card_hand
-		cnum = 0
-		organize_hand()
-		angle += 0.3
-		num_card_hand += 1
-		$Cards.add_child(card)
-	elif cardHandler.deck.size == 0:
-		cardHandler.discardPile.shuffle()
-		cardHandler.deck.append_array(cardHandler.discardPile)
-		cardHandler.discardPile = []
+	angle = PI/2 - card_spread*(float(num_card_hand)/2-num_card_hand)
+	var card = cardHandler.deck.pop_front()
+	OvalAngleVector = Vector2(hor_radius * cos(angle), - vert_radius * sin(angle))
+	card.rect_position = deckPos
+	card.targetpos = CentralCardOval + OvalAngleVector - (card.rect_size/2)
+	card.cardpos = card.targetpos
+	card.startrot = 0
+	card.targetrot = (90 - rad2deg(angle))/6
+	card.state = MoveDrawnCardToHand
+	card.cnum = num_card_hand # maybe right i forget because me me dumb dumb
+	cnum = 0
+	organize_hand()
+	angle += 0.3
+	num_card_hand += 1
+	$Cards.add_child(card)
 
 func ReParentCard(card):
 	num_card_hand -= 1
@@ -57,8 +55,8 @@ func ReParentCard(card):
 	$Cards.remove_child(card)
 	card.action()
 	battleUnits.Player.moves -= card.moveValue
-	cardHandler.discardPile.append(card)
-	card.queue_free()
+	cardHandler.discardPile.append(card.card_name)
+	card.rect_position = Vector2(100,525)
 	organize_hand()
 
 func organize_hand():
