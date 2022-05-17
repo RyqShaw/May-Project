@@ -18,14 +18,17 @@ var state = CHASE
 onready var playerDetectionZone = $EnemyGaze/PlayerDetection
 onready var wanderController = $WanderController
 onready var sightZone = $SightZone
+onready var animationTree = $AnimationTree
 
 func _ready():
 	state = pick_random_state([WANDER, IDLE])
+	animationTree.active = true
 
 func _physics_process(delta):
 	match state:
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+			animationTree.set("parameters/blend_position", velocity)
 			seek_player()
 			if wanderController.get_time_left() == 0:
 				update_wander()
@@ -49,6 +52,7 @@ func accelerate_towards_point(point, delta):
 	var direction = global_position.direction_to(point)
 	velocity = velocity.move_toward(direction * maxSpeed, acceleration * delta)
 	velocity = move_and_slide(velocity)
+	animationTree.set("parameters/blend_position", velocity)
 
 func seek_player():
 	if playerDetectionZone.can_see_player():
