@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=1]
+[ext_resource path="res://Battle/ArtAssets/CardBack.png" type="Texture" id=2]
+[ext_resource path="res://GUI/CardPicker.gd" type="Script" id=3]
+
+[node name="CardPicker" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -209.0
+margin_top = -106.0
+margin_right = 209.0
+margin_bottom = 106.0
+
+[node name="CardChoice1" type="TextureRect" parent="Panel"]
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 60.0
+margin_bottom = 50.0
+rect_scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+
+[node name="CardChoice2" type="TextureRect" parent="Panel"]
+margin_left = 150.0
+margin_top = 10.0
+margin_right = 190.0
+margin_bottom = 50.0
+rect_scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+
+[node name="CardChoice3" type="TextureRect" parent="Panel"]
+margin_left = 280.0
+margin_top = 10.0
+margin_right = 320.0
+margin_bottom = 74.0
+rect_scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
