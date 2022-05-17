@@ -8,6 +8,9 @@ var velocity = Vector2.ZERO
 
 onready var sprite = $AnimatedSprite
 
+func _ready():
+	$RichTextLabel.text = "Room: " + str(GlobalInfo.rooms)
+
 func _physics_process(delta):
 	
 	var inputVector = Vector2.ZERO
