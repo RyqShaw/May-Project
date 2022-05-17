@@ -16,10 +16,12 @@ func _physics_process(delta):
 	inputVector = inputVector.normalized()
 	
 	if inputVector != Vector2.ZERO:
+		if $WalkSound.playing == false: $WalkSound.playing = true
 		velocity = velocity.move_toward(inputVector * maxSpeed, acceleration * delta)
 		sprite.set_animation("Walk")
 		sprite.flip_h = velocity.x < 0
 	else:
+		if $WalkSound.playing == true: $WalkSound.playing = false
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 		sprite.set_animation("Idle")
 	

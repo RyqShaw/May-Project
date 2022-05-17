@@ -8,7 +8,7 @@
 script = ExtResource( 3 )
 moveValue = 2
 card_name = "Caffinate"
-card_cost = 1
+card_cost = 2
 card_info = "2 Move Points, Next 3 Turns + 1 Move points"
 
 [node name="Card" parent="." index="1"]
