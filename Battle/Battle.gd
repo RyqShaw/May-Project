@@ -10,6 +10,7 @@ onready var camera = $Camera2D
 signal gameOver
 
 func _ready():
+	SoundManager.play_music_at_volume(load("res://Music/BattleSongV1.wav"), -10.0)
 	$AnimationPlayer.play("Scroll")
 	randomize()
 	$UI.hide()
@@ -85,6 +86,7 @@ func update_move_points():
 	$UI/MovePoints/Label.text = str(battleUnits.Player.moves) +'/'+str(battleUnits.Player.max_moves)
 
 func _on_Enemy_on_death():
+	SoundManager.stop_music()
 	SoundManager.play_sound(load("res://SoundAffects/YouWin.wav"))
 	$FadeAnimator.play("FadeOut")
 	yield($FadeAnimator, "animation_finished")
