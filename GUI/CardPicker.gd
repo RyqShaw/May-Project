@@ -15,6 +15,7 @@ func _ready():
 	card1 = randi() % cardDB.common_cards.size()
 	card2 = randi() % cardDB.common_cards.size()
 	card3 = randi() % cardDB.common_cards.size()
+
 	pick_card(card1, $Panel/CardChoice1)
 	pick_card(card2, $Panel/CardChoice2)
 	pick_card(card3, $Panel/CardChoice3)
@@ -35,6 +36,7 @@ func pick_card(card, panel):
 		panel.texture = load("res://Battle/ArtAssets/stretches.png")
 	elif cardDB.common_cards[card] == "Water":
 		panel.texture = load("res://Battle/ArtAssets/Water.png")
+
 
 enum {
 	NO_CARD,
