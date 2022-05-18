@@ -127,6 +127,7 @@ func _physics_process(delta):
 			else:
 				rect_rotation = targetrot
 				rect_position = targetpos
+				$CardBack.visible = false
 				state = InHand
 				t = 0
 		ReOrganizeHand:

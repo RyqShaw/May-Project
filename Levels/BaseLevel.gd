@@ -3,6 +3,7 @@ extends Node2D
 const Player = preload("res://Player/Player.tscn")
 const Exit = preload("res://Levels/ExitDoor.tscn")
 const Enemy = preload("res://Enemies/BasicEnemy.tscn")
+const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
 
 # Borders, makes it 1 tile border, makes 38 long and 21 high room to choose from
 var borders = Rect2(1,1,100,50)
@@ -10,6 +11,7 @@ var borders = Rect2(1,1,100,50)
 onready var tileMap = $TileMap
 
 func _ready():
+	if cardHandler.deck == []: cardHandler.init_starter()
 	randomize()
 	generate_level()
 	$CanvasLayer/FadeAnimator.play("Fade")
