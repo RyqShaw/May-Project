@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Battle/Cards/Water.gd" type="Script" id=1]
+[ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=2]
+
+[node name="Water" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+card_name = "Water"
+card_cost = 1
+card_info = "Heals 5"

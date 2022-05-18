@@ -12,9 +12,10 @@ signal card_chosen
 func _ready():
 	randomize()
 	#once there is rare and epic cards, implement randomization between which rarity is chosen
-	card1 = randi() % (cardDB.common_cards.size()-1)
-	card2 = randi() % (cardDB.common_cards.size()-1)
-	card3 = randi() % (cardDB.common_cards.size()-1)
+	card1 = randi() % cardDB.common_cards.size()
+	card2 = randi() % cardDB.common_cards.size()
+	card3 = randi() % cardDB.common_cards.size()
+
 	pick_card(card1, $Panel/CardChoice1)
 	pick_card(card2, $Panel/CardChoice2)
 	pick_card(card3, $Panel/CardChoice3)
@@ -32,7 +33,10 @@ func pick_card(card, panel):
 	elif cardDB.common_cards[card] == "The Whip":
 		panel.texture = load("res://Battle/ArtAssets/TheWhip.png")
 	elif cardDB.common_cards[card] == "Stretches":
-		panel.texture = load("res://Battle/ArtAssets/CardBorder.png")
+		panel.texture = load("res://Battle/ArtAssets/stretches.png")
+	elif cardDB.common_cards[card] == "Water":
+		panel.texture = load("res://Battle/ArtAssets/Water.png")
+
 
 enum {
 	NO_CARD,

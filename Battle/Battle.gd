@@ -19,12 +19,16 @@ func _ready():
 	battleUnits.Battle = self
 	turnManager.connect("player_turn_started",self,"_player_turn_started")
 	turnManager.connect("enemy_turn_started",self,"_enemy_turn_started")
+	
+	player.connect("moves_changed", self, "update_move_points")
+	player.connect("max_moves_changed", self, "update_move_points")
 	player.connect("no_confidence", self, "on_Player_died")
 	
 	cardHandler.deck.shuffle()
 #	create_hand()
 	
 	update_deck_label()
+	update_move_points()
 	turnManager.turn = turnManager.PLAYER_TURN
 	camera.current = true
 	$FadeAnimator.play("Fade")
@@ -76,6 +80,9 @@ func _on_Confirm_pressed():
 	
 func update_deck_label():
 	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n" + str(cardHandler.deck.size())
+
+func update_move_points():
+	$UI/MovePoints/Label.text = str(battleUnits.Player.moves) +'/'+str(battleUnits.Player.max_moves)
 
 func _on_Enemy_on_death():
 	SoundManager.play_sound(load("res://SoundAffects/YouWin.wav"))
