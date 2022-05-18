@@ -4,7 +4,7 @@
 [ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=2]
 
 [node name="Pirou" instance=ExtResource( 2 )]
-card_name = "Pirou"
+card_name = "Pirouette"
 card_cost = 1
 card_info = "Draw 3 Cards, Discard 1"
 

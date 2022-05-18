@@ -80,10 +80,17 @@ func update_deck_label():
 
 func _on_Enemy_on_death():
 	SoundManager.play_sound(load("res://SoundAffects/YouWin.wav"))
-	get_tree().paused = false
-	get_tree().get_root().get_node("BaseLevel/FadeAnimator").play()
-	yield(get_tree().create_timer(0.1), "timeout")
+	$FadeAnimator.play("FadeOut")
+	yield($FadeAnimator, "animation_finished")
+	$Camera2D.current = false
+	$BG.visible = false
 	get_tree().get_root().get_node("BaseLevel/Player/Camera2D").current = true
+	#get_tree().get_root().get_node("BaseLevel/CanvasLayer/FadeAnimator").play()
+	get_tree().paused = false
+	#yield(get_tree().get_root().get_node("BaseLevel/CanvasLayer/FadeAnimator"), "animation_finished")
+	#yield(get_tree().create_timer(0.1), "timeout")
+	var cardPicker = load("res://GUI/CardPicker.tscn").instance()
+	get_tree().get_root().get_node("BaseLevel/CanvasLayer").add_child(cardPicker)
 	for card in battleUnits.playerSpace.get_node("Cards").get_children():
 		cardHandler.discardPile.append(card.card_name)
 	reshuffleDeck()

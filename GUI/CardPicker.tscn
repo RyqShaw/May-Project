@@ -43,3 +43,10 @@ margin_right = 320.0
 margin_bottom = 74.0
 rect_scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
+
+[connection signal="mouse_entered" from="Panel/CardChoice1" to="." method="_on_CardChoice1_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/CardChoice1" to="." method="_on_CardChoice1_mouse_exited"]
+[connection signal="mouse_entered" from="Panel/CardChoice2" to="." method="_on_CardChoice2_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/CardChoice2" to="." method="_on_CardChoice2_mouse_exited"]
+[connection signal="mouse_entered" from="Panel/CardChoice3" to="." method="_on_CardChoice3_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/CardChoice3" to="." method="_on_CardChoice3_mouse_exited"]

@@ -14,7 +14,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 1.5 ),
+"times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
@@ -82,7 +82,10 @@ tile_data = PoolIntArray( -1507360, 0, 0, -1507359, 0, 1, -1507358, 0, 1, -15073
 position = Vector2( 1280, 720 )
 zoom = Vector2( 3, 3 )
 
-[node name="Fade" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1024.0
@@ -92,7 +95,7 @@ margin_bottom = 2478.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="FadeAnimator" type="AnimationPlayer" parent="."]
+[node name="FadeAnimator" type="AnimationPlayer" parent="CanvasLayer"]
 root_node = NodePath("../Fade")
 anims/Fade = SubResource( 1 )
 anims/FadeOut = SubResource( 2 )
