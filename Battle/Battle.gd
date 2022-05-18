@@ -21,8 +21,6 @@ func _ready():
 	turnManager.connect("enemy_turn_started",self,"_enemy_turn_started")
 	player.connect("no_confidence", self, "on_Player_died")
 	
-	#Init Deck for testing purposes
-	if cardHandler.deck.empty() : cardHandler.init_starter()
 	cardHandler.deck.shuffle()
 #	create_hand()
 	
@@ -72,7 +70,8 @@ func on_Player_died():
 	
 
 func _on_Confirm_pressed():
-	$UI/Deck/RichTextLabel.text = "Number Of Cards Left in Deck: \n" + str(cardHandler.deck.size())
+	SoundManager.play_ui_sound(load("res://SoundAffects/blipSelect.wav"))
+	update_deck_label()
 	turnManager.turn = turnManager.ENEMY_TURN
 	
 func update_deck_label():
@@ -80,10 +79,18 @@ func update_deck_label():
 
 func _on_Enemy_on_death():
 	SoundManager.play_sound(load("res://SoundAffects/YouWin.wav"))
-	get_tree().paused = false
-	get_tree().get_root().get_node("BaseLevel/FadeAnimator").play()
-	yield(get_tree().create_timer(0.1), "timeout")
+	$FadeAnimator.play("FadeOut")
+	yield($FadeAnimator, "animation_finished")
+	$Camera2D.current = false
+	$BG.visible = false
+	var cardPicker = load("res://GUI/CardPicker.tscn").instance()
+	get_tree().get_root().get_node("BaseLevel/CanvasLayer").add_child(cardPicker)
 	get_tree().get_root().get_node("BaseLevel/Player/Camera2D").current = true
+	yield(cardPicker, "card_chosen")
+	#get_tree().get_root().get_node("BaseLevel/CanvasLayer/FadeAnimator").play()
+	get_tree().paused = false
+	#yield(get_tree().get_root().get_node("BaseLevel/CanvasLayer/FadeAnimator"), "animation_finished")
+	#yield(get_tree().create_timer(0.1), "timeout")
 	for card in battleUnits.playerSpace.get_node("Cards").get_children():
 		cardHandler.discardPile.append(card.card_name)
 	reshuffleDeck()

@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=1]
 [ext_resource path="res://Battle/ArtAssets/CardBack.png" type="Texture" id=2]
 [ext_resource path="res://GUI/CardPicker.gd" type="Script" id=3]
+[ext_resource path="res://Theme/kenvector_future.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+font_data = ExtResource( 4 )
 
 [node name="CardPicker" type="Control"]
 anchor_right = 1.0
@@ -28,6 +33,36 @@ margin_bottom = 50.0
 rect_scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
+[node name="Cost" type="Label" parent="Panel/CardChoice1"]
+margin_left = 37.2
+margin_top = 1.2
+margin_right = 47.2
+margin_bottom = 13.2
+rect_scale = Vector2( 0.2, 0.2 )
+theme = ExtResource( 1 )
+text = "3"
+
+[node name="Name" type="Label" parent="Panel/CardChoice1"]
+margin_left = 3.0
+margin_top = 38.6667
+margin_right = 71.0
+margin_bottom = 50.6667
+rect_scale = Vector2( 0.3, 0.3 )
+theme = ExtResource( 1 )
+text = "Twirlnado"
+
+[node name="Info" type="Label" parent="Panel/CardChoice1"]
+margin_left = 3.0
+margin_top = 43.6667
+margin_right = 115.0
+margin_bottom = 106.667
+rect_scale = Vector2( 0.3, 0.3 )
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Does 4  CP
+Negates 5 CP"
+autowrap = true
+
 [node name="CardChoice2" type="TextureRect" parent="Panel"]
 margin_left = 150.0
 margin_top = 10.0
@@ -36,6 +71,36 @@ margin_bottom = 50.0
 rect_scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
+[node name="Cost" type="Label" parent="Panel/CardChoice2"]
+margin_left = 37.2
+margin_top = 1.2
+margin_right = 47.2
+margin_bottom = 13.2
+rect_scale = Vector2( 0.2, 0.2 )
+theme = ExtResource( 1 )
+text = "3"
+
+[node name="Name" type="Label" parent="Panel/CardChoice2"]
+margin_left = 3.0
+margin_top = 38.6667
+margin_right = 71.0
+margin_bottom = 50.6667
+rect_scale = Vector2( 0.3, 0.3 )
+theme = ExtResource( 1 )
+text = "Twirlnado"
+
+[node name="Info" type="Label" parent="Panel/CardChoice2"]
+margin_left = 3.0
+margin_top = 43.6667
+margin_right = 115.0
+margin_bottom = 106.667
+rect_scale = Vector2( 0.3, 0.3 )
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Does 4  CP
+Negates 5 CP"
+autowrap = true
+
 [node name="CardChoice3" type="TextureRect" parent="Panel"]
 margin_left = 280.0
 margin_top = 10.0
@@ -43,3 +108,40 @@ margin_right = 320.0
 margin_bottom = 74.0
 rect_scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
+
+[node name="Cost" type="Label" parent="Panel/CardChoice3"]
+margin_left = 37.2
+margin_top = 1.2
+margin_right = 47.2
+margin_bottom = 13.2
+rect_scale = Vector2( 0.2, 0.2 )
+theme = ExtResource( 1 )
+text = "3"
+
+[node name="Name" type="Label" parent="Panel/CardChoice3"]
+margin_left = 3.0
+margin_top = 38.6667
+margin_right = 71.0
+margin_bottom = 50.6667
+rect_scale = Vector2( 0.3, 0.3 )
+theme = ExtResource( 1 )
+text = "Twirlnado"
+
+[node name="Info" type="Label" parent="Panel/CardChoice3"]
+margin_left = 3.0
+margin_top = 43.6667
+margin_right = 115.0
+margin_bottom = 106.667
+rect_scale = Vector2( 0.3, 0.3 )
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Does 4  CP
+Negates 5 CP"
+autowrap = true
+
+[connection signal="mouse_entered" from="Panel/CardChoice1" to="." method="_on_CardChoice1_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/CardChoice1" to="." method="_on_CardChoice1_mouse_exited"]
+[connection signal="mouse_entered" from="Panel/CardChoice2" to="." method="_on_CardChoice2_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/CardChoice2" to="." method="_on_CardChoice2_mouse_exited"]
+[connection signal="mouse_entered" from="Panel/CardChoice3" to="." method="_on_CardChoice3_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/CardChoice3" to="." method="_on_CardChoice3_mouse_exited"]

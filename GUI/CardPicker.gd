@@ -3,16 +3,84 @@ extends Control
 const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
 const cardDB = preload("res://CardDataBase.tres")
 
+var card1
+var card2
+var card3
+
+signal card_chosen
+
 func _ready():
 	randomize()
-	var card1 = cardDB.common_cards[randi() % cardDB.common_cards.size()]
-	var card2 = cardDB.common_cards[randi() % cardDB.common_cards.size()]
-	var card3 = cardDB.common_cards[randi() % cardDB.common_cards.size()]
-	if card1 == "Twirlnado":
-		$Panel/CardChoice1.texture = load("res://Battle/ArtAssets/caffeine_fix-3.png")
-	elif card1 == "Pirou":
-		$Panel/CardChoice1.texture = load("res://Battle/ArtAssets/caffeine_fix-3.png")
-	elif card1 == "Caffinate":
-		$Panel/CardChoice1.texture = load("res://Battle/ArtAssets/caffeine_fix-3.png")
-	elif card1 == "The Whip":
-		$Panel/CardChoice1.texture = load("res://Battle/ArtAssets/caffeine_fix-3.png")
+	#once there is rare and epic cards, implement randomization between which rarity is chosen
+	card1 = randi() % (cardDB.common_cards.size()-1)
+	card2 = randi() % (cardDB.common_cards.size()-1)
+	card3 = randi() % (cardDB.common_cards.size()-1)
+	pick_card(card1, $Panel/CardChoice1)
+	pick_card(card2, $Panel/CardChoice2)
+	pick_card(card3, $Panel/CardChoice3)
+
+func pick_card(card, panel):
+	panel.get_node("Name").text = cardDB.common_cards[card]
+	panel.get_node("Cost").text = str(cardDB.common_cost[card])
+	panel.get_node("Info").text = cardDB.common_info[card]
+	if cardDB.common_cards[card] == "Twirlnado":
+		panel.texture = load("res://Battle/ArtAssets/Twirlnado.png")
+	elif cardDB.common_cards[card] == "Pirouette":
+		panel.texture = load("res://Battle/ArtAssets/pirou.png")
+	elif cardDB.common_cards[card] == "Caffinate":
+		panel.texture = load("res://Battle/ArtAssets/caffeine_fix-3.png")
+	elif cardDB.common_cards[card] == "The Whip":
+		panel.texture = load("res://Battle/ArtAssets/TheWhip.png")
+	elif cardDB.common_cards[card] == "Stretches":
+		panel.texture = load("res://Battle/ArtAssets/CardBorder.png")
+
+enum {
+	NO_CARD,
+	CARD1,
+	CARD2,
+	CARD3
+}
+
+var selected = NO_CARD
+
+func _input(event):
+	if event.is_action_pressed("LeftClick"):
+		match selected:
+			CARD1:
+				cardHandler.discardPile.append(cardDB.common_cards[card1])
+				cardHandler.append_discard()
+				cardHandler.discardPile = []
+				emit_signal("card_chosen")
+				queue_free()
+			CARD2:
+				cardHandler.discardPile.append(cardDB.common_cards[card2])
+				cardHandler.append_discard()
+				cardHandler.discardPile = []
+				emit_signal("card_chosen")
+				queue_free()
+			CARD3:
+				cardHandler.discardPile.append(cardDB.common_cards[card3])
+				cardHandler.append_discard()
+				cardHandler.discardPile = []
+				emit_signal("card_chosen")
+
+				queue_free()
+				
+
+func _on_CardChoice1_mouse_entered():
+	selected = CARD1
+
+func _on_CardChoice2_mouse_entered():
+	selected = CARD2
+
+func _on_CardChoice3_mouse_entered():
+	selected = CARD3
+	
+func _on_CardChoice1_mouse_exited():
+	selected = NO_CARD
+
+func _on_CardChoice2_mouse_exited():
+	selected = NO_CARD
+
+func _on_CardChoice3_mouse_exited():
+	selected = NO_CARD

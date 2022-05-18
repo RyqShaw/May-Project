@@ -53,6 +53,7 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+pause_mode = 2
 current = true
 zoom = Vector2( 0.25, 0.25 )
 
@@ -66,6 +67,5 @@ margin_top = -80.0
 margin_right = -64.0
 margin_bottom = -61.0
 rect_scale = Vector2( 0.5, 0.5 )
-
 theme = ExtResource( 4 )
 text = "Room: "

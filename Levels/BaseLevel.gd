@@ -3,6 +3,7 @@ extends Node2D
 const Player = preload("res://Player/Player.tscn")
 const Exit = preload("res://Levels/ExitDoor.tscn")
 const Enemy = preload("res://Enemies/BasicEnemy.tscn")
+const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
 
 # Borders, makes it 1 tile border, makes 38 long and 21 high room to choose from
 var borders = Rect2(1,1,100,50)
@@ -10,9 +11,10 @@ var borders = Rect2(1,1,100,50)
 onready var tileMap = $TileMap
 
 func _ready():
+	if cardHandler.deck == []: cardHandler.init_starter()
 	randomize()
 	generate_level()
-	$FadeAnimator.play("Fade")
+	$CanvasLayer/FadeAnimator.play("Fade")
 
 # Creates Walker, makes it walk and takes step history, sets tile map cells to delete at positions recorded
 func generate_level():
@@ -52,6 +54,6 @@ func reload_level():
 	GlobalInfo.rooms += 1
 	get_tree().reload_current_scene()
 	get_tree().change_scene("res://Levels/BaseLevel.tscn")
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		get_tree().reload_current_scene()
+#func _input(event):
+#	if event.is_action_pressed("ui_accept"):
+#		get_tree().reload_current_scene()
