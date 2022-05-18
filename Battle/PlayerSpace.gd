@@ -53,7 +53,7 @@ func ReParentCard(card):
 	card.action()
 	battleUnits.Player.moves -= card.moveValue
 	cardHandler.discardPile.append(card.card_name)
-	card.rect_position = Vector2(100,525)
+	card.queue_free()
 	organize_hand()
 
 func organize_hand():
