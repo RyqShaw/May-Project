@@ -7,35 +7,45 @@ var card1
 var card2
 var card3
 
+var crarity1 = 0
+var crarity2 = 0
+var crarity3 = 0
+
 signal card_chosen
 
 func _ready():
 	randomize()
 	#once there is rare and epic cards, implement randomization between which rarity is chosen
-	card1 = randi() % cardDB.common_cards.size()
-	card2 = randi() % cardDB.common_cards.size()
-	card3 = randi() % cardDB.common_cards.size()
+	if randf() < 0.1:
+		card1 = randi() % cardDB.rare_cards.size()
+		crarity1 = 1
+	else:
+		card1 = randi() % cardDB.common_cards.size()
+	if randf() < 0.1:
+		card2 = randi() % cardDB.rare_cards.size()
+		crarity2 = 1
+	else:
+		card2 = randi() % cardDB.common_cards.size()
+	if randf() < 0.1:
+		card3 = randi() % cardDB.rare_cards.size()
+		crarity3 = 1
+	else:
+		card3 = randi() % cardDB.common_cards.size()
 
-	pick_card(card1, $Panel/CardChoice1)
-	pick_card(card2, $Panel/CardChoice2)
-	pick_card(card3, $Panel/CardChoice3)
+	pick_card(card1, $Panel/CardChoice1, crarity1)
+	pick_card(card2, $Panel/CardChoice2, crarity2)
+	pick_card(card3, $Panel/CardChoice3, crarity3)
 
-func pick_card(card, panel):
-	panel.get_node("Name").text = cardDB.common_cards[card]
-	panel.get_node("Cost").text = str(cardDB.common_cost[card])
-	panel.get_node("Info").text = cardDB.common_info[card]
-	if cardDB.common_cards[card] == "Twirlnado":
-		panel.texture = load("res://Battle/ArtAssets/Twirlnado.png")
-	elif cardDB.common_cards[card] == "Pirouette":
-		panel.texture = load("res://Battle/ArtAssets/pirou.png")
-	elif cardDB.common_cards[card] == "Caffinate":
-		panel.texture = load("res://Battle/ArtAssets/caffeine_fix-3.png")
-	elif cardDB.common_cards[card] == "The Whip":
-		panel.texture = load("res://Battle/ArtAssets/TheWhip.png")
-	elif cardDB.common_cards[card] == "Stretches":
-		panel.texture = load("res://Battle/ArtAssets/stretches.png")
-	elif cardDB.common_cards[card] == "Water":
-		panel.texture = load("res://Battle/ArtAssets/Water.png")
+func pick_card(card, panel, rarity):
+	if rarity == 0:
+		panel.get_node("Name").text = cardDB.common_cards[card]
+		panel.get_node("Cost").text = str(cardDB.common_cost[card])
+		panel.get_node("Info").text = cardDB.common_info[card]
+	elif rarity == 1:
+		panel.get_node("Name").text = cardDB.rare_cards[card]
+		panel.get_node("Cost").text = str(cardDB.rare_cost[card])
+		panel.get_node("Info").text = cardDB.rare_info[card]
+	panel.texture = cardHandler.get_card_texture(card, rarity)
 
 
 enum {
@@ -55,19 +65,21 @@ func _input(event):
 				cardHandler.append_discard()
 				cardHandler.discardPile = []
 				emit_signal("card_chosen")
+				GlobalInfo.set_deck_size(0)
 				queue_free()
 			CARD2:
 				cardHandler.discardPile.append(cardDB.common_cards[card2])
 				cardHandler.append_discard()
 				cardHandler.discardPile = []
 				emit_signal("card_chosen")
+				GlobalInfo.set_deck_size(0)
 				queue_free()
 			CARD3:
 				cardHandler.discardPile.append(cardDB.common_cards[card3])
 				cardHandler.append_discard()
 				cardHandler.discardPile = []
 				emit_signal("card_chosen")
-
+				GlobalInfo.set_deck_size(0)
 				queue_free()
 				
 

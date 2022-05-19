@@ -44,12 +44,13 @@ text = "3"
 
 [node name="Name" type="Label" parent="Panel/CardChoice1"]
 margin_left = 3.0
-margin_top = 38.6667
-margin_right = 71.0
-margin_bottom = 50.6667
+margin_top = 39.0
+margin_right = 726.0
+margin_bottom = 57.0
 rect_scale = Vector2( 0.3, 0.3 )
 theme = ExtResource( 1 )
 text = "Twirlnado"
+autowrap = true
 
 [node name="Info" type="Label" parent="Panel/CardChoice1"]
 margin_left = 3.0
@@ -82,12 +83,13 @@ text = "3"
 
 [node name="Name" type="Label" parent="Panel/CardChoice2"]
 margin_left = 3.0
-margin_top = 38.6667
-margin_right = 71.0
-margin_bottom = 50.6667
+margin_top = 39.0
+margin_right = 652.0
+margin_bottom = 57.0
 rect_scale = Vector2( 0.3, 0.3 )
 theme = ExtResource( 1 )
 text = "Twirlnado"
+autowrap = true
 
 [node name="Info" type="Label" parent="Panel/CardChoice2"]
 margin_left = 3.0
@@ -120,12 +122,13 @@ text = "3"
 
 [node name="Name" type="Label" parent="Panel/CardChoice3"]
 margin_left = 3.0
-margin_top = 38.6667
-margin_right = 71.0
-margin_bottom = 50.6667
+margin_top = 39.0
+margin_right = 631.0
+margin_bottom = 57.0
 rect_scale = Vector2( 0.3, 0.3 )
 theme = ExtResource( 1 )
 text = "Twirlnado"
+autowrap = true
 
 [node name="Info" type="Label" parent="Panel/CardChoice3"]
 margin_left = 3.0

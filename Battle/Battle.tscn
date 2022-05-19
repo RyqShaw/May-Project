@@ -141,7 +141,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.04
 margin_top = 38.928
-text = "Number Of Cards Left in Deck"
 
 [node name="Sprite" type="Sprite" parent="UI/Deck"]
 scale = Vector2( 3, 3 )
@@ -176,7 +175,10 @@ valign = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-frame = 0
+frame = 3
+
+[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
+frame = 1
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )

@@ -9,7 +9,7 @@ func _init():
 	._init(["Music", "music"], 2)
 
 
-func play(resource: AudioStream, volume: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
+func play(resource: AudioStream, volume: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "Music") -> AudioStreamPlayer:
 	stop(crossfade_duration * 2)
 	
 	var player = _get_player_with_music(resource)

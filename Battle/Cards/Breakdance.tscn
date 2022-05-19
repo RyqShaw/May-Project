@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Battle/Cards/Breakdance.gd" type="Script" id=2]
+[ext_resource path="res://Battle/ArtAssets/breakdance.png" type="Texture" id=3]
+[ext_resource path="res://Theme/kenvector_future.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 4 )
+
+[node name="Breakdance" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+moveValue = 2
+card_name = "Breakdance"
+card_cost = 2
+card_info = "Can hit up to 5 times for 4 CP"
+
+[node name="Card" parent="." index="1"]
+position = Vector2( 0, 0 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="Name" parent="Border" index="1"]
+custom_fonts/font = SubResource( 1 )

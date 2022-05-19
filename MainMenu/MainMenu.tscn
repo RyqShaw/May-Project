@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Theme/kenvector_future.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=2]
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://Battle/ArtAssets/New_Piskel-2.png_2.png" type="Texture" id=4]
+[ext_resource path="res://GUI/OptionsPopup.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=7]
 length = 0.001
@@ -39,14 +40,6 @@ tracks/0/keys = {
 
 [sub_resource type="DynamicFont" id=3]
 size = 64
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 36
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 24
 font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=4]
@@ -139,234 +132,7 @@ custom_fonts/font = SubResource( 3 )
 text = "Party in the UFO!"
 align = 1
 
-[node name="OptionsPanel" type="Panel" parent="VBoxContainer"]
-visible = false
-margin_top = 76.0
-margin_right = 1240.0
-margin_bottom = 528.0
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/OptionsPanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
-
-[node name="OptionsLabel" type="Label" parent="VBoxContainer/OptionsPanel/VBoxContainer"]
-margin_right = 1200.0
-margin_bottom = 41.0
-custom_colors/font_color = Color( 0.168627, 0.14902, 0.14902, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "Options"
-
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/OptionsPanel/VBoxContainer"]
-margin_top = 45.0
-margin_right = 1200.0
-margin_bottom = 179.0
-columns = 2
-
-[node name="Master" type="Label" parent="VBoxContainer/OptionsPanel/VBoxContainer/GridContainer"]
-margin_top = 7.0
-margin_right = 246.0
-margin_bottom = 34.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Master  "
-
-[node name="MasterVol" type="HSlider" parent="VBoxContainer/OptionsPanel/VBoxContainer/GridContainer"]
-margin_left = 250.0
-margin_right = 1200.0
-margin_bottom = 42.0
-size_flags_horizontal = 3
-step = 10.0
-value = 100.0
-
-[node name="Music" type="Label" parent="VBoxContainer/OptionsPanel/VBoxContainer/GridContainer"]
-margin_top = 53.0
-margin_right = 246.0
-margin_bottom = 80.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Music       "
-
-[node name="MusicVol" type="HSlider" parent="VBoxContainer/OptionsPanel/VBoxContainer/GridContainer"]
-margin_left = 250.0
-margin_top = 46.0
-margin_right = 1200.0
-margin_bottom = 88.0
-size_flags_horizontal = 3
-step = 10.0
-value = 100.0
-
-[node name="SoundAffects" type="Label" parent="VBoxContainer/OptionsPanel/VBoxContainer/GridContainer"]
-margin_top = 99.0
-margin_right = 246.0
-margin_bottom = 126.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Sound Affects"
-
-[node name="SoundVol" type="HSlider" parent="VBoxContainer/OptionsPanel/VBoxContainer/GridContainer"]
-margin_left = 250.0
-margin_top = 92.0
-margin_right = 1200.0
-margin_bottom = 134.0
-size_flags_horizontal = 3
-step = 10.0
-value = 100.0
-
-[node name="MasterVol" type="HBoxContainer" parent="VBoxContainer/OptionsPanel/VBoxContainer"]
-margin_top = 183.0
-margin_right = 1200.0
-margin_bottom = 183.0
-
-[node name="MusicVol" type="HBoxContainer" parent="VBoxContainer/OptionsPanel/VBoxContainer"]
-margin_top = 187.0
-margin_right = 1200.0
-margin_bottom = 187.0
-
-[node name="SoundAffectVol" type="HBoxContainer" parent="VBoxContainer/OptionsPanel/VBoxContainer"]
-margin_top = 191.0
-margin_right = 1200.0
-margin_bottom = 191.0
-
-[node name="FullScreen" type="CheckButton" parent="VBoxContainer/OptionsPanel/VBoxContainer"]
-margin_top = 195.0
-margin_right = 1200.0
-margin_bottom = 255.251
-text = "Full Screen"
-
-[node name="ScreenResolution" type="OptionButton" parent="VBoxContainer/OptionsPanel/VBoxContainer"]
-margin_top = 259.0
-margin_right = 1200.0
-margin_bottom = 301.251
-text = "Screen Resolution"
-
-[node name="Leave Options" type="Button" parent="VBoxContainer/OptionsPanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 1068.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -434.749
-text = "Back"
-
-[node name="OptionsPanel" type="Panel" parent="."]
-visible = false
-margin_top = 76.0
-margin_right = 1240.0
-margin_bottom = 528.0
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
-
-[node name="OptionsLabel" type="Label" parent="OptionsPanel/VBoxContainer"]
-margin_right = 1200.0
-margin_bottom = 41.0
-custom_colors/font_color = Color( 0.168627, 0.14902, 0.14902, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "Options"
-
-[node name="GridContainer" type="GridContainer" parent="OptionsPanel/VBoxContainer"]
-margin_top = 45.0
-margin_right = 1200.0
-margin_bottom = 179.0
-columns = 2
-
-[node name="Master" type="Label" parent="OptionsPanel/VBoxContainer/GridContainer"]
-margin_top = 7.0
-margin_right = 246.0
-margin_bottom = 34.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Master  "
-
-[node name="MasterVol" type="HSlider" parent="OptionsPanel/VBoxContainer/GridContainer"]
-margin_left = 250.0
-margin_right = 1200.0
-margin_bottom = 42.0
-size_flags_horizontal = 3
-step = 10.0
-value = 100.0
-
-[node name="Music" type="Label" parent="OptionsPanel/VBoxContainer/GridContainer"]
-margin_top = 53.0
-margin_right = 246.0
-margin_bottom = 80.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Music       "
-
-[node name="MusicVol" type="HSlider" parent="OptionsPanel/VBoxContainer/GridContainer"]
-margin_left = 250.0
-margin_top = 46.0
-margin_right = 1200.0
-margin_bottom = 88.0
-size_flags_horizontal = 3
-step = 10.0
-value = 100.0
-
-[node name="SoundAffects" type="Label" parent="OptionsPanel/VBoxContainer/GridContainer"]
-margin_top = 99.0
-margin_right = 246.0
-margin_bottom = 126.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Sound Affects"
-
-[node name="SoundVol" type="HSlider" parent="OptionsPanel/VBoxContainer/GridContainer"]
-margin_left = 250.0
-margin_top = 92.0
-margin_right = 1200.0
-margin_bottom = 134.0
-size_flags_horizontal = 3
-step = 10.0
-value = 100.0
-
-[node name="MasterVol" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
-margin_top = 183.0
-margin_right = 1200.0
-margin_bottom = 183.0
-
-[node name="MusicVol" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
-margin_top = 187.0
-margin_right = 1200.0
-margin_bottom = 187.0
-
-[node name="SoundAffectVol" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
-margin_top = 191.0
-margin_right = 1200.0
-margin_bottom = 191.0
-
-[node name="FullScreen" type="CheckButton" parent="OptionsPanel/VBoxContainer"]
-margin_top = 195.0
-margin_right = 1200.0
-margin_bottom = 255.251
-text = "Full Screen"
-
-[node name="ScreenResolution" type="OptionButton" parent="OptionsPanel/VBoxContainer"]
-margin_top = 259.0
-margin_right = 1200.0
-margin_bottom = 301.251
-
-[node name="Leave Options" type="Button" parent="OptionsPanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 1068.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -434.749
-text = "Back"
+[node name="OptionsPopup" parent="VBoxContainer" instance=ExtResource( 5 )]
 
 [node name="Buttons" type="HBoxContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -416,6 +182,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="FadeAnimator" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Fade")
@@ -423,9 +192,10 @@ anims/Fade = SubResource( 4 )
 anims/FadeOut = SubResource( 6 )
 anims/RESET = SubResource( 5 )
 
-[connection signal="pressed" from="VBoxContainer/OptionsPanel/Leave Options" to="." method="_on_Leave_Options_pressed"]
-[connection signal="pressed" from="OptionsPanel/Leave Options" to="." method="_on_Leave_Options_pressed"]
+[connection signal="closed" from="VBoxContainer/OptionsPopup" to="." method="_on_OptionsPopup_closed"]
 [connection signal="pressed" from="Buttons/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Buttons/Option" to="." method="_on_Option_pressed"]
 [connection signal="pressed" from="Buttons/Extras" to="." method="_on_Extras_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]
+
+[editable path="VBoxContainer/OptionsPopup"]

@@ -14,7 +14,6 @@ func _ready():
 	if cardHandler.deck == []: cardHandler.init_starter()
 	randomize()
 	generate_level()
-	$CanvasLayer/FadeAnimator.play("Fade")
 
 # Creates Walker, makes it walk and takes step history, sets tile map cells to delete at positions recorded
 func generate_level():
@@ -25,6 +24,7 @@ func generate_level():
 	var player = Player.instance()
 	add_child(player)
 	player.position = map.pop_front() * 32
+	$CanvasLayer/FadeAnimator.play("Fade")
 	
 	var exit = Exit.instance()
 	add_child(exit)

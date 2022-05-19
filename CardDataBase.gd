@@ -20,8 +20,11 @@ var common_cost = [1,
 					1,
 					1]
 
-var rare_cards = ["Caffinate"]
-var rare_info = ["Increases Move Points By 1 for Next 3 Turns"]
-var rare_cost = [2]
+var rare_cards = ["Caffinate",
+				  "Breakdance"]
+var rare_info = ["Increases Move Points By 1 for Next 3 Turns",
+				 "Can hit up to 5 times"]
+var rare_cost = [2,
+				 2]
 
 var epic_cards = []
