@@ -55,19 +55,21 @@ func _input(event):
 				cardHandler.append_discard()
 				cardHandler.discardPile = []
 				emit_signal("card_chosen")
+				GlobalInfo.set_deck_size(0)
 				queue_free()
 			CARD2:
 				cardHandler.discardPile.append(cardDB.common_cards[card2])
 				cardHandler.append_discard()
 				cardHandler.discardPile = []
 				emit_signal("card_chosen")
+				GlobalInfo.set_deck_size(0)
 				queue_free()
 			CARD3:
 				cardHandler.discardPile.append(cardDB.common_cards[card3])
 				cardHandler.append_discard()
 				cardHandler.discardPile = []
 				emit_signal("card_chosen")
-
+				GlobalInfo.set_deck_size(0)
 				queue_free()
 				
 

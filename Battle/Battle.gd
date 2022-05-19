@@ -28,7 +28,7 @@ func _ready():
 	cardHandler.deck.shuffle()
 #	create_hand()
 	
-	update_deck_label()
+	#update_deck_label()
 	update_move_points()
 	turnManager.turn = turnManager.PLAYER_TURN
 	camera.current = true
@@ -36,7 +36,7 @@ func _ready():
 	
 func _player_turn_started():
 	while $PlayerSpace/Cards.get_child_count() < 5: deal_card() #Change if we need to
-	update_deck_label()
+	#update_deck_label()
 	var player = battleUnits.Player
 	player.resistance = player.default_resistance
 	player.damage_mod = player.default_damage_mod
@@ -55,7 +55,7 @@ func create_hand():
 	for i in 4:
 		deal_card()
 		yield(get_tree().create_timer(0.2), "timeout")
-	update_deck_label()
+	#update_deck_label()
 
 func deal_card():
 	if cardHandler.deck.size() == 0:
@@ -76,7 +76,7 @@ func on_Player_died():
 
 func _on_Confirm_pressed():
 	SoundManager.play_ui_sound(load("res://SoundAffects/blipSelect.wav"))
-	update_deck_label()
+	#update_deck_label()
 	turnManager.turn = turnManager.ENEMY_TURN
 	
 func update_deck_label():
