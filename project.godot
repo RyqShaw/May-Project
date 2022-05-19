@@ -58,6 +58,7 @@ config/icon="res://icon.png"
 
 SoundManager="*res://addons/sound_manager/sound_manager.tscn"
 GlobalInfo="*res://GlobalInfo.gd"
+Save="*res://save.gd"
 
 [debug]
 

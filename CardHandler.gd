@@ -8,7 +8,7 @@ export(Array, PackedScene) var discardPile = []
 
 func init_starter():
 	var cards = []
-	for i in 11:
+	for i in 10:
 		if randf() < 0.2:
 			cards.append(cardDB.rare_cards[randi() % cardDB.rare_cards.size()])
 		else:
@@ -36,6 +36,8 @@ func append_discard():
 		elif each == "Pirouette":
 			deck.append(preload("res://Battle/Cards/Pirouette.tscn").instance())
 		elif each == "Caffinate":
+			deck.append(preload("res://Battle/Cards/Caffinate.tscn").instance())
+		elif each == "Choreography":
 			deck.append(preload("res://Battle/Cards/Caffinate.tscn").instance())
 		elif each == "The Whip":
 			deck.append(preload("res://Battle/Cards/The Whip.tscn").instance())

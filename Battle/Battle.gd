@@ -10,7 +10,7 @@ onready var camera = $Camera2D
 signal gameOver
 
 func _ready():
-	SoundManager.play_music_at_volume(load("res://Music/BattleSongV1.wav"), -10.0)
+	SoundManager.play_music(load("res://Music/BattleSongV1.wav"))
 	$AnimationPlayer.play("Scroll")
 	randomize()
 	$UI.hide()
