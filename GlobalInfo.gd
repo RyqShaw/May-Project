@@ -1,6 +1,7 @@
 extends Node
 
 const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
+const playerStats = preload("res://Battle/Player/PlayerStats.tres")
 
 signal deck_changed
 
@@ -15,6 +16,8 @@ func set_deck_size(value):
 func reset_info():
 	rooms = 1
 	deckSize = 10
+	cardHandler.deck = []
+	playerStats.confidence = playerStats.max_confidence
 
 func toggle_fullScreen(value):
 	OS.window_fullscreen = value

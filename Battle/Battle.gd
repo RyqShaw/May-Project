@@ -98,9 +98,10 @@ func _on_Enemy_on_death():
 	$BG.visible = false
 	get_tree().get_root().get_node("BaseLevel/Player/Camera2D").current = true
 	get_tree().get_root().get_node("BaseLevel/CanvasLayer/FadeAnimator").play("Fade")
-	var cardPicker = load("res://GUI/CardPicker.tscn").instance()
-	get_tree().get_root().get_node("BaseLevel/CanvasLayer").add_child(cardPicker)
-	yield(cardPicker, "card_chosen")
+	if get_tree().get_root().get_node("BaseLevel/CanvasLayer/CardPicker") == null:
+		var cardPicker = load("res://GUI/CardPicker.tscn").instance()
+		get_tree().get_root().get_node("BaseLevel/CanvasLayer").add_child(cardPicker)
+		yield(cardPicker, "card_chosen")
 	get_tree().paused = false
 	#yield(get_tree().get_root().get_node("BaseLevel/CanvasLayer/FadeAnimator"), "animation_finished")
 	#yield(get_tree().create_timer(0.1), "timeout")

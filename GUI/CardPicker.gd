@@ -16,17 +16,17 @@ signal card_chosen
 func _ready():
 	randomize()
 	#once there is rare and epic cards, implement randomization between which rarity is chosen
-	if randf() < 0.1:
+	if randf() < 0.2:
 		card1 = randi() % cardDB.rare_cards.size()
 		crarity1 = 1
 	else:
 		card1 = randi() % cardDB.common_cards.size()
-	if randf() < 0.1:
+	if randf() < 0.2:
 		card2 = randi() % cardDB.rare_cards.size()
 		crarity2 = 1
 	else:
 		card2 = randi() % cardDB.common_cards.size()
-	if randf() < 0.1:
+	if randf() < 0.2:
 		card3 = randi() % cardDB.rare_cards.size()
 		crarity3 = 1
 	else:

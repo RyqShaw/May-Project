@@ -9,7 +9,7 @@ export(Array, PackedScene) var discardPile = []
 func init_starter():
 	var cards = []
 	for i in 10:
-		if randf() < 0.1:
+		if randf() < 0.2:
 			cards.append(cardDB.rare_cards[randi() % cardDB.rare_cards.size()])
 		else:
 			cards.append(cardDB.common_cards[randi() % cardDB.common_cards.size()])
@@ -38,7 +38,7 @@ func get_card_texture(card, rarity) -> Texture:
 		if cardDB.rare_cards[card] == "Caffinate":
 			texture = load("res://Battle/ArtAssets/caffeine_fix-3.png")
 		elif cardDB.rare_cards[card] == "Breakdance":
-			texture = load("res://Battle/ArtAssets/caffeine_fix-3.png")
+			texture = load("res://Battle/ArtAssets/breakdance.png")
 	return texture
 
 func append_discard():
