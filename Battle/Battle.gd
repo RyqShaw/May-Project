@@ -71,7 +71,11 @@ func on_Player_died():
 	$Player.queue_free()
 	emit_signal("gameOver")
 	# quit is temp line
-	get_tree().quit()
+	$FadeAnimator.play("FadeOut")
+	SoundManager.stop_music()
+	yield($FadeAnimator, "animation_finished")
+	get_tree().paused = false
+	get_tree().change_scene("res://MainMenu/LmaoDead.tscn")
 	
 
 func _on_Confirm_pressed():
