@@ -68,18 +68,8 @@ script = ExtResource( 2 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
 
-[node name="Fade" type="ColorRect" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -1024.0
-margin_top = -758.0
-margin_right = 3744.0
-margin_bottom = 2478.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
 [node name="FadeAnimator" type="AnimationPlayer" parent="CanvasLayer"]
-root_node = NodePath("../Fade")
+root_node = NodePath("../../Fade")
 anims/Fade = SubResource( 1 )
 anims/FadeOut = SubResource( 2 )
 anims/RESET = SubResource( 3 )
@@ -100,3 +90,13 @@ tile_data = PoolIntArray( -1507360, 0, 0, -1507359, 0, 1, -1507358, 0, 1, -15073
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 1280, 720 )
 zoom = Vector2( 3, 3 )
+
+[node name="Fade" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1024.0
+margin_top = -758.0
+margin_right = 3744.0
+margin_bottom = 2478.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
