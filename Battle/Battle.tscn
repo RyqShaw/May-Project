@@ -175,10 +175,6 @@ valign = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-frame = 3
-
-[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
-frame = 1
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 854, 360 )

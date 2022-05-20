@@ -52,6 +52,8 @@ _global_script_class_icons={
 
 config/name="MayProject"
 run/main_scene="res://MainMenu/MainMenu.tscn"
+boot_splash/image="res://MainMenu/bootsplash.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]
