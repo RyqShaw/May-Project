@@ -142,6 +142,15 @@ text = "Does 4  CP
 Negates 5 CP"
 autowrap = true
 
+[node name="Instructions" type="Label" parent="."]
+margin_left = 431.0
+margin_top = 194.0
+margin_right = 849.0
+margin_bottom = 245.0
+text = "Pick a Card"
+align = 1
+valign = 1
+
 [connection signal="mouse_entered" from="Panel/CardChoice1" to="." method="_on_CardChoice1_mouse_entered"]
 [connection signal="mouse_exited" from="Panel/CardChoice1" to="." method="_on_CardChoice1_mouse_exited"]
 [connection signal="mouse_entered" from="Panel/CardChoice2" to="." method="_on_CardChoice2_mouse_entered"]
