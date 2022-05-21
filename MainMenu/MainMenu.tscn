@@ -199,7 +199,6 @@ anims/FadeOut = SubResource( 6 )
 anims/RESET = SubResource( 5 )
 
 [node name="ExtrasPopUp" parent="." instance=ExtResource( 6 )]
-visible = false
 
 [node name="Tutorial Pointer" type="Label" parent="."]
 margin_left = 640.0

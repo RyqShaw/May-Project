@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Battle/Player/PlayerBattle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/PlayerSpace.gd" type="Script" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=7]
 [ext_resource path="res://Battle/Enemy/Rayman.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Battle/ArtAssets/mp-1.png" type="Texture" id=9]
-
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -164,7 +163,7 @@ text = "Confirm"
 [node name="MovePoints" type="Sprite" parent="UI"]
 position = Vector2( 1148, 529 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="UI/MovePoints"]
 margin_left = -8.75
@@ -178,6 +177,10 @@ valign = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
+frame = 1
+
+[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
+frame = 1
 
 [node name="EnemyPosition" type="Position2D" parent="."]
 position = Vector2( 854, 360 )

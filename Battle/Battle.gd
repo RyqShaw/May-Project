@@ -79,7 +79,7 @@ func reshuffleDeck():
 	cardHandler.discardPile = []
 
 func on_Player_died():
-	$Player.queue_free()
+	$Player.hide()
 	emit_signal("gameOver")
 	$FadeAnimator.play("FadeOut")
 	SoundManager.stop_music()

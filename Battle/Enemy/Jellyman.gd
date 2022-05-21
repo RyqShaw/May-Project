@@ -63,7 +63,7 @@ func smack():
 	deal_damage(5)
 
 func concentrate():
-	self.confidence += 8
+	self.confidence += 4
 	if confidence > max_confidence:
 		set_confidence(max_confidence)
 
