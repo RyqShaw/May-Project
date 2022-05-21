@@ -10,11 +10,11 @@ onready var ui_sound_effects: SoundEffectsPlayer = $UISoundEffects
 onready var music: MusicPlayer = $Music
 
 
-func play_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
+func play_sound(resource: AudioStream, override_bus: String = "SFX") -> AudioStreamPlayer:
 	return sound_effects.play(resource, override_bus)
 
 
-func play_ui_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
+func play_ui_sound(resource: AudioStream, override_bus: String = "SFX") -> AudioStreamPlayer:
 	return ui_sound_effects.play(resource, override_bus)
 
 

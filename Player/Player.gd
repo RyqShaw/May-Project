@@ -10,6 +10,8 @@ onready var sprite = $AnimatedSprite
 
 func _ready():
 	$RichTextLabel.text = "Room: " + str(GlobalInfo.rooms)
+	update_deck_label()
+	GlobalInfo.connect("deck_changed",self,"update_deck_label")
 
 func _physics_process(delta):
 	
@@ -29,3 +31,6 @@ func _physics_process(delta):
 		sprite.set_animation("Idle")
 	
 	velocity = move_and_slide(velocity)
+
+func update_deck_label():
+	$'Deck Size'.text = "Deck Size: " + str(GlobalInfo.deckSize)

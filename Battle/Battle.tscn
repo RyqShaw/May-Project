@@ -8,6 +8,8 @@
 [ext_resource path="res://Battle/ArtAssets/New_Piskel-2.png_2.png" type="Texture" id=6]
 [ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=7]
 [ext_resource path="res://Battle/Enemy/Rayman.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Battle/ArtAssets/mp-1.png" type="Texture" id=9]
+
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -51,7 +53,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 1.5 ),
+"times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
@@ -142,7 +144,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.04
 margin_top = 38.928
-text = "Number Of Cards Left in Deck"
 
 [node name="Sprite" type="Sprite" parent="UI/Deck"]
 scale = Vector2( 3, 3 )
@@ -159,6 +160,21 @@ margin_top = -125.0
 margin_right = -50.0
 margin_bottom = -25.0
 text = "Confirm"
+
+[node name="MovePoints" type="Sprite" parent="UI"]
+position = Vector2( 1148, 529 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="UI/MovePoints"]
+margin_left = -8.75
+margin_top = -5.25
+margin_right = 24.25
+margin_bottom = 12.75
+rect_scale = Vector2( 0.6, 0.6 )
+text = "3/3"
+align = 1
+valign = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
@@ -184,6 +200,9 @@ margin_right = 1285.0
 margin_bottom = 734.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="FadeAnimator" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Fade")

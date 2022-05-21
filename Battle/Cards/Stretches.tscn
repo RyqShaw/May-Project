@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Battle/ArtAssets/stretches.png" type="Texture" id=1]
+[ext_resource path="res://Battle/Cards/Stretches.gd" type="Script" id=2]
+[ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=3]
+
+[node name="Stretches" instance=ExtResource( 3 )]
+script = ExtResource( 2 )
+card_name = "Stretches"
+card_cost = 1
+card_info = "Increases Damage by 25%"
+
+[node name="Card" parent="." index="1"]
+position = Vector2( 0, 0 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
