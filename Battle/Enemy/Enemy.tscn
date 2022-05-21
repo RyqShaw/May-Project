@@ -1,27 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Enemies/schmoovin_1.png" type="Texture" id=1]
 [ext_resource path="res://Battle/Enemy/EnemyBattle.gd" type="Script" id=2]
 [ext_resource path="res://Battle/Enemy/LONGbar_for_bad_dancers.png" type="Texture" id=4]
 [ext_resource path="res://Battle/Enemy/EnemyHealthBarP1.png" type="Texture" id=5]
 [ext_resource path="res://Battle/Enemy/EnemyHealthBarP2.png" type="Texture" id=6]
 [ext_resource path="res://Battle/Player/white.png" type="Texture" id=7]
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 32, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "default",
-"speed": 4.0
-} ]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 4 )
@@ -60,12 +43,6 @@ tracks/0/keys = {
 [node name="Enemy" type="Node2D"]
 scale = Vector2( 4, 4 )
 script = ExtResource( 2 )
-
-[node name="Sprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 2, 2 )
-frames = SubResource( 7 )
-frame = 1
-playing = true
 
 [node name="EnemyConfBar" type="Node2D" parent="."]
 position = Vector2( 13.5, -32 )

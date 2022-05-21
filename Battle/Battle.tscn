@@ -3,11 +3,13 @@
 [ext_resource path="res://Battle/Player/PlayerBattle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/PlayerSpace.gd" type="Script" id=2]
 [ext_resource path="res://Battle/Battle.gd" type="Script" id=3]
-[ext_resource path="res://Battle/Enemy/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Battle/Enemy/Jellyman.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Battle/ArtAssets/CardBack.png" type="Texture" id=5]
 [ext_resource path="res://Battle/ArtAssets/New_Piskel-2.png_2.png" type="Texture" id=6]
 [ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=7]
-[ext_resource path="res://Battle/ArtAssets/mp-1.png" type="Texture" id=8]
+[ext_resource path="res://Battle/Enemy/Rayman.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Battle/ArtAssets/mp-1.png" type="Texture" id=9]
+
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -102,6 +104,7 @@ tracks/1/keys = {
 [node name="Battle" type="Node"]
 pause_mode = 2
 script = ExtResource( 3 )
+enemies = [ ExtResource( 8 ), ExtResource( 4 ) ]
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false
@@ -176,7 +179,7 @@ valign = 1
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
 
-[node name="Enemy" parent="." instance=ExtResource( 4 )]
+[node name="EnemyPosition" type="Position2D" parent="."]
 position = Vector2( 854, 360 )
 
 [node name="PlayerSpace" type="Node2D" parent="."]
@@ -208,6 +211,5 @@ anims/FadeOut = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 
 [connection signal="pressed" from="UI/Confirm" to="." method="_on_Confirm_pressed"]
-[connection signal="on_death" from="Enemy" to="." method="_on_Enemy_on_death"]
 
 [editable path="Player"]

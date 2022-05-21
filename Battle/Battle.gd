@@ -7,6 +7,8 @@ const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
 onready var playerSpace = $PlayerSpace
 onready var camera = $Camera2D
 
+export(Array, PackedScene) var enemies = []
+
 signal gameOver
 
 func _ready():
@@ -33,7 +35,16 @@ func _ready():
 	turnManager.turn = turnManager.PLAYER_TURN
 	camera.current = true
 	$FadeAnimator.play("Fade")
-	
+	create_new_enemy()
+
+func create_new_enemy():
+	enemies.shuffle()
+	var Enemy = enemies.front()
+	var enemy = Enemy.instance()
+	$EnemyPosition.add_child(enemy)
+	if enemy != null:
+		enemy.connect("on_death", self, "_on_Enemy_on_death")
+
 func _player_turn_started():
 	while $PlayerSpace/Cards.get_child_count() < 5: deal_card() #Change if we need to
 	#update_deck_label()
@@ -70,13 +81,11 @@ func reshuffleDeck():
 func on_Player_died():
 	$Player.queue_free()
 	emit_signal("gameOver")
-	# quit is temp line
 	$FadeAnimator.play("FadeOut")
 	SoundManager.stop_music()
 	yield($FadeAnimator, "animation_finished")
 	get_tree().paused = false
 	get_tree().change_scene("res://MainMenu/LmaoDead.tscn")
-	
 
 func _on_Confirm_pressed():
 	SoundManager.play_ui_sound(load("res://SoundAffects/blipSelect.wav"))
