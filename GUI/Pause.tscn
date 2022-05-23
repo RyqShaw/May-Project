@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=1]
+[ext_resource path="res://GUI/Pause.gd" type="Script" id=2]
+[ext_resource path="res://GUI/OptionsPopup.tscn" type="PackedScene" id=3]
+
+[node name="Pause" type="Popup"]
+margin_right = 416.0
+margin_bottom = 96.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 416.0
+margin_bottom = 96.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -21.0
+margin_right = 125.0
+margin_bottom = 21.0
+alignment = 1
+
+[node name="Resume" type="Button" parent="Panel/HBoxContainer"]
+margin_right = 103.324
+margin_bottom = 42.251
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Resume"
+
+[node name="Option" type="Button" parent="Panel/HBoxContainer"]
+margin_left = 107.0
+margin_right = 198.324
+margin_bottom = 42.251
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Option"
+
+[node name="Quit" type="Button" parent="Panel/HBoxContainer"]
+margin_left = 202.0
+margin_right = 267.324
+margin_bottom = 42.251
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Quit"
+
+[node name="OptionsPopup" parent="." instance=ExtResource( 3 )]
+pause_mode = 2
+
+[connection signal="about_to_show" from="." to="." method="_on_Pause_about_to_show"]
+[connection signal="pressed" from="Panel/HBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Option" to="." method="_on_Option_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="closed" from="OptionsPopup" to="." method="_on_OptionsPopup_closed"]
