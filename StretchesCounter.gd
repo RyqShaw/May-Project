@@ -1,7 +1,7 @@
 extends "res://Battle/SpecialNodes/TurnCounter.gd"
 
 const battleUnits = preload("res://Battle/BattleUnits.tres")
-const stretchIndicator = preload("res://Battle/Player/caffineBuff.tscn")
+const stretchIndicator = preload("res://Battle/Player/DamageUp.tscn")
 var buff
 
 func _ready(): last_turn = 1

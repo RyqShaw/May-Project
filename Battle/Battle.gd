@@ -111,6 +111,7 @@ func _on_Enemy_on_death():
 	$BG.visible = false
 	get_tree().get_root().get_node("BaseLevel/Player/Camera2D").current = true
 	get_tree().get_root().get_node("BaseLevel/CanvasLayer/FadeAnimator").play("Fade")
+	SoundManager.play_music(load("res://Music/OverworldV1.wav"))
 	if get_tree().get_root().get_node("BaseLevel/CanvasLayer/CardPicker") == null:
 		var cardPicker = load("res://GUI/CardPicker.tscn").instance()
 		get_tree().get_root().get_node("BaseLevel/CanvasLayer").add_child(cardPicker)
