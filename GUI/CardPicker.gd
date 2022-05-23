@@ -14,6 +14,7 @@ var crarity3 = 0
 signal card_chosen
 
 func _ready():
+	get_tree().paused = true
 	randomize()
 	#once there is rare and epic cards, implement randomization between which rarity is chosen
 	if randf() < 0.2:
@@ -66,6 +67,7 @@ func _input(event):
 				cardHandler.discardPile = []
 				emit_signal("card_chosen")
 				GlobalInfo.set_deck_size(0)
+				get_tree().paused = false
 				queue_free()
 			CARD2:
 				cardHandler.discardPile.append(cardDB.common_cards[card2])
@@ -73,6 +75,7 @@ func _input(event):
 				cardHandler.discardPile = []
 				emit_signal("card_chosen")
 				GlobalInfo.set_deck_size(0)
+				get_tree().paused = false
 				queue_free()
 			CARD3:
 				cardHandler.discardPile.append(cardDB.common_cards[card3])
@@ -80,6 +83,7 @@ func _input(event):
 				cardHandler.discardPile = []
 				emit_signal("card_chosen")
 				GlobalInfo.set_deck_size(0)
+				get_tree().paused = false
 				queue_free()
 				
 

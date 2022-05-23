@@ -11,3 +11,4 @@ func _ready():
 	
 func set_bar(value):
 	$PlayerConfBar/TextureProgress.value = value
+	$Health.text = str(player.confidence) +"/"+ str(player.max_confidence)
