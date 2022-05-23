@@ -177,9 +177,6 @@ valign = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-frame = 2
-
-[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
 frame = 1
 
 [node name="EnemyPosition" type="Position2D" parent="."]
@@ -195,6 +192,13 @@ position = Vector2( 100, 525 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 640, 360 )
+
+[node name="PlayerBuffs" type="HBoxContainer" parent="."]
+margin_left = 302.0
+margin_top = 133.0
+margin_right = 776.0
+margin_bottom = 158.0
+rect_scale = Vector2( 2, 2 )
 
 [node name="Fade" type="ColorRect" parent="."]
 margin_left = -6.0
@@ -212,13 +216,6 @@ root_node = NodePath("../Fade")
 anims/Fade = SubResource( 3 )
 anims/FadeOut = SubResource( 4 )
 anims/RESET = SubResource( 5 )
-
-[node name="PlayerBuffs" type="HBoxContainer" parent="."]
-margin_left = 302.0
-margin_top = 133.0
-margin_right = 776.0
-margin_bottom = 158.0
-rect_scale = Vector2( 2, 2 )
 
 [connection signal="pressed" from="UI/Confirm" to="." method="_on_Confirm_pressed"]
 
