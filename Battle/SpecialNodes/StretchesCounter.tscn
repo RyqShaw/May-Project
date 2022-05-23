@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Battle/SpecialNodes/TurnCounter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://StretchesCounter.gd" type="Script" id=2]
+
+[node name="StretchesCounter" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[connection signal="tree_entered" from="." to="." method="_on_StretchesCounter_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_StretchesCounter_tree_exited"]

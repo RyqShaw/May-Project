@@ -70,13 +70,13 @@ func _input(event):
 						battleUnits.playerSpace.ReParentCard(self)
 
 func _physics_process(delta):
-	if turnManager.turn == turnManager.ENEMY_TURN:
+	if turnManager.turn == turnManager.ENEMY_TURN or battleUnits.Enemy == null:
 		self.visible = false
 	else:
 		self.visible = true
 	match state:
 		InHand:
-			pass
+			$CardBack.visible = false
 		InPlay:
 			pass
 		InMouse:
@@ -89,6 +89,7 @@ func _physics_process(delta):
 				t += delta/float(in_mouse_time)
 			else:
 				rect_rotation = 0
+				$CardBack.visible = false
 				rect_position = get_global_mouse_position() - (rect_size/2)
 		FocusInHand:
 			if setup:
@@ -111,6 +112,7 @@ func _physics_process(delta):
 					Move_Neighbor_Card(cnum + 2,false,0.75)
 			else:
 				rect_rotation = 0
+				$CardBack.visible = false
 				rect_position = targetpos
 				rect_scale = orig_scale*zoom_size
 		MoveDrawnCardToHand:
@@ -154,6 +156,7 @@ func _physics_process(delta):
 				rect_rotation = targetrot
 				rect_position = targetpos
 				rect_scale = orig_scale
+				$CardBack.visible = false
 				state = InHand
 				t = 0
 
