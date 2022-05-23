@@ -42,6 +42,11 @@ region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "aboveHalf",
+"speed": 5.0
+}, {
 "frames": [  ],
 "loop": true,
 "name": "belowHalf",
@@ -51,17 +56,11 @@ animations = [ {
 "loop": true,
 "name": "belowTen",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "aboveHalf",
-"speed": 5.0
 } ]
 
 [node name="Player" type="AnimatedSprite"]
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
-frame = 2
 playing = true
 script = ExtResource( 4 )
 

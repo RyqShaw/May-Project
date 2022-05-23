@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Levels/ArtAssets/Worldv4/tileset_Worldv4.tres" type="TileSet" id=1]
 [ext_resource path="res://Levels/BaseLevel.gd" type="Script" id=2]
 [ext_resource path="res://Levels/ArtAssets/FloorTile.png" type="Texture" id=3]
+[ext_resource path="res://GUI/Pause.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade"
@@ -67,6 +68,8 @@ script = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource( 4 )]
 
 [node name="FadeAnimator" type="AnimationPlayer" parent="CanvasLayer"]
 root_node = NodePath("../../Fade")

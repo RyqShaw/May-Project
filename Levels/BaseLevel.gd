@@ -10,6 +10,10 @@ var borders = Rect2(1,1,100,50)
 
 onready var tileMap = $TileMap
 
+func _input(event):
+	if Input.is_action_just_pressed("Pause"):
+		$CanvasLayer/Pause.popup_centered()
+
 func _ready():
 	if cardHandler.deck == []: cardHandler.init_starter()
 	randomize()

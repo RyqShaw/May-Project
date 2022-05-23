@@ -11,6 +11,10 @@ export(Array, PackedScene) var enemies = []
 
 signal gameOver
 
+func _input(event):
+	if Input.is_action_just_pressed("Pause"):
+		$Pause.popup_centered()
+
 func _ready():
 	SoundManager.play_music(load("res://Music/BattleSongV1.wav"))
 	$AnimationPlayer.play("Scroll")
