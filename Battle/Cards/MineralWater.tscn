@@ -7,7 +7,7 @@
 [node name="MineralWater" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 moveValue = 2
-card_name = "Mineral Water"
+card_name = "M Water"
 card_cost = 2
 card_info = "Heals 15"
 

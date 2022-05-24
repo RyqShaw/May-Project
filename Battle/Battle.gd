@@ -90,6 +90,7 @@ func on_Player_died():
 	yield($FadeAnimator, "animation_finished")
 	get_tree().paused = false
 	get_tree().change_scene("res://MainMenu/LmaoDead.tscn")
+	queue_free()
 
 func _on_Confirm_pressed():
 	SoundManager.play_ui_sound(load("res://SoundAffects/blipSelect.wav"))
@@ -109,6 +110,7 @@ func _on_Enemy_on_death():
 	yield($FadeAnimator, "animation_finished")
 	$Camera2D.current = false
 	$BG.visible = false
+	$Fade.visible = false
 	get_tree().get_root().get_node("BaseLevel/Player/Camera2D").current = true
 	get_tree().get_root().get_node("BaseLevel/CanvasLayer/FadeAnimator").play("Fade")
 	SoundManager.play_music(load("res://Music/OverworldV3.wav"))
