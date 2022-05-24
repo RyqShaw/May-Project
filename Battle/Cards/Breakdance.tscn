@@ -14,7 +14,7 @@ script = ExtResource( 2 )
 moveValue = 2
 card_name = "Breakdance"
 card_cost = 2
-card_info = "Can hit up to 5 times for 4 CP"
+card_info = "Can hit up to 4 times for 4 CP"
 
 [node name="Card" parent="." index="1"]
 position = Vector2( 0, 0 )

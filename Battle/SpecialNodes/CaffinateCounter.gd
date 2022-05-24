@@ -4,7 +4,7 @@ const battleUnits = preload("res://Battle/BattleUnits.tres")
 const caffineIndicator = preload("res://Battle/Player/caffineBuff.tscn")
 var buff
 
-func _ready(): last_turn = 3
+func _ready(): last_turn = 4
 
 func _on_CaffinateCounter_tree_entered():
 	player.max_moves += 1

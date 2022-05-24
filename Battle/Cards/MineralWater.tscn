@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Battle/ArtAssets/mineralWater.png" type="Texture" id=1]
+[ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Battle/Cards/MineralWater.gd" type="Script" id=3]
+
+[node name="MineralWater" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+moveValue = 2
+card_name = "Mineral Water"
+card_cost = 2
+card_info = "Heals 15"
+
+[node name="Card" parent="." index="1"]
+position = Vector2( 0, 0 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )

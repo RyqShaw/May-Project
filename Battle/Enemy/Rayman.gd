@@ -10,6 +10,9 @@ var attacks = [
 var total = 0.0
 var focus = 0 setget setFocus
 
+func _ready():
+	$AnimatedSprite/HitAnimation.play("RESET")
+
 func attack() -> void:
 	resetProbabilities()
 	setEnemyDamageMod(1.0)
