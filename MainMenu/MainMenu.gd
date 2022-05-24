@@ -7,6 +7,7 @@ func _ready():
 		$"Tutorial Pointer".show()
 	else:
 		$"Tutorial Pointer".hide()
+	if OS.has_feature("web"): $Buttons/Quit.queue_free()
 
 func _on_Option_pressed():
 	$VBoxContainer/OptionsPopup.popup(Rect2(20,48+72,1240,452))
@@ -41,7 +42,8 @@ func _on_Quit_pressed():
 	Save.save_data()
 	SoundManager.play_ui_sound(load("res://SoundAffects/blipSelect.wav"))
 	yield(get_tree().create_timer(0.2), "timeout")
-	get_tree().quit()
+	if OS.has_feature("web"): get_tree().change_scene("res://MainMenu/MainMenu.tscn")
+	else: get_tree().quit()
 
 
 func _on_OptionsPopup_closed():
