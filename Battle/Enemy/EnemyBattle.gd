@@ -60,7 +60,3 @@ func setMovePoints(newPoints):
 
 func is_dead():
 	return confidence <= 0
-
-
-func _on_Enemy_health_lowered():
-	pass # Replace with function body.

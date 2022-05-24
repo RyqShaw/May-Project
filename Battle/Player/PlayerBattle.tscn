@@ -99,6 +99,7 @@ tracks/0/keys = {
 material = SubResource( 13 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
+frame = 2
 playing = true
 script = ExtResource( 4 )
 

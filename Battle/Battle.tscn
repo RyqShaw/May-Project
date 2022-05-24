@@ -180,7 +180,6 @@ valign = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-frame = 3
 
 [node name="EnemyPosition" type="Position2D" parent="."]
 position = Vector2( 854, 360 )
