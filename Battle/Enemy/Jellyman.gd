@@ -9,6 +9,9 @@ var attacks = [
 
 var total = 0.0
 
+func _ready():
+	$AnimatedSprite/HitAnimation.play("RESET")
+
 func attack() -> void:
 	resetProbabilities()
 	setDamageReduction(1.0)
