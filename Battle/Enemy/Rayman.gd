@@ -78,3 +78,9 @@ func confuse():
 
 func setFocus(newFocus):
 	focus = newFocus
+
+func _on_Enemy_health_lowered():
+	$AnimatedSprite/HitAnimation.play("Hit")
+	yield(get_tree().create_timer(0.4), "timeout")
+	$AnimatedSprite/HitAnimation.stop()
+	$AnimatedSprite/HitAnimation.play("RESET")

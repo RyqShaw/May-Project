@@ -16,6 +16,7 @@ onready var confBar = $EnemyConfBar/TextureProgress
 onready var animationPlayer = $AnimationPlayer
 
 signal on_death
+signal health_lowered
 
 func _ready():
 	set_confidence(max_confidence)
@@ -38,6 +39,7 @@ func deal_damage(dmg):
 func take_damage(amount):
 	var dmg = int(amount * damageReduction)
 	self.confidence -= dmg
+	emit_signal("health_lowered")
 	set_confidence(confidence)
 	if is_dead():
 		yield(get_tree().create_timer(0.4), "timeout")
@@ -57,3 +59,7 @@ func setMovePoints(newPoints):
 
 func is_dead():
 	return confidence <= 0
+
+
+func _on_Enemy_health_lowered():
+	pass # Replace with function body.
