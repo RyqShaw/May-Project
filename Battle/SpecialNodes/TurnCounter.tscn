@@ -14,10 +14,12 @@ func _ready():
 	player.connect(\"no_confidence\", self, \"on_Player_died\")
 
 func _iterate_counter():
+	print(\"count\")
 	turn += 1
 	if turn >= last_turn: queue_free()
 
 func on_Player_died():
+	print(\"hello\")
 	queue_free()
 "
 

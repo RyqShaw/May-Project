@@ -11,10 +11,8 @@ func _ready():
 	enemy.connect("on_death", self, "_on_Enemy_on_death")
 
 func _iterate_counter():
-	print("counting")
 	turn += 1
 	if turn >= last_turn: queue_free()
 
 func _on_Enemy_on_death():
-	print("hi")
 	queue_free()

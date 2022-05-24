@@ -71,8 +71,12 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 material = SubResource( 6 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="HitAnimation" type="AnimationPlayer" parent="AnimatedSprite" index="0"]
 anims/Hit = SubResource( 7 )
 anims/RESET = SubResource( 8 )
+
+[node name="emptybar" parent="EnemyConfBar" index="1"]
+frame = 0
