@@ -18,7 +18,8 @@ signal no_confidence()
 signal confidence_changed(value)
 signal max_confidence_changed()
 
-signal speed_changed(value)
+signal lower_conf
+signal higher_conf
 
 signal max_moves_changed
 signal moves_changed
@@ -29,6 +30,11 @@ func set_max_confidence(value):
 	emit_signal("max_confidence_changed", max_confidence)
 
 func set_confidence(value):
+	if confidence > value:
+		emit_signal("lower_conf")
+	if confidence < value:
+		emit_signal("higher_conf")
+		
 	confidence = clamp(value, 0, max_confidence)
 	emit_signal("confidence_changed", confidence)
 	
