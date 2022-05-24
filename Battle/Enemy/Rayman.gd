@@ -59,13 +59,13 @@ func get_attack() -> Dictionary:
 	return {}
 
 func hyperBeam():
-	deal_damage(25)
+	deal_damage(16)
 	setFocus(0)
 	resetProbabilities()
 	setMovePoints(0)
 
 func beam():
-	deal_damage(7)
+	deal_damage(6)
 
 func focus():
 	focus += 1
@@ -77,7 +77,7 @@ func focus():
 				attack.weight = 0
 
 func confuse():
-	setEnemyDamageMod(1.4)
+	setEnemyDamageMod(1.2)
 
 func setFocus(newFocus):
 	focus = newFocus

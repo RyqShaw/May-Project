@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var acceleration = 300
-export var maxSpeed = 58
+export var maxSpeed = 55
 export var friction = 200
 export var wanderTargetRange = 4
 
