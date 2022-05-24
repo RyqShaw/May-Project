@@ -17,17 +17,31 @@ func _ready():
 	get_tree().paused = true
 	randomize()
 	#once there is rare and epic cards, implement randomization between which rarity is chosen
-	if randf() < 0.2:
+	var c1 = randf()
+	var c2 = randf()
+	var c3 = randf()
+	if crarity1 < 0.5:
+		card1 = randi() % cardDB.epic_cards.size()
+		crarity1 = 2
+	elif crarity1 < 0.2:
 		card1 = randi() % cardDB.rare_cards.size()
 		crarity1 = 1
 	else:
 		card1 = randi() % cardDB.common_cards.size()
-	if randf() < 0.2:
+	
+	if crarity2 < 0.5:
+		card2 = randi() % cardDB.epic_cards.size()
+		crarity2 = 2
+	elif crarity2 < 0.2:
 		card2 = randi() % cardDB.rare_cards.size()
 		crarity2 = 1
 	else:
 		card2 = randi() % cardDB.common_cards.size()
-	if randf() < 0.2:
+	
+	if crarity3 < 0.5:
+		card3 = randi() % cardDB.epic_cards.size()
+		crarity3 = 2
+	elif crarity3 < 0.2:
 		card3 = randi() % cardDB.rare_cards.size()
 		crarity3 = 1
 	else:
@@ -46,6 +60,10 @@ func pick_card(card, panel, rarity):
 		panel.get_node("Name").text = cardDB.rare_cards[card]
 		panel.get_node("Cost").text = str(cardDB.rare_cost[card])
 		panel.get_node("Info").text = cardDB.rare_info[card]
+	elif rarity == 2:
+		panel.get_node("Name").text = cardDB.epic_cards[card]
+		panel.get_node("Cost").text = str(cardDB.epic_cost[card])
+		panel.get_node("Info").text = cardDB.epic_info[card]
 	panel.texture = cardHandler.get_card_texture(card, rarity)
 
 
@@ -62,7 +80,12 @@ func _input(event):
 	if event.is_action_pressed("LeftClick"):
 		match selected:
 			CARD1:
-				cardHandler.discardPile.append(cardDB.common_cards[card1])
+				if crarity1 == 0:
+					cardHandler.discardPile.append(cardDB.common_cards[card1])
+				elif crarity1 == 1:
+					cardHandler.discardPile.append(cardDB.rare_cards[card1])
+				elif crarity1 == 2:
+					cardHandler.discardPile.append(cardDB.epic_cards[card1])
 				cardHandler.append_discard()
 				cardHandler.discardPile = []
 				emit_signal("card_chosen")
@@ -70,7 +93,12 @@ func _input(event):
 				get_tree().paused = false
 				queue_free()
 			CARD2:
-				cardHandler.discardPile.append(cardDB.common_cards[card2])
+				if crarity2 == 0:
+					cardHandler.discardPile.append(cardDB.common_cards[card2])
+				elif crarity2 == 1:
+					cardHandler.discardPile.append(cardDB.rare_cards[card2])
+				elif crarity2 == 2:
+					cardHandler.discardPile.append(cardDB.epic_cards[card2])
 				cardHandler.append_discard()
 				cardHandler.discardPile = []
 				emit_signal("card_chosen")
@@ -78,7 +106,12 @@ func _input(event):
 				get_tree().paused = false
 				queue_free()
 			CARD3:
-				cardHandler.discardPile.append(cardDB.common_cards[card3])
+				if crarity3 == 0:
+					cardHandler.discardPile.append(cardDB.common_cards[card3])
+				elif crarity3 == 1:
+					cardHandler.discardPile.append(cardDB.rare_cards[card3])
+				elif crarity3 == 2:
+					cardHandler.discardPile.append(cardDB.epic_cards[card3])
 				cardHandler.append_discard()
 				cardHandler.discardPile = []
 				emit_signal("card_chosen")
