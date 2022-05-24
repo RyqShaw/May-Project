@@ -43,6 +43,11 @@ func get_card_texture(card, rarity) -> Texture:
 			texture = load("res://Battle/ArtAssets/breakdance.png")
 		elif cardDB.rare_cards[card] == "M Water":
 			texture = load("res://Battle/ArtAssets/mineralWater.png")
+			
+	elif rarity == 2:
+		if cardDB.epic_cards[card] == "Fiji Water":
+			print("added fiji")
+			texture = load("res://Battle/ArtAssets/FijiWater.png")
 	return texture
 
 func append_discard():
@@ -70,3 +75,7 @@ func append_discard():
 			deck.append(preload("res://Battle/Cards/Breakdance.tscn").instance())
 		elif each == "M Water":
 			deck.append(preload("res://Battle/Cards/MineralWater.tscn").instance())
+		
+		#epic
+		elif each == "Fiji Water":
+			deck.append(preload("res://Battle/Cards/FijiWater.tscn").instance())
