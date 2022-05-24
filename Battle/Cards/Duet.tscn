@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Battle/Cards/Duet.gd" type="Script" id=1]
+[ext_resource path="res://Battle/ArtAssets/Duet.png" type="Texture" id=2]
+[ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=3]
+
+[node name="Duet" instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+moveValue = 2
+card_name = "Duet"
+card_cost = 2
+card_info = "Card Takes Same Move Twice"
+
+[node name="Card" parent="." index="1"]
+position = Vector2( 0, 0 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )

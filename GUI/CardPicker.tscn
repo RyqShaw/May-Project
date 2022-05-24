@@ -35,11 +35,11 @@ rect_scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
 [node name="Cost" type="Label" parent="Panel/CardChoice1"]
-margin_left = 37.2
-margin_top = 1.2
-margin_right = 47.2
-margin_bottom = 13.2
-rect_scale = Vector2( 0.2, 0.2 )
+margin_left = 33.6667
+margin_top = 56.0
+margin_right = 46.6667
+margin_bottom = 74.0
+rect_scale = Vector2( 0.5, 0.5 )
 theme = ExtResource( 1 )
 text = "3"
 
@@ -74,11 +74,11 @@ rect_scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
 [node name="Cost" type="Label" parent="Panel/CardChoice2"]
-margin_left = 37.2
-margin_top = 1.2
-margin_right = 47.2
-margin_bottom = 13.2
-rect_scale = Vector2( 0.2, 0.2 )
+margin_left = 33.6667
+margin_top = 55.6667
+margin_right = 46.6667
+margin_bottom = 73.6667
+rect_scale = Vector2( 0.5, 0.5 )
 theme = ExtResource( 1 )
 text = "3"
 
@@ -113,11 +113,11 @@ rect_scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
 [node name="Cost" type="Label" parent="Panel/CardChoice3"]
-margin_left = 37.2
-margin_top = 1.2
-margin_right = 47.2
-margin_bottom = 13.2
-rect_scale = Vector2( 0.2, 0.2 )
+margin_left = 34.0
+margin_top = 56.3333
+margin_right = 47.0
+margin_bottom = 74.3333
+rect_scale = Vector2( 0.5, 0.5 )
 theme = ExtResource( 1 )
 text = "3"
 

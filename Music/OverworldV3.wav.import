@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/OverworldV1.wav-703b6668b116e805617355e522cc5cfb.sample"
+path="res://.import/OverworldV3.wav-f82642048f9ba8fae573cbd82b805940.sample"
 
 [deps]
 
-source_file="res://Music/OverworldV1.wav"
-dest_files=[ "res://.import/OverworldV1.wav-703b6668b116e805617355e522cc5cfb.sample" ]
+source_file="res://Music/OverworldV3.wav"
+dest_files=[ "res://.import/OverworldV3.wav-f82642048f9ba8fae573cbd82b805940.sample" ]
 
 [params]
 
