@@ -129,7 +129,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 7 )
 
+[node name="Sprite" type="Sprite" parent="UI"]
+position = Vector2( 100, 525 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+centered = false
+
 [node name="Deck" type="Panel" parent="UI"]
+visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 100.0
@@ -144,11 +151,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.04
 margin_top = 38.928
-
-[node name="Sprite" type="Sprite" parent="UI/Deck"]
-scale = Vector2( 3, 3 )
-texture = ExtResource( 5 )
-centered = false
 
 [node name="Confirm" type="Button" parent="UI"]
 anchor_left = 1.0

@@ -37,11 +37,11 @@ centered = false
 flip_h = true
 
 [node name="Cost" type="Label" parent="Border"]
-margin_left = 37.2
-margin_top = 1.2
-margin_right = 47.2
-margin_bottom = 13.2
-rect_scale = Vector2( 0.2, 0.2 )
+margin_left = 34.0
+margin_top = 55.6667
+margin_right = 47.0
+margin_bottom = 73.6667
+rect_scale = Vector2( 0.5, 0.5 )
 theme = ExtResource( 6 )
 text = "3"
 

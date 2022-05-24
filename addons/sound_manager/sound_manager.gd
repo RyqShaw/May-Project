@@ -26,11 +26,11 @@ func set_default_ui_sound_bus(bus: String) -> void:
 	ui_sound_effects.bus = bus
 
 
-func play_music(resource: AudioStream, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
+func play_music(resource: AudioStream, crossfade_duration: float = 0.0, override_bus: String = "Music") -> AudioStreamPlayer:
 	return music.play(resource, 0.0, crossfade_duration, override_bus)
 
 
-func play_music_at_volume(resource: AudioStream, volume: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
+func play_music_at_volume(resource: AudioStream, volume: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "Music") -> AudioStreamPlayer:
 	return music.play(resource, volume, crossfade_duration, override_bus)
 
 
