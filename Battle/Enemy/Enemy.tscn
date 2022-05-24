@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
+[ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=1]
 [ext_resource path="res://Battle/Enemy/EnemyBattle.gd" type="Script" id=2]
 [ext_resource path="res://Battle/Enemy/LONGbar_for_bad_dancers.png" type="Texture" id=4]
 [ext_resource path="res://Battle/Enemy/EnemyHealthBarP1.png" type="Texture" id=5]
@@ -65,9 +66,19 @@ tint_under = Color( 0.223529, 0.223529, 0.223529, 1 )
 [node name="emptybar" type="AnimatedSprite" parent="EnemyConfBar"]
 position = Vector2( 2, -4 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 1 )
+
+[node name="Health" type="Label" parent="."]
+margin_left = -47.0
+margin_top = -44.0
+margin_right = 12.0
+margin_bottom = -26.0
+rect_scale = Vector2( 0.3, 0.3 )
+theme = ExtResource( 1 )
+text = "50/50"
 
 [connection signal="health_lowered" from="." to="." method="_on_Enemy_health_lowered"]
