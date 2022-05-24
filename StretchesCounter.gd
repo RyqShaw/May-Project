@@ -7,9 +7,13 @@ var buff
 func _ready(): last_turn = 1
 
 func _on_StretchesCounter_tree_entered():
-	var indicator = stretchIndicator.instance()
-	battleUnits.Battle.find_node("PlayerBuffs").add_child(indicator)
-	buff = indicator
+	if not player.damageUp:
+		var indicator = stretchIndicator.instance()
+		battleUnits.Battle.find_node("PlayerBuffs").add_child(indicator)
+		buff = indicator
+		player.damageUp = true
 
 func _on_StretchesCounter_tree_exited():
-	buff.queue_free()
+	if player.damageUp:
+		player.damageUp = false
+		buff.queue_free()

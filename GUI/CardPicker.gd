@@ -104,3 +104,7 @@ func _on_CardChoice2_mouse_exited():
 
 func _on_CardChoice3_mouse_exited():
 	selected = NO_CARD
+
+func _on_Leave_pressed():
+	get_tree().paused = false
+	queue_free()

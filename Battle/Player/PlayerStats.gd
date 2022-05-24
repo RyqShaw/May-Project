@@ -24,6 +24,8 @@ signal higher_conf
 signal max_moves_changed
 signal moves_changed
 
+var damageUp = false
+
 func set_max_confidence(value):
 	max_confidence = value
 	self.confidence = min(max_confidence, max_confidence)
