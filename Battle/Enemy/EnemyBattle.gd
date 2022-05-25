@@ -9,6 +9,7 @@ export(int) var movePoints = 3 setget setMovePoints
 var confidence = max_confidence setget set_confidence
 var damageReduction = 1.0 setget setDamageReduction
 var enemyDamageMod = 1.0 setget setEnemyDamageMod
+var flatDamageReduction = 0 setget setFlatDamageReduction
 
 #export(int) var damage = 5
 
@@ -39,6 +40,7 @@ func deal_damage(dmg):
 
 func take_damage(amount):
 	var dmg = int(amount * damageReduction)
+	dmg = dmg - flatDamageReduction
 	self.confidence -= dmg
 	emit_signal("health_lowered")
 	set_confidence(confidence)
@@ -46,8 +48,8 @@ func take_damage(amount):
 		yield(get_tree().create_timer(0.4), "timeout")
 		emit_signal("on_death")
 		queue_free()
-#	else:
-#		animationPlayer.play("Shake")
+	else:
+		animationPlayer.play("Shake")
 
 func setDamageReduction(value):
 	damageReduction = value
@@ -57,6 +59,9 @@ func setEnemyDamageMod(newMod):
 
 func setMovePoints(newPoints):
 	movePoints = newPoints
+
+func setFlatDamageReduction(value):
+	flatDamageReduction = value
 
 func is_dead():
 	return confidence <= 0
