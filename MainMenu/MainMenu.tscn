@@ -139,7 +139,6 @@ text = "Party in the UFO!"
 align = 1
 
 [node name="OptionsPopup" parent="VBoxContainer" instance=ExtResource( 5 )]
-visible = false
 
 [node name="Buttons" type="HBoxContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -175,23 +174,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 text = "Extras"
 
-[node name="Tutorial Pointer" type="Label" parent="Buttons/Extras"]
-margin_left = -2.0
-margin_top = -64.0
-margin_right = 318.0
-custom_fonts/font = SubResource( 9 )
-text = "Tutorial "
-align = 1
-valign = 1
-
-[node name="Sprite" type="Sprite" parent="Buttons/Extras/Tutorial Pointer"]
-position = Vector2( 64, 32 )
-texture = ExtResource( 7 )
-
-[node name="Sprite2" type="Sprite" parent="Buttons/Extras/Tutorial Pointer"]
-position = Vector2( 256, 32 )
-texture = ExtResource( 7 )
-
 [node name="Quit" type="Button" parent="Buttons"]
 margin_left = 933.0
 margin_right = 1240.0
@@ -200,6 +182,24 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 text = "Quit"
+
+[node name="Tutorial Pointer" type="Label" parent="."]
+margin_left = 640.0
+margin_top = 544.0
+margin_right = 960.0
+margin_bottom = 608.0
+custom_fonts/font = SubResource( 9 )
+text = "Tutorial "
+align = 1
+valign = 1
+
+[node name="Sprite" type="Sprite" parent="Tutorial Pointer"]
+position = Vector2( 64, 32 )
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="Tutorial Pointer"]
+position = Vector2( 256, 32 )
+texture = ExtResource( 7 )
 
 [node name="Fade" type="ColorRect" parent="."]
 anchor_right = 1.0

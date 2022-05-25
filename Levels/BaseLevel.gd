@@ -41,7 +41,7 @@ func generate_level():
 			var enemy = Enemy.instance()
 			add_child(enemy)
 			enemy.position = walker.get_room().position * 32
-			if player.position.distance_to(enemy.position) <= 32 or exit.position.distance_to(enemy.position) <= 256 or enemy.inWall:
+			if player.position.distance_to(enemy.position) <= 32 or exit.position.distance_to(enemy.position) <= 32:
 				enemy.free()
 	
 	walker.queue_free()

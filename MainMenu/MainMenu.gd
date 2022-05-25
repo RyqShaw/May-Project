@@ -4,9 +4,9 @@ func _ready():
 	$FadeAnimator.play("Fade")
 	$AnimationPlayer.play("Scroll")
 	if Save.game_data.first_time == true:
-		$"Buttons/Extras/Tutorial Pointer".show()
+		$"Tutorial Pointer".show()
 	else:
-		$"Buttons/Extras/Tutorial Pointer".hide()
+		$"Tutorial Pointer".hide()
 	if OS.has_feature("web"): $Buttons/Quit.queue_free()
 
 func _on_Option_pressed():
@@ -28,7 +28,7 @@ func _on_Start_pressed():
 
 
 func _on_Extras_pressed():
-	$"Buttons/Extras/Tutorial Pointer".hide()
+	$"Tutorial Pointer".hide()
 	Save.game_data.first_time = false
 	Save.save_data()
 	SoundManager.play_ui_sound(load("res://SoundAffects/blipSelect.wav"))
@@ -37,7 +37,7 @@ func _on_Extras_pressed():
 
 
 func _on_Quit_pressed():
-	$"Buttons/Extras/Tutorial Pointer".hide()
+	$"Tutorial Pointer".hide()
 	Save.game_data.first_time = false
 	Save.save_data()
 	SoundManager.play_ui_sound(load("res://SoundAffects/blipSelect.wav"))

@@ -20,28 +20,28 @@ func _ready():
 	var c1 = randf()
 	var c2 = randf()
 	var c3 = randf()
-	if c1 < 0.05:
+	if crarity1 < 0.05:
 		card1 = randi() % cardDB.epic_cards.size()
 		crarity1 = 2
-	elif c1 < 0.2:
+	elif crarity1 < 0.2:
 		card1 = randi() % cardDB.rare_cards.size()
 		crarity1 = 1
 	else:
 		card1 = randi() % cardDB.common_cards.size()
 	
-	if c2 < 0.05:
+	if crarity2 < 0.05:
 		card2 = randi() % cardDB.epic_cards.size()
 		crarity2 = 2
-	elif c2 < 0.2:
+	elif crarity2 < 0.2:
 		card2 = randi() % cardDB.rare_cards.size()
 		crarity2 = 1
 	else:
 		card2 = randi() % cardDB.common_cards.size()
 	
-	if c3 < 0.05:
+	if crarity3 < 0.05:
 		card3 = randi() % cardDB.epic_cards.size()
 		crarity3 = 2
-	elif c3 < 0.2:
+	elif crarity3 < 0.2:
 		card3 = randi() % cardDB.rare_cards.size()
 		crarity3 = 1
 	else:
