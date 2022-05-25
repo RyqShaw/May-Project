@@ -33,4 +33,6 @@ var rare_cost = [2,
 				 2,
 				2]
 
-var epic_cards = []
+var epic_cards = ["Fiji Water"]
+var epic_info = ["Heals 50% of total Confidence"]
+var epic_cost = [3]
