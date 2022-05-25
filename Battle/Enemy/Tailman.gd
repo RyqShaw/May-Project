@@ -66,6 +66,7 @@ func shield():
 
 func boost():
 	dmgBoost += 1
+	$Boost.text = "+" + str(dmgBoost)
 
 func _on_Enemy_health_lowered():
 	$AnimatedSprite/HitAnimation.play("Hit")

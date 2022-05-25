@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Battle/Enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Enemy/tailman.png" type="Texture" id=2]
 [ext_resource path="res://Battle/Enemy/Tailman.gd" type="Script" id=3]
 [ext_resource path="res://Battle/PlayerBattle.gdshader" type="Shader" id=4]
+[ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=5]
+[ext_resource path="res://Theme/kenvector_future.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 4 )
@@ -65,6 +67,9 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 6 )
+
 [node name="Tailman" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 max_confidence = 40
@@ -79,3 +84,12 @@ playing = true
 [node name="HitAnimation" type="AnimationPlayer" parent="AnimatedSprite" index="0"]
 anims/Hit = SubResource( 7 )
 anims/RESET = SubResource( 8 )
+
+[node name="Boost" type="Label" parent="." index="4"]
+margin_left = -28.75
+margin_top = -50.25
+margin_right = 11.25
+margin_bottom = -32.25
+rect_scale = Vector2( 0.3, 0.3 )
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 9 )

@@ -41,9 +41,10 @@ func deal_damage(dmg):
 func take_damage(amount):
 	var dmg = int(amount * damageReduction)
 	dmg = dmg - flatDamageReduction
-	self.confidence -= dmg
-	emit_signal("health_lowered")
-	set_confidence(confidence)
+	if dmg > 0:
+		self.confidence -= dmg
+		emit_signal("health_lowered")
+		set_confidence(confidence)
 	if is_dead():
 		yield(get_tree().create_timer(0.4), "timeout")
 		emit_signal("on_death")

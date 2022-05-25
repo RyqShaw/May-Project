@@ -1,12 +1,13 @@
 extends "res://Battle/Enemy/EnemyBattle.gd"
 
 var attacks = [
-{"name": "slime", "weight": 15, "accumulated": 15}, 
-{"name": "smack", "weight": 35, "accumulated": 50}, 
-{"name": "concentrate", "weight": 25, "accumulated": 75},
-{"name": "bounce", "weight": 25, "accumulated": 100}
+{"name": "slime", "weight": 11, "accumulated": 11}, 
+{"name": "smack", "weight": 45, "accumulated": 56}, 
+{"name": "concentrate", "weight": 22, "accumulated": 78},
+{"name": "bounce", "weight": 22, "accumulated": 100}
 ]
 
+var playedAttacks = []
 var total = 0.0
 
 func _ready():
@@ -15,6 +16,7 @@ func _ready():
 func attack() -> void:
 	resetProbabilities()
 	setDamageReduction(1.0)
+	playedAttacks = []
 	yield(get_tree().create_timer(0.4), "timeout")
 	for each in movePoints:
 		init_probabilities()
@@ -27,6 +29,7 @@ func attack() -> void:
 			smack()
 		else:
 			bounce()
+		playedAttacks.append(attack.name)
 	#	animationPlayer.play("Attack")
 		SoundManager.play_sound(load("res://SoundAffects/explosion.wav"))
 	#	yield(animationPlayer, "animation_finished")
@@ -35,13 +38,13 @@ func attack() -> void:
 func resetProbabilities() -> void:
 	for attack in attacks:
 		if attack.name == "slime":
-			attack.weight = 15
+			attack.weight = 11
 		elif attack.name == "concentrate":
-			attack.weight = 25
+			attack.weight = 22
 		elif attack.name == "smack":
-			attack.weight = 35
+			attack.weight = 45
 		else:
-			attack.weight = 25
+			attack.weight = 22
 
 func init_probabilities() -> void:
 	total = 0.0
@@ -64,11 +67,19 @@ func slime():
 
 func smack():
 	deal_damage(5)
+	if "smack" in playedAttacks:
+		for attack in attacks:
+			if attack.name == "smack":
+				attack.weight = 0
 
 func concentrate():
 	self.confidence += 3
 	if confidence > max_confidence:
 		set_confidence(max_confidence)
+	if "concentrate" in playedAttacks:
+		for attack in attacks:
+			if attack.name == "concentrate":
+				attack.weight = 0
 
 func bounce():
 	setDamageReduction(0.75)
