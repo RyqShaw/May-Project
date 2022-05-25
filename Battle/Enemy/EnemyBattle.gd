@@ -29,7 +29,7 @@ func _exit_tree():
 func set_confidence(new_confidence):
 	confidence = new_confidence
 	confBar.value = new_confidence
-	$Health.text = str(confidence) +"/"+ str(max_confidence)
+	$Health.text = str(confBar.value) +"/"+ str(max_confidence)
 
 func deal_damage(dmg):
 	var damage = int(dmg * enemyDamageMod)

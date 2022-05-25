@@ -15,6 +15,8 @@ var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
 var state = CHASE
 
+var inWall = false
+
 onready var playerDetectionZone = $PlayerDetection
 onready var wanderController = $WanderController
 onready var sightZone = $SightZone
@@ -48,6 +50,8 @@ func _physics_process(delta):
 func accelerate_towards_point(point, delta):
 	var direction = global_position.direction_to(point)
 	velocity = velocity.move_toward(direction * maxSpeed, acceleration * delta)
+	if velocity.x > 0: $Sprite.flip_h = true
+	else: $Sprite.flip_h = false
 	velocity = move_and_slide(velocity)
 
 func seek_player():
@@ -61,3 +65,7 @@ func update_wander():
 func pick_random_state(state_list):
 	state_list.shuffle()
 	return state_list.pop_front()
+
+
+func _on_InWall_body_entered(body):
+	inWall = true
