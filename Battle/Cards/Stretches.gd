@@ -7,6 +7,6 @@ func action():
 	var battle = battleUnits.Battle
 	if player != null:
 		SoundManager.play_sound(load("res://SoundAffects/powerUp.wav"))
-		player.damage_mod = 1.5
+		player.damage_mod = 1.25
 		var c = stretch.instance()
 		battle.add_child(c)
