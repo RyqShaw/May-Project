@@ -111,6 +111,15 @@ func _on_Enemy_on_death():
 	$Camera2D.current = false
 	$BG.visible = false
 	$Fade.visible = false
+	$UI.visible = false
+	$UI/Sprite.visible = false
+	$UI/Confirm.visible = false
+	$UI/MovePoints.visible = false
+	$Player.visible = false
+	$EnemyPosition.visible = false
+	$PlayerSpace.visible = false
+	$PlayerBuffs.visible = false
+	
 	get_tree().get_root().get_node("BaseLevel/Player/Camera2D").current = true
 	get_tree().get_root().get_node("BaseLevel/CanvasLayer/FadeAnimator").play("Fade")
 	SoundManager.play_music(load("res://Music/OverworldV3.wav"))
