@@ -23,7 +23,7 @@ var common_cost = [1,
 					1,
 					0]
 
-var rare_cards = ["Caffinate",
+var rare_cards = ["Caffeinate",
 				  "Breakdance",
 				"M Water"]
 var rare_info = ["Increases Move Points By 1 for Next 3 Turns",
