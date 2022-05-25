@@ -7,7 +7,7 @@
 [node name="Caffinate" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 moveValue = 2
-card_name = "Caffinate"
+card_name = "Caffeinate"
 card_cost = 2
 card_info = "Next 3 Turns + 1 Move points"
 
