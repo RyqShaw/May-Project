@@ -9,6 +9,7 @@ export(int) var movePoints = 3 setget setMovePoints
 var confidence = max_confidence setget set_confidence
 var damageReduction = 1.0 setget setDamageReduction
 var enemyDamageMod = 1.0 setget setEnemyDamageMod
+var flatDamageReduction = 0 setget setFlatDamageReduction
 
 #export(int) var damage = 5
 
@@ -29,7 +30,7 @@ func _exit_tree():
 func set_confidence(new_confidence):
 	confidence = new_confidence
 	confBar.value = new_confidence
-	$Health.text = str(confidence) +"/"+ str(max_confidence)
+	$Health.text = str(confBar.value) +"/"+ str(max_confidence)
 
 func deal_damage(dmg):
 	var damage = int(dmg * enemyDamageMod)
@@ -39,15 +40,17 @@ func deal_damage(dmg):
 
 func take_damage(amount):
 	var dmg = int(amount * damageReduction)
-	self.confidence -= dmg
-	emit_signal("health_lowered")
-	set_confidence(confidence)
+	dmg = dmg - flatDamageReduction
+	if dmg > 0:
+		self.confidence -= dmg
+		emit_signal("health_lowered")
+		set_confidence(confidence)
 	if is_dead():
 		yield(get_tree().create_timer(0.4), "timeout")
 		emit_signal("on_death")
 		queue_free()
-#	else:
-#		animationPlayer.play("Shake")
+	else:
+		animationPlayer.play("Shake")
 
 func setDamageReduction(value):
 	damageReduction = value
@@ -58,9 +61,8 @@ func setEnemyDamageMod(newMod):
 func setMovePoints(newPoints):
 	movePoints = newPoints
 
+func setFlatDamageReduction(value):
+	flatDamageReduction = value
+
 func is_dead():
 	return confidence <= 0
-
-
-func _on_Enemy_health_lowered():
-	pass # Replace with function body.

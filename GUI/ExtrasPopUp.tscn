@@ -27,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Tutorial" type="Tabs" parent="OptionsPanel/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -70,7 +71,6 @@ Reduce the enemies \"Confidence\" to Win the Battle!
 After a combat, you will be rewarded with a new Card"
 
 [node name="Credits" type="Tabs" parent="OptionsPanel/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -101,12 +101,18 @@ Sharyq Siddiqi
 Yannik Leuz
 Sarai Harper
 
-PlayTesters:
-Ur Mother
-
 Thank You:
-Mr Fuller
-Sharyq's Mom
+Mr Fuller for sponsoring our project
+Sharyq's Mom for tolerating us for a month
+
+Thank you PlayTesters:
+Zarak Siddiqi
+Ben S.
+Julder
+Claudia Roeder-Leuz
+Christian Leuz
+Myles
+squid
 
 Thank You for Playing Our Game, Its all of our first real Big Game Project, so All the Support on it Means the world to us. WE had tons of Fun Making this game, so we Hope You Enjoy it as much as we did making it!"
 

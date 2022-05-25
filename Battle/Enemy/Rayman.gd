@@ -7,6 +7,7 @@ var attacks = [
 {"name": "confuse", "weight": 20, "accumulated": 100}
 ]
 
+var playedAttacks = []
 var total = 0.0
 var focus = 0 setget setFocus
 
@@ -17,6 +18,7 @@ func attack() -> void:
 	resetProbabilities()
 	setEnemyDamageMod(1.0)
 	setMovePoints(3)
+	playedAttacks = []
 	yield(get_tree().create_timer(0.4), "timeout")
 	for each in movePoints:
 		init_probabilities()
@@ -29,6 +31,7 @@ func attack() -> void:
 			focus()
 		else:
 			confuse()
+		playedAttacks.append(attack.name)
 	#	animationPlayer.play("Attack")
 		SoundManager.play_sound(load("res://SoundAffects/explosion.wav"))
 	#	yield(animationPlayer, "animation_finished")
@@ -59,13 +62,17 @@ func get_attack() -> Dictionary:
 	return {}
 
 func hyperBeam():
-	deal_damage(25)
+	deal_damage(16)
 	setFocus(0)
 	resetProbabilities()
 	setMovePoints(0)
 
 func beam():
-	deal_damage(7)
+	deal_damage(6)
+	if "beam" in playedAttacks:
+		for attack in attacks:
+			if attack.name == "beam":
+				attack.weight = 0
 
 func focus():
 	focus += 1
@@ -75,9 +82,17 @@ func focus():
 				attack.weight = 100
 			else:
 				attack.weight = 0
+	if "focus" in playedAttacks:
+		for attack in attacks:
+			if attack.name == "focus":
+				attack.weight = 0
 
 func confuse():
-	setEnemyDamageMod(1.4)
+	setEnemyDamageMod(1.2)
+	if "confuse" in playedAttacks:
+		for attack in attacks:
+			if attack.name == "confuse":
+				attack.weight = 0
 
 func setFocus(newFocus):
 	focus = newFocus
