@@ -5,6 +5,7 @@ const cardDB = preload("res://CardDataBase.tres")
 
 export(Array, PackedScene) var deck = []
 export(Array, PackedScene) var discardPile = []
+var last_card
 
 func init_starter():
 	var cards = []
@@ -24,8 +25,6 @@ func get_card_texture(card, rarity) -> Texture:
 	if rarity == 0:
 		if cardDB.common_cards[card] == "Twirlnado":
 			texture = load("res://Battle/ArtAssets/Twirlnado.png")
-		elif cardDB.common_cards[card] == "Pirouette":
-			texture= load("res://Battle/ArtAssets/pirou.png")
 		elif cardDB.common_cards[card] == "The Whip":
 			texture = load("res://Battle/ArtAssets/TheWhip.png")
 		elif cardDB.common_cards[card] == "Stretches":
@@ -53,15 +52,36 @@ func get_card_texture(card, rarity) -> Texture:
 			texture = load("res://Battle/ArtAssets/TheNaeNae.png")
 	return texture
 
+func append_last_card(each:String):
+	if each == "Twirlnado":
+		deck.append(preload("res://Battle/Cards/Twirlnado.tscn").instance())
+	elif each == "The Whip":
+		deck.append(preload("res://Battle/Cards/The Whip.tscn").instance())
+	elif each == "Stretches":
+		deck.append(preload("res://Battle/Cards/Stretches.tscn").instance())
+	elif each == "Water":
+		deck.append(preload("res://Battle/Cards/Water.tscn").instance())
+	elif each == "Dab":
+		deck.append(preload("res://Battle/Cards/Dab.tscn").instance())
+		
+	#Rare
+	elif each == "Caffeinate":
+		deck.append(preload("res://Battle/Cards/Caffinate.tscn").instance())
+	elif each == "Breakdance":
+		deck.append(preload("res://Battle/Cards/Breakdance.tscn").instance())
+	elif each == "M Water":
+		deck.append(preload("res://Battle/Cards/MineralWater.tscn").instance())
+	
+	#epic
+	elif each == "Fiji Water":
+		deck.append(preload("res://Battle/Cards/FijiWater.tscn").instance())
+	
+
 func append_discard():
 	for each in discardPile:
 		#Common
 		if each == "Twirlnado":
 			deck.append(preload("res://Battle/Cards/Twirlnado.tscn").instance())
-		elif each == "Pirouette":
-			deck.append(preload("res://Battle/Cards/Pirouette.tscn").instance())
-		elif each == "Choreography":
-			deck.append(preload("res://Battle/Cards/Caffinate.tscn").instance())
 		elif each == "The Whip":
 			deck.append(preload("res://Battle/Cards/The Whip.tscn").instance())
 		elif each == "Stretches":

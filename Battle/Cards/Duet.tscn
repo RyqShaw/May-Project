@@ -6,10 +6,9 @@
 
 [node name="Duet" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
-moveValue = 2
 card_name = "Duet"
-card_cost = 2
-card_info = "Card Takes Same Move Twice"
+card_cost = 1
+card_info = "Repeat your last move"
 
 [node name="Card" parent="." index="1"]
 position = Vector2( 0, 0 )
