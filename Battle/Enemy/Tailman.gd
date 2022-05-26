@@ -10,6 +10,7 @@ var total = 0.0
 var dmgBoost = 0
 
 func _ready():
+	dmgBoost = 0
 	$AnimatedSprite/HitAnimation.play("RESET")
 
 func attack() -> void:

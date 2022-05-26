@@ -31,6 +31,8 @@ func attack() -> void:
 			focus()
 		else:
 			confuse()
+		print(attack.name)
+		print(focus)
 		playedAttacks.append(attack.name)
 	#	animationPlayer.play("Attack")
 		SoundManager.play_sound(load("res://SoundAffects/explosion.wav"))
@@ -65,7 +67,6 @@ func hyperBeam():
 	deal_damage(16)
 	setFocus(0)
 	resetProbabilities()
-	setMovePoints(0)
 
 func beam():
 	deal_damage(6)
@@ -82,6 +83,8 @@ func focus():
 				attack.weight = 100
 			else:
 				attack.weight = 0
+	init_probabilities()
+	print(attacks)
 	if "focus" in playedAttacks:
 		for attack in attacks:
 			if attack.name == "focus":
