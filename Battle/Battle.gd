@@ -11,6 +11,8 @@ export(Array, PackedScene) var enemies = []
 
 signal gameOver
 
+var naenae = false
+
 func _input(event):
 	if Input.is_action_just_pressed("Pause"):
 		$Pause.popup_centered()
@@ -61,10 +63,14 @@ func _player_turn_started():
 	player.moves = player.max_moves
 
 func _enemy_turn_started():
-	$UI.hide()
-	var enemy = battleUnits.Enemy
-	if enemy != null:
-		enemy.attack()
+	if not naenae:
+		$UI.hide()
+		var enemy = battleUnits.Enemy
+		if enemy != null:
+			enemy.attack()
+	else:
+		naenae = false
+		turnManager.turn = turnManager.PLAYER_TURN
 
 func create_hand():
 	for i in 4:

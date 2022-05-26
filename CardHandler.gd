@@ -33,6 +33,8 @@ func get_card_texture(card, rarity) -> Texture:
 			texture = load("res://Battle/ArtAssets/Water.png")
 		elif cardDB.common_cards[card] == "Dab":
 			texture = load("res://Battle/ArtAssets/dab.png")
+		elif cardDB.common_cards[card] == "Running Man":
+			texture = load("res://Battle/ArtAssets/dab.png")
 
 	#Rare
 	elif rarity == 1:
@@ -45,8 +47,9 @@ func get_card_texture(card, rarity) -> Texture:
 			
 	elif rarity == 2:
 		if cardDB.epic_cards[card] == "Fiji Water":
-			print("added fiji")
 			texture = load("res://Battle/ArtAssets/FijiWater.png")
+		if cardDB.epic_cards[card] == "Nae Nae":
+			texture = load("res://Battle/ArtAssets/TheNaeNae.png")
 	return texture
 
 func append_last_card(each:String):
@@ -87,6 +90,8 @@ func append_discard():
 			deck.append(preload("res://Battle/Cards/Water.tscn").instance())
 		elif each == "Dab":
 			deck.append(preload("res://Battle/Cards/Dab.tscn").instance())
+		elif each == "Running Man":
+			deck.append(preload("res://Battle/Cards/RunningMan.tscn").instance())
 		
 		#Rare
 		elif each == "Caffeinate":
@@ -99,3 +104,5 @@ func append_discard():
 		#epic
 		elif each == "Fiji Water":
 			deck.append(preload("res://Battle/Cards/FijiWater.tscn").instance())
+		elif each == "Nae Nae":
+			deck.append(preload("res://Battle/Cards/TheNaeNae.tscn").instance())
