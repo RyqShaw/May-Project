@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Battle/Player/PlayerBattle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/PlayerSpace.gd" type="Script" id=2]
@@ -7,8 +7,10 @@
 [ext_resource path="res://Battle/ArtAssets/CardBack.png" type="Texture" id=5]
 [ext_resource path="res://Battle/ArtAssets/New_Piskel-2.png_2.png" type="Texture" id=6]
 [ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=7]
+[ext_resource path="res://Battle/Enemy/Rayman.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Battle/ArtAssets/mp-1.png" type="Texture" id=9]
 [ext_resource path="res://GUI/Pause.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Battle/Enemy/Tailman.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -103,7 +105,7 @@ tracks/1/keys = {
 [node name="Battle" type="Node"]
 pause_mode = 2
 script = ExtResource( 3 )
-enemies = [ ExtResource( 4 ) ]
+enemies = [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 11 ) ]
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false
@@ -179,7 +181,10 @@ valign = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-frame = 0
+frame = 1
+
+[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
+frame = 1
 
 [node name="EnemyPosition" type="Position2D" parent="."]
 position = Vector2( 854, 360 )

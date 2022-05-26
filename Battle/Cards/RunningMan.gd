@@ -1,7 +1,7 @@
 extends "res://Battle/Cards/BaseCard/CardBase.gd"
 
 func _ready():
-	$Border/Name.rect_scale = 0.25
+	$Border/Name.rect_scale = $Border/Name.rect_scale/1.5
 
 func action():
 	var enemy = battleUnits.Enemy
