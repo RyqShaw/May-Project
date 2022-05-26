@@ -63,7 +63,7 @@ func kick():
 	deal_damage(damage)
 
 func shield():
-	setFlatDamageReduction(4)
+	setFlatDamageReduction(3)
 
 func boost():
 	dmgBoost += 1

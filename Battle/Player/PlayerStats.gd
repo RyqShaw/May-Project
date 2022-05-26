@@ -12,7 +12,7 @@ var moves = max_moves setget set_moves
 export var default_resistance = 0
 var resistance = default_resistance
 export var default_damage_mod = 1
-var damage_mod = default_resistance
+var damage_mod = default_damage_mod
 
 signal no_confidence()
 signal confidence_changed(value)
