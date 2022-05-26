@@ -12,6 +12,7 @@ export(Array, PackedScene) var enemies = []
 signal gameOver
 
 var naenae = false
+var last_card:String
 
 func _input(event):
 	if Input.is_action_just_pressed("Pause"):
@@ -143,3 +144,7 @@ func _on_Enemy_on_death():
 		cardHandler.discardPile.append(card.card_name)
 	reshuffleDeck()
 	queue_free()
+
+func append_last_card():
+	cardHandler.append_last_card(last_card)
+	deal_card()
