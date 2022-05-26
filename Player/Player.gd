@@ -9,7 +9,7 @@ var velocity = Vector2.ZERO
 onready var sprite = $AnimatedSprite
 
 func _ready():
-	$RichTextLabel.text = "Room: " + str(GlobalInfo.rooms)
+	$RichTextLabel.text = "Floor: " + str(GlobalInfo.rooms)
 	update_deck_label()
 	GlobalInfo.connect("deck_changed",self,"update_deck_label")
 

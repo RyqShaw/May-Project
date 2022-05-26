@@ -68,7 +68,7 @@ margin_right = -64.0
 margin_bottom = -61.0
 rect_scale = Vector2( 0.5, 0.5 )
 theme = ExtResource( 4 )
-text = "Room: "
+text = "Floor: "
 
 [node name="Deck Size" type="RichTextLabel" parent="."]
 margin_left = -150.0
