@@ -7,4 +7,4 @@ func action():
 	if battle != null:
 		SoundManager.play_sound(load("res://SoundAffects/powerUp.wav"))
 		var c = caffinate.instance()
-		battle.add_child(c)
+		battle.get_node("PlayerCounters").add_child(c)
