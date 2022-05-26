@@ -202,6 +202,13 @@ offset = Vector2( 640, 360 )
 
 [node name="PlayerCounters" type="Node" parent="."]
 
+[node name="EnemyBuffs" type="HBoxContainer" parent="."]
+margin_left = 734.0
+margin_top = 125.0
+margin_right = 1208.0
+margin_bottom = 150.0
+rect_scale = Vector2( 2, 2 )
+
 [node name="PlayerBuffs" type="HBoxContainer" parent="."]
 margin_left = 302.0
 margin_top = 133.0
