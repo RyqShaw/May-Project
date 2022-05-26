@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Battle/ArtAssets/arrows__3-2.png.png" type="Texture" id=1]
+[ext_resource path="res://Battle/Player/Buff.tscn" type="PackedScene" id=2]
+
+[node name="DamageDown" instance=ExtResource( 2 )]
+texture = ExtResource( 1 )
