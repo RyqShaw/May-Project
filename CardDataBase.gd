@@ -22,12 +22,15 @@ var common_cost = [1,
 
 var rare_cards = ["Caffeinate",
 				  "Breakdance",
-				"M Water"]
+				"M Water",
+				"Drop It Down"]
 var rare_info = ["Increases Move Points By 1 for Next 3 Turns",
 				 "Can hit up to 4 times",
-				"Heals for 15"]
+				"Heals for 15",
+				"Does 5 CP Enemy takes 50% more CP for 2 turns"]
 var rare_cost = [2,
 				 2,
+				2,
 				2]
 
 var epic_cards = ["Fiji Water",
