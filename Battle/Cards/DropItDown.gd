@@ -1,6 +1,6 @@
 extends "res://Battle/Cards/BaseCard/CardBase.gd"
 
-const dropItDown = preload("res://Battle/SpecialNodes/CaffinateCounter.tscn")
+const dropItDown = preload("res://Battle/SpecialNodes/DropItDownCounter.tscn")
 
 func action():
 	var enemy = battleUnits.Enemy

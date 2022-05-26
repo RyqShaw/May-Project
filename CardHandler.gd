@@ -5,7 +5,6 @@ const cardDB = preload("res://CardDataBase.tres")
 
 export(Array, PackedScene) var deck = []
 export(Array, PackedScene) var discardPile = []
-var last_card
 
 func init_starter():
 	var cards = []
@@ -34,7 +33,7 @@ func get_card_texture(card, rarity) -> Texture:
 		elif cardDB.common_cards[card] == "Dab":
 			texture = load("res://Battle/ArtAssets/dab.png")
 		elif cardDB.common_cards[card] == "Running Man":
-			texture = load("res://Battle/ArtAssets/dab.png")
+			texture = load("res://Battle/ArtAssets/runninMan.png")
 
 	#Rare
 	elif rarity == 1:
@@ -44,6 +43,8 @@ func get_card_texture(card, rarity) -> Texture:
 			texture = load("res://Battle/ArtAssets/breakdance.png")
 		elif cardDB.rare_cards[card] == "M Water":
 			texture = load("res://Battle/ArtAssets/mineralWater.png")
+		elif cardDB.rare_cards[card] == "Drop It Down":
+			texture = load("res://Battle/ArtAssets/Duet.png")
 			
 	elif rarity == 2:
 		if cardDB.epic_cards[card] == "Fiji Water":
@@ -75,7 +76,6 @@ func append_last_card(each:String):
 	#epic
 	elif each == "Fiji Water":
 		deck.append(preload("res://Battle/Cards/FijiWater.tscn").instance())
-	
 
 func append_discard():
 	for each in discardPile:
@@ -100,6 +100,8 @@ func append_discard():
 			deck.append(preload("res://Battle/Cards/Breakdance.tscn").instance())
 		elif each == "M Water":
 			deck.append(preload("res://Battle/Cards/MineralWater.tscn").instance())
+		elif each == "Drop It Down":
+			deck.append(preload("res://Battle/Cards/DropItDown.tscn").instance())
 		
 		#epic
 		elif each == "Fiji Water":
