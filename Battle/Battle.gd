@@ -119,6 +119,10 @@ func _on_Enemy_on_death():
 	$EnemyPosition.visible = false
 	$PlayerSpace.visible = false
 	$PlayerBuffs.visible = false
+#	for x in $PlayerBuffs.get_children():
+#		x.queue_free()
+	for x in $PlayerCounters.get_children():
+		x.queue_free()
 	
 	get_tree().get_root().get_node("BaseLevel/Player/Camera2D").current = true
 	get_tree().get_root().get_node("BaseLevel/CanvasLayer/FadeAnimator").play("Fade")

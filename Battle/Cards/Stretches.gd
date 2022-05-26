@@ -9,4 +9,4 @@ func action():
 		SoundManager.play_sound(load("res://SoundAffects/powerUp.wav"))
 		player.damage_mod = 1.25
 		var c = stretch.instance()
-		battle.add_child(c)
+		battle.get_node("PlayerCounters").add_child(c)

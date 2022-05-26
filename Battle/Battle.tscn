@@ -179,10 +179,7 @@ valign = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 426, 360 )
-frame = 3
-
-[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
-frame = 1
+frame = 0
 
 [node name="EnemyPosition" type="Position2D" parent="."]
 position = Vector2( 854, 360 )
@@ -197,6 +194,8 @@ position = Vector2( 100, 525 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 640, 360 )
+
+[node name="PlayerCounters" type="Node" parent="."]
 
 [node name="PlayerBuffs" type="HBoxContainer" parent="."]
 margin_left = 302.0
