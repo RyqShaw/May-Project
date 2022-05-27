@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Battle/Cards/Stumble.gd" type="Script" id=2]
+[ext_resource path="res://Battle/ArtAssets/trashd-2.png.png" type="Texture" id=3]
+
+[node name="Stumble" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+moveValue = 0
+card_name = "Stumble"
+card_info = "You whiff your step"
+
+[node name="Card" parent="." index="1"]
+position = Vector2( 0, 0 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
