@@ -8,6 +8,7 @@ onready var playerSpace = $PlayerSpace
 onready var camera = $Camera2D
 
 export(Array, PackedScene) var enemies = []
+export var song = preload("res://Music/BattleSongV1.wav")
 
 signal gameOver
 
@@ -19,7 +20,7 @@ func _input(event):
 		$Pause.popup_centered()
 
 func _ready():
-	SoundManager.play_music(load("res://Music/BattleSongV1.wav"))
+	SoundManager.play_music(song)
 	$AnimationPlayer.play("Scroll")
 	randomize()
 	$UI.hide()
