@@ -56,7 +56,7 @@ func generate_level():
 
 func reload_level():
 	GlobalInfo.rooms += 1
-	if not GlobalInfo.rooms % 10 == 0:
+	if not GlobalInfo.rooms % 7 == 0:
 		get_tree().reload_current_scene()
 		get_tree().change_scene("res://Levels/BaseLevel.tscn")
 	else: 

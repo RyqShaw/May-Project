@@ -1,16 +1,62 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Levels/ArtAssets/myuu.png" type="Texture" id=1]
+[ext_resource path="res://Levels/BossTrigger.gd" type="Script" id=2]
+[ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=3]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20, 20 )
+extents = Vector2( 7, 10.5 )
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 48.0
 
 [node name="BossTrigger" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 1.5 )
 shape = SubResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-color = Color( 0.721569, 0.0705882, 0.0705882, 1 )
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -62.0
+margin_top = -59.0
+margin_right = 191.0
+margin_bottom = 1.0
+rect_scale = Vector2( 0.5, 0.5 )
+theme = ExtResource( 3 )
+text = "If you want to go home,  You owe me one more dance"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 5 )
+
+[connection signal="body_entered" from="." to="." method="_on_BossTrigger_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
