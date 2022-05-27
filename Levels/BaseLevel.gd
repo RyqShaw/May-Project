@@ -56,8 +56,11 @@ func generate_level():
 
 func reload_level():
 	GlobalInfo.rooms += 1
-	get_tree().reload_current_scene()
-	get_tree().change_scene("res://Levels/BaseLevel.tscn")
+	if not GlobalInfo.rooms % 10 == 0:
+		get_tree().reload_current_scene()
+		get_tree().change_scene("res://Levels/BaseLevel.tscn")
+	else: 
+		get_tree().change_scene("res://Levels/BossLevel.tscn")
 #func _input(event):
 #	if event.is_action_pressed("ui_accept"):
 #		get_tree().reload_current_scene()
