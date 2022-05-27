@@ -1,5 +1,7 @@
 extends "res://Battle/Enemy/EnemyBattle.gd"
 
+const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
+
 var attacks = [
 {"name": "slime", "weight": 11, "accumulated": 11}, 
 {"name": "smack", "weight": 45, "accumulated": 56}, 
@@ -60,7 +62,7 @@ func get_attack() -> Dictionary:
 	return {}
 
 func slime():
-	#give player junk card
+	cardHandler.deck.append(preload("res://Battle/Cards/Stumble.tscn").instance())
 	for attack in attacks:
 		if attack.name == "slime":
 			attack.weight = 0

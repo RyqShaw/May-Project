@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Battle/SpecialNodes/DistractCounter.gd" type="Script" id=1]
+
+[node name="DistractCounter" type="Node"]
+script = ExtResource( 1 )
+
+[connection signal="tree_entered" from="." to="." method="_on_DistractCounter_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_DistractCounter_tree_exited"]

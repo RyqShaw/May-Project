@@ -1,5 +1,8 @@
 extends "res://Battle/Enemy/EnemyBattle.gd"
 
+const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
+const distraction = preload("res://Battle/SpecialNodes/DistractCounter.tscn")
+
 var attacks = [
 {"name": "whip", "weight": 20, "accumulated": 20}, 
 {"name": "kick", "weight": 50, "accumulated": 70}, 
@@ -87,9 +90,7 @@ func shield():
 	setFlatDamageReduction(10)
 
 func slowDown():
-	#give player junk card
-	print("junk card")
-	pass
+	cardHandler.deck.append(preload("res://Battle/Cards/Stumble.tscn").instance())
 
 func whip():
 	deal_damage(6)
@@ -100,9 +101,9 @@ func kick():
 	deal_damage(damage)
 
 func distract():
-	#decrease MP
-	print("MP down")
-	pass
+	var battle = battleUnits.Battle
+	var c = distraction.instance()
+	battle.get_node("PlayerCounters").add_child(c)
 
 func hydrate():
 	self.confidence += 2
