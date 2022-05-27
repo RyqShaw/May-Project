@@ -9,7 +9,7 @@ script = ExtResource( 3 )
 moveValue = 2
 card_name = "M Water"
 card_cost = 2
-card_info = "Heals 15"
+card_info = "Heals 15 CP"
 
 [node name="Card" parent="." index="1"]
 position = Vector2( 0, 0 )
