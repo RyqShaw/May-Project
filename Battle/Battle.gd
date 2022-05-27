@@ -126,6 +126,7 @@ func _on_Enemy_on_death():
 	$EnemyPosition.visible = false
 	$PlayerSpace.visible = false
 	$PlayerBuffs.visible = false
+	$EnemyBuffs.visible = false
 #	for x in $PlayerBuffs.get_children():
 #		x.queue_free()
 	for x in $PlayerCounters.get_children():
