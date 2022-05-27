@@ -80,7 +80,6 @@ script = ExtResource( 2 )
 material = SubResource( 8 )
 position = Vector2( -123.75, -57.75 )
 frames = SubResource( 7 )
-frame = 3
 playing = true
 offset = Vector2( 123.75, 57.75 )
 __meta__ = {
@@ -90,3 +89,6 @@ __meta__ = {
 [node name="HitAnimation" type="AnimationPlayer" parent="AnimatedSprite" index="0"]
 anims/Hit = SubResource( 9 )
 anims/RESET = SubResource( 10 )
+
+[node name="emptybar" parent="EnemyConfBar" index="1"]
+frame = 0
