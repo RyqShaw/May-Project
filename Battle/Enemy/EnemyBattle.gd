@@ -49,8 +49,6 @@ func take_damage(amount):
 		yield(get_tree().create_timer(0.4), "timeout")
 		emit_signal("on_death")
 		queue_free()
-	else:
-		animationPlayer.play("Shake")
 
 func setDamageReduction(value):
 	damageReduction = value

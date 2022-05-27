@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Battle/Enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Battle/Enemy/Girlfriend.gd" type="Script" id=2]
+[ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=3]
+[ext_resource path="res://Theme/kenvector_future.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 4 )
+
+[node name="Girlfriend" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+max_confidence = 100
+movePoints = 2
+
+[node name="Boost" type="Label" parent="." index="3"]
+margin_left = -28.75
+margin_top = -50.25
+margin_right = 11.25
+margin_bottom = -32.25
+rect_scale = Vector2( 0.3, 0.3 )
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
