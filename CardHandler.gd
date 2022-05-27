@@ -44,7 +44,7 @@ func get_card_texture(card, rarity) -> Texture:
 		elif cardDB.rare_cards[card] == "M Water":
 			texture = load("res://Battle/ArtAssets/mineralWater.png")
 		elif cardDB.rare_cards[card] == "Drop It Down":
-			texture = load("res://Battle/ArtAssets/Duet.png")
+			texture = load("res://Battle/ArtAssets/dropit.png")
 			
 	elif rarity == 2:
 		if cardDB.epic_cards[card] == "Fiji Water":

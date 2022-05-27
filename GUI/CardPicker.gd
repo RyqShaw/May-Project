@@ -54,18 +54,24 @@ func _ready():
 func pick_card(card, panel, rarity):
 	if rarity == 0:
 		panel.get_node("Name").text = cardDB.common_cards[card]
+		nameResize(panel,cardDB.common_cards[card])
 		panel.get_node("Cost").text = str(cardDB.common_cost[card])
 		panel.get_node("Info").text = cardDB.common_info[card]
 	elif rarity == 1:
 		panel.get_node("Name").text = cardDB.rare_cards[card]
+		nameResize(panel,cardDB.rare_cards[card])
 		panel.get_node("Cost").text = str(cardDB.rare_cost[card])
 		panel.get_node("Info").text = cardDB.rare_info[card]
 	elif rarity == 2:
 		panel.get_node("Name").text = cardDB.epic_cards[card]
+		nameResize(panel,cardDB.epic_cards[card])
 		panel.get_node("Cost").text = str(cardDB.epic_cost[card])
 		panel.get_node("Info").text = cardDB.epic_info[card]
 	panel.texture = cardHandler.get_card_texture(card, rarity)
 
+func nameResize(panel,name):
+	if name == "Drop It Down" or name == "Running Man":
+		panel.get_node("Name").rect_scale = panel.get_node("Name").rect_scale/1.2
 
 enum {
 	NO_CARD,

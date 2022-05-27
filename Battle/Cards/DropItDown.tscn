@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Cards/DropItDown.gd" type="Script" id=2]
+[ext_resource path="res://Battle/ArtAssets/dropit.png" type="Texture" id=3]
 
 [node name="DropItDown" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -9,3 +10,8 @@ moveValue = 2
 card_name = "Drop It Down"
 card_cost = 2
 card_info = "Does 5 CP Enemy takes 50% more CP for 2 turns"
+
+[node name="Card" parent="." index="1"]
+position = Vector2( 0, 0 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
