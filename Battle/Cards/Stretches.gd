@@ -8,6 +8,6 @@ func action():
 	if player != null:
 		SoundManager.play_sound(load("res://SoundAffects/powerUp.wav"))
 		if player.enemyWeakened == false:
-			player.damage_mod = 1.25
+			player.damage_mod = 1.5
 		var c = stretch.instance()
 		battle.get_node("PlayerCounters").add_child(c)
