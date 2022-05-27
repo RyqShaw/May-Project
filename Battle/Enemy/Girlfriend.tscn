@@ -13,6 +13,20 @@ script = ExtResource( 2 )
 max_confidence = 100
 movePoints = 2
 
+[node name="TextureProgress" parent="EnemyConfBar" index="0"]
+max_value = 100.0
+value = 100.0
+
+[node name="emptybar" parent="EnemyConfBar" index="1"]
+frame = 0
+
+[node name="Health" parent="." index="2"]
+margin_left = -51.5
+margin_top = -44.25
+margin_right = 21.5
+margin_bottom = -26.25
+text = "100/100"
+
 [node name="Boost" type="Label" parent="." index="3"]
 margin_left = -28.75
 margin_top = -50.25

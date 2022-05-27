@@ -82,7 +82,6 @@ func focus():
 			else:
 				attack.weight = 0
 	init_probabilities()
-	print(attacks)
 	if "focus" in playedAttacks:
 		for attack in attacks:
 			if attack.name == "focus":

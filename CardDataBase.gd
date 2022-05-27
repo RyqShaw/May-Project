@@ -7,11 +7,11 @@ var common_cards = ["Stretches",
 					"Water",
 					"Dab",
 					"Running Man"]
-var common_info = ["Increases Damage by 25% for Turn",
+var common_info = ["Increases Damage by 50% for Turn",
 					"Does 4  CP Resistance is 5 CP",
 					"Does 7 CP",
-					"Heals 5",
-					"Deals 2 CP",
+					"Heals 5 CP",
+					"Deals 3 CP",
 					"Negates 8 CP"]
 var common_cost = [1,
 					1,
@@ -22,11 +22,11 @@ var common_cost = [1,
 
 var rare_cards = ["Caffeinate",
 				  "Breakdance",
-				"M Water",
+				"Mineral Water",
 				"Drop It Down"]
 var rare_info = ["Increases Move Points By 1 for Next 3 Turns",
 				 "Can hit up to 4 times",
-				"Heals for 15",
+				"Heals 15 CP",
 				"Does 5 CP Enemy takes 50% more CP for 2 turns"]
 var rare_cost = [2,
 				 2,
