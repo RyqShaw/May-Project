@@ -2,22 +2,22 @@ extends Resource
 class_name CardDataBase
 
 var common_cards = ["Stretches",
-#					"Twirlnado",
-#					"The Whip",
-#					"Water",
-#					"Dab",
+					"Twirlnado",
+					"The Whip",
+					"Water",
+					"Dab",
 					"Running Man"]
 var common_info = ["Increases Damage by 25% for Turn",
-#					"Does 4  CP Resistance is 5 CP",
-#					"Does 7 CP",
-#					"Heals 5",
-#					"Deals 2 CP",
+					"Does 4  CP Resistance is 5 CP",
+					"Does 7 CP",
+					"Heals 5",
+					"Deals 2 CP",
 					"Negates 8 CP"]
 var common_cost = [1,
-#					1,
-#					1,
-#					1,
-#					0,
+					1,
+					1,
+					1,
+					0,
 					1]
 
 var rare_cards = ["Caffeinate",
