@@ -3,7 +3,7 @@ extends Control
 func _ready():
 	$FadeAnimator.play("Fade")
 	GlobalInfo.reset_info()
-	if OS.has_feature("web"): get_tree().change_scene("res://MainMenu/MainMenu.tscn")
+	if OS.has_feature("web"): $HBoxContainer/Quit.queue_free()
 
 func _on_Main_Menu_pressed():
 	SoundManager.play_ui_sound(load("res://SoundAffects/blipSelect.wav"))
