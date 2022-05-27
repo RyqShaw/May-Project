@@ -31,8 +31,6 @@ func attack() -> void:
 			focus()
 		else:
 			confuse()
-		print(attack.name)
-		print(focus)
 		playedAttacks.append(attack.name)
 	#	animationPlayer.play("Attack")
 		SoundManager.play_sound(load("res://SoundAffects/explosion.wav"))
