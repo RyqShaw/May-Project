@@ -57,7 +57,8 @@ func _player_turn_started():
 	#update_deck_label()
 	var player = battleUnits.Player
 	player.resistance = player.default_resistance
-	player.damage_mod = player.default_damage_mod
+	if player.enemyWeakened == false:
+		player.damage_mod = player.default_damage_mod
 	if player.confidence == 0:
 		on_Player_died()
 	$UI.show()

@@ -11,7 +11,8 @@ func _on_DropItDownCounter_tree_entered():
 	var indicator = weakIndicator.instance()
 	battleUnits.Battle.find_node("EnemyBuffs").add_child(indicator)
 	debuff = indicator
+	player.enemyWeakened = true
 
 func _on_DropItDownCounter_tree_exited():
-	player.damage_mod = 1.0
+	player.enemyWeakened = false
 	debuff.queue_free()
