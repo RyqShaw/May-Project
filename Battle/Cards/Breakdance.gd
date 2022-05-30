@@ -10,5 +10,5 @@ func action():
 		for i in 4:
 			if randf() < 0.75:
 				SoundManager.play_sound(load("res://SoundAffects/explosion.wav"))
-				enemy.take_damage(4*player.damage_mod)
-#				yield(get_tree().create_timer(0.1), "timeout")
+				enemy.take_damage(4*player.damage_mod*player.damageDouble)
+		player.damageDouble = 1

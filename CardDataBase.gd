@@ -7,21 +7,24 @@ var common_cards = ["Stretches",
 					"Water",
 					"Dab",
 					"Running Man",
-					"Cha Cha"]
+					"Cha Cha",
+					"Choreography"]
 var common_info = ["Increases Damage by 50% for Turn",
 					"Does 4  CP Resistance is 5 CP",
 					"Does 7 CP",
 					"Heals 5 CP",
 					"Deals 3 CP",
 					"Negates 8 CP",
-					"Decreases Enemy damage by 30%"]
+					"Decreases Enemy damage by 30%",
+					"Double dmg of next card"]
 var common_cost = [1,
 					1,
 					1,
 					1,
 					0,
 					1,
-					1]
+					1,
+					2]
 
 var rare_cards = ["Caffeinate",
 				  "Breakdance",
