@@ -28,6 +28,7 @@ var damageUp = false
 var shieldUp = false
 var enemyWeakened = false
 var enemyDmgDown = false
+var damageDouble = 1
 
 func set_max_confidence(value):
 	max_confidence = value
