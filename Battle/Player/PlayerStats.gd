@@ -27,6 +27,7 @@ signal moves_changed
 var damageUp = false
 var shieldUp = false
 var enemyWeakened = false
+var enemyDmgDown = false
 
 func set_max_confidence(value):
 	max_confidence = value
