@@ -70,7 +70,7 @@ func pick_card(card, panel, rarity):
 	panel.texture = cardHandler.get_card_texture(card, rarity)
 
 func nameResize(panel,name):
-	if name == "Drop It Down" or name == "Running Man":
+	if name == "Drop It Down" or name == "Running Man" or name == "Breakdance":
 		panel.get_node("Name").rect_scale = panel.get_node("Name").rect_scale/1.2
 	elif name == "Mineral Water":
 		panel.get_node("Name").rect_scale = panel.get_node("Name").rect_scale/1.5

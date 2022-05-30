@@ -16,7 +16,8 @@ func _on_ChaChaCounter_tree_entered():
 		player.enemyDmgDown = true
 
 func _on_ChaChaCounter_tree_exited():
-	if player.enemyDmgDown:
+	var enemy  = battleUnits.Enemy
+	if player.enemyDmgDown and enemy != null:
 		enemy.setOtherDamageMod(1.0)
 		player.enemyDmgDown = false
 		buff.queue_free()
