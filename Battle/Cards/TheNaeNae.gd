@@ -1,6 +1,6 @@
 extends "res://Battle/Cards/BaseCard/CardBase.gd"
 
-const naeNaeCount = preload("res://Battle/SpecialNodes/DistractCounter.tscn")
+const naeNaeCount = preload("res://Battle/SpecialNodes/NaeNaeCounter.tscn")
 
 func action():
 	var battle = battleUnits.Battle

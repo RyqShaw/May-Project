@@ -66,8 +66,9 @@ func shield():
 	setFlatDamageReduction(3)
 
 func boost():
-	dmgBoostTM += 1
-	$Boost.text = "+" + str(dmgBoostTM)
+	if randf() < 0.9:
+		dmgBoostTM += 1
+		$Boost.text = "+" + str(dmgBoostTM)
 
 func _on_Enemy_health_lowered():
 	$AnimatedSprite/HitAnimation.play("Hit")

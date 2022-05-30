@@ -70,7 +70,7 @@ func setOtherDamageMod(value):
 	otherDamageMod = value
 
 func setDmgBoost(value):
-	dmgBoost = value
+	dmgBoost += value
 
 func is_dead():
 	return confidence <= 0
