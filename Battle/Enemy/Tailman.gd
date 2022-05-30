@@ -7,10 +7,10 @@ var attacks = [
 ]
 
 var total = 0.0
-var dmgBoost = 0
+var dmgBoostTM = 0
 
 func _ready():
-	dmgBoost = 0
+	dmgBoostTM = 0
 	$AnimatedSprite/HitAnimation.play("RESET")
 
 func attack() -> void:
@@ -59,15 +59,15 @@ func whip():
 	pass
 
 func kick():
-	var damage = 2 + dmgBoost
+	var damage = 2 + dmgBoostTM
 	deal_damage(damage)
 
 func shield():
 	setFlatDamageReduction(3)
 
 func boost():
-	dmgBoost += 1
-	$Boost.text = "+" + str(dmgBoost)
+	dmgBoostTM += 1
+	$Boost.text = "+" + str(dmgBoostTM)
 
 func _on_Enemy_health_lowered():
 	$AnimatedSprite/HitAnimation.play("Hit")

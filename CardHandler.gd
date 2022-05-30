@@ -5,6 +5,7 @@ const cardDB = preload("res://CardDataBase.tres")
 
 export(Array, PackedScene) var deck = []
 export(Array, PackedScene) var discardPile = []
+export(Array, PackedScene) var exhaustPile = []
 
 func init_starter():
 	var cards = []
@@ -108,3 +109,8 @@ func append_discard():
 			deck.append(preload("res://Battle/Cards/FijiWater.tscn").instance())
 		elif each == "Nae Nae":
 			deck.append(preload("res://Battle/Cards/TheNaeNae.tscn").instance())
+
+func append_exhaust():
+	for each in exhaustPile:
+		if each == "Waltz":
+			deck.append(preload("res://Battle/Cards/Waltz.tscn").instance())

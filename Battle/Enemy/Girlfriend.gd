@@ -18,10 +18,10 @@ enum {
 
 var moveSet = A
 var total = 0.0
-var dmgBoost = 0
+var dmgBoostGF = 0
 
 func _ready():
-	dmgBoost = 0
+	dmgBoostGF = 0
 	$AnimatedSprite/HitAnimation.play("RESET")
 
 func attack() -> void:
@@ -83,8 +83,8 @@ func get_attack() -> Dictionary:
 	return {}
 
 func boost():
-	dmgBoost += 2
-	$Boost.text = "+" + str(dmgBoost)
+	dmgBoostGF += 2
+	$Boost.text = "+" + str(dmgBoostGF)
 
 func shield():
 	setFlatDamageReduction(10)
@@ -97,7 +97,7 @@ func whip():
 	setDamageReduction(0.8)
 
 func kick():
-	var damage = 3 + dmgBoost
+	var damage = 3 + dmgBoostGF
 	deal_damage(damage)
 
 func distract():

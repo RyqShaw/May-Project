@@ -24,6 +24,7 @@ func _ready():
 	randomize()
 	$UI.hide()
 	cardHandler.deck.shuffle()
+	cardHandler.exhaustPile = []
 	var player = battleUnits.Player
 	
 	battleUnits.Battle = self
@@ -144,6 +145,7 @@ func _on_Enemy_on_death():
 	#yield(get_tree().create_timer(0.1), "timeout")
 	for card in battleUnits.playerSpace.get_node("Cards").get_children():
 		cardHandler.discardPile.append(card.card_name)
+	cardHandler.append_exhaust()
 	reshuffleDeck()
 	queue_free()
 

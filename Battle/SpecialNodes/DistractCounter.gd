@@ -1,7 +1,8 @@
 extends "res://Battle/SpecialNodes/TurnCounter.gd"
 
 const battleUnits = preload("res://Battle/BattleUnits.tres")
-const distractIndicator = preload()
+const distractIndicator = preload("res://Battle/Player/DamageDown.tscn")
+#temp indicator
 var buff
 
 func _ready(): last_turn = 1
@@ -14,5 +15,4 @@ func _on_DistractCounter_tree_entered():
 
 func _on_DistractCounter_tree_exited():
 	player.max_moves += 1
-	player.moves = player.max_moves
 	buff.queue_free()

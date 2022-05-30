@@ -11,9 +11,13 @@ func _on_StretchesCounter_tree_entered():
 		var indicator = stretchIndicator.instance()
 		battleUnits.Battle.find_node("PlayerBuffs").add_child(indicator)
 		buff = indicator
+		if player.enemyWeakened == false:
+			player.damage_mod = 1.5
 		player.damageUp = true
 
 func _on_StretchesCounter_tree_exited():
 	if player.damageUp:
+		if player.enemyWeakened == false:
+			player.damage_mod = 1.0
 		player.damageUp = false
 		buff.queue_free()
