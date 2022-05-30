@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var exit = $ExitDoor
+onready var exit = $YSort/ExitDoor
 const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
 
 func _input(event):
