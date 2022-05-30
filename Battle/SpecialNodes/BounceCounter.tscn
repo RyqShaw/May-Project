@@ -4,3 +4,6 @@
 
 [node name="BounceCounter" type="Node"]
 script = ExtResource( 1 )
+
+[connection signal="tree_entered" from="." to="." method="_on_BounceCounter_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_BounceCounter_tree_exited"]

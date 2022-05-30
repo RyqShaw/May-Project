@@ -1,5 +1,7 @@
 extends "res://Battle/Enemy/EnemyBattle.gd"
 
+const confuser = preload("res://Battle/SpecialNodes/ConfuseCounter.tscn")
+
 var attacks = [
 {"name": "hyperBeam", "weight": 0, "accumulated": 0}, 
 {"name": "beam", "weight": 50, "accumulated": 50}, 
@@ -89,6 +91,9 @@ func focus():
 
 func confuse():
 	setEnemyDamageMod(1.2)
+	var battle = battleUnits.Battle
+	var c = confuser.instance()
+	battle.get_node("PlayerCounters").add_child(c)
 	if "confuse" in playedAttacks:
 		for attack in attacks:
 			if attack.name == "confuse":
