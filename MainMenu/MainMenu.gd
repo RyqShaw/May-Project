@@ -48,3 +48,9 @@ func _on_Quit_pressed():
 
 func _on_OptionsPopup_closed():
 	$Buttons.show()
+
+
+func _on_tutorial():
+	$FadeAnimator.play("FadeOut")
+	yield($FadeAnimator, "animation_finished")
+	get_tree().change_scene("res://Levels/TutorialLevel.tscn")

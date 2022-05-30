@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=1]
+[ext_resource path="res://Levels/DialogueLabel.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 52.345
+
+[node name="DialogueLabel" type="Label"]
+visible = false
+margin_right = 146.0
+margin_bottom = 18.0
+rect_scale = Vector2( 0.5, 0.5 )
+theme = ExtResource( 1 )
+text = "Dialogue"
+align = 1
+valign = 1
+autowrap = true
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
