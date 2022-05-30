@@ -8,7 +8,8 @@ var common_cards = ["Stretches",
 					"Dab",
 					"Running Man",
 					"Cha Cha",
-					"Choreography"]
+					"Choreography",
+					"Widen Stance"]
 var common_info = ["Increases Damage by 50% for Turn",
 					"Does 4  CP Resistance is 5 CP",
 					"Does 7 CP",
@@ -16,7 +17,8 @@ var common_info = ["Increases Damage by 50% for Turn",
 					"Deals 3 CP",
 					"Negates 8 CP",
 					"Decreases Enemy damage by 30%",
-					"Double dmg of next card"]
+					"Double dmg of next card",
+					"Permanent +2 Block"]
 var common_cost = [1,
 					1,
 					1,
@@ -24,6 +26,7 @@ var common_cost = [1,
 					0,
 					1,
 					1,
+					2,
 					2]
 
 var rare_cards = ["Caffeinate",

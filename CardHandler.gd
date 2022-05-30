@@ -39,6 +39,8 @@ func get_card_texture(card, rarity) -> Texture:
 			texture = load("res://Battle/ArtAssets/runninMan.png")
 		elif cardDB.common_cards[card] == "Choreography":
 			texture = load("res://Battle/ArtAssets/runninMan.png")
+		elif cardDB.common_cards[card] == "Widen Stance":
+			texture = load("res://Battle/ArtAssets/runninMan.png")
 
 	#Rare
 	elif rarity == 1:
@@ -81,6 +83,8 @@ func append_discard():
 			deck.append(preload("res://Battle/Cards/ChaCha.tscn").instance())
 		elif each == "Choreography":
 			deck.append(preload("res://Battle/Cards/Choreography.tscn").instance())
+		elif each == "Widen Stance":
+			deck.append(preload("res://Battle/Cards/Widen Stance.tscn").instance())
 		
 		#Rare
 		elif each == "Caffeinate":
