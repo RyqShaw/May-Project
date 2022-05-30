@@ -1,6 +1,7 @@
 extends "res://Battle/Enemy/EnemyBattle.gd"
 
 const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
+const bouncer = preload("res://Battle/SpecialNodes/BounceCounter.tscn")
 
 var attacks = [
 {"name": "slime", "weight": 11, "accumulated": 11}, 
@@ -85,6 +86,9 @@ func concentrate():
 
 func bounce():
 	setDamageReduction(0.75)
+	var battle = battleUnits.Battle
+	var c = bouncer.instance()
+	battle.get_node("PlayerCounters").add_child(c)
 	for attack in attacks:
 		if attack.name == "bounce":
 			attack.weight = 0

@@ -1,5 +1,7 @@
 extends "res://Battle/Enemy/EnemyBattle.gd"
 
+const shielder = preload("res://Battle/SpecialNodes/ShieldCounter.tscn")
+
 var attacks = [
 {"name": "whip", "weight": 20, "accumulated": 20}, 
 {"name": "kick", "weight": 50, "accumulated": 70}, 
@@ -28,6 +30,7 @@ func attack() -> void:
 			kick()
 		else:
 			shield()
+		print(attack.name)
 	#	animationPlayer.play("Attack")
 		SoundManager.play_sound(load("res://SoundAffects/explosion.wav"))
 	#	yield(animationPlayer, "animation_finished")
@@ -63,7 +66,10 @@ func kick():
 	deal_damage(damage)
 
 func shield():
-	setFlatDamageReduction(3)
+	setFlatDamageReduction(4)
+	var battle = battleUnits.Battle
+	var c = shielder.instance()
+	battle.get_node("PlayerCounters").add_child(c)
 
 func boost():
 	if randf() < 0.9:
