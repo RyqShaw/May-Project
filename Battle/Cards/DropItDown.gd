@@ -4,6 +4,7 @@ const dropItDown = preload("res://Battle/SpecialNodes/DropItDownCounter.tscn")
 
 func _ready():
 	$Border/Name.rect_scale = $Border/Name.rect_scale/1.2
+	
 
 func action():
 	var enemy = battleUnits.Enemy
