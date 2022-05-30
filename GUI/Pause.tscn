@@ -31,6 +31,11 @@ margin_bottom = 42.251
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Resume"
 
 [node name="Option" type="Button" parent="Panel/HBoxContainer"]
@@ -40,6 +45,11 @@ margin_bottom = 42.251
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Option"
 
 [node name="Quit" type="Button" parent="Panel/HBoxContainer"]
@@ -49,6 +59,11 @@ margin_bottom = 42.251
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Quit"
 
 [node name="OptionsPopup" parent="." instance=ExtResource( 3 )]

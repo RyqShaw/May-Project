@@ -224,5 +224,6 @@ anims/RESET = SubResource( 5 )
 [connection signal="pressed" from="Buttons/Extras" to="." method="_on_Extras_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="closed" from="ExtrasPopUp" to="." method="_on_OptionsPopup_closed"]
+[connection signal="tutorial" from="ExtrasPopUp" to="." method="_on_tutorial"]
 
 [editable path="VBoxContainer/OptionsPopup"]
