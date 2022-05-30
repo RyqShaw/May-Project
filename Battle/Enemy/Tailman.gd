@@ -30,7 +30,6 @@ func attack() -> void:
 			kick()
 		else:
 			shield()
-		print(attack.name)
 	#	animationPlayer.play("Attack")
 		SoundManager.play_sound(load("res://SoundAffects/explosion.wav"))
 	#	yield(animationPlayer, "animation_finished")
