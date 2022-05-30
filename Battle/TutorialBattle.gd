@@ -114,6 +114,9 @@ func update_move_points():
 	$UI/MovePoints/Label.text = str(battleUnits.Player.moves) +'/'+str(battleUnits.Player.max_moves)
 
 func _on_Enemy_on_death():
+	for card in cardHandler.deck:
+		if card.name == "Stumble":
+			card.queue_free()
 	var naenae = false
 	var glissadeDamage = 0
 	SoundManager.stop_music()
