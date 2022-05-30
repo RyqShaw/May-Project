@@ -13,6 +13,7 @@ export(AudioStream) var song
 signal gameOver
 
 var naenae = false
+var glissadeDamage = 0
 var last_card:String
 
 func _input(event):
@@ -113,6 +114,8 @@ func update_move_points():
 	$UI/MovePoints/Label.text = str(battleUnits.Player.moves) +'/'+str(battleUnits.Player.max_moves)
 
 func _on_Enemy_on_death():
+	var naenae = false
+	var glissadeDamage = 0
 	SoundManager.stop_music()
 	SoundManager.play_sound(load("res://SoundAffects/YouWin.wav"))
 	$FadeAnimator.play("FadeOut")

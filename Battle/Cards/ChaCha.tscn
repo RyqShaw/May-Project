@@ -5,3 +5,6 @@
 
 [node name="ChaCha" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+card_name = "Cha Cha"
+card_cost = 1
+card_info = "Decreases Enemy damage by 30%"
