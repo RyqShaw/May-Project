@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Battle/Cards/Widen Stance.gd" type="Script" id=1]
+[ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=2]
+
+[node name="Widen Stance" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+moveValue = 2
+card_name = "Widen Stance"
+card_cost = 2
+card_info = "Permanent +2 Block"
