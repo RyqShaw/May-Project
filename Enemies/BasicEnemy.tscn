@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Enemies/schmoovin_1.png" type="Texture" id=1]
 [ext_resource path="res://Overlap/PlayerDetection.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Overlap/WanderController.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Overlap/SightZone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/TouchingEnemy.gd" type="Script" id=6]
+[ext_resource path="res://Battle/Battle.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=8]
 radius = 67.0
@@ -74,6 +75,7 @@ position = Vector2( 0, 1 )
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 6 )
+Battle = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchingEnemy"]
 shape = SubResource( 7 )

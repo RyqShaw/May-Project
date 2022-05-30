@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var exit = $ExitDoor
+onready var exit = $YSort/ExitDoor
 const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
 
 func _input(event):
@@ -13,5 +13,6 @@ func _ready():
 	$CanvasLayer/FadeAnimator.play("Fade")
 
 func reload_level():
+	cardHandler.deck == []
 	get_tree().reload_current_scene()
-	get_tree().change_scene("res://Levels/BaseLevel.tscn")
+	get_tree().change_scene("res://MainMenu/MainMenu.tscn")

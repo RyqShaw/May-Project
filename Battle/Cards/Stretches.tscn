@@ -8,7 +8,7 @@
 script = ExtResource( 2 )
 card_name = "Stretches"
 card_cost = 1
-card_info = "Increases Damage by 25%"
+card_info = "Increases Damage by 50%"
 
 [node name="Card" parent="." index="1"]
 position = Vector2( 0, 0 )

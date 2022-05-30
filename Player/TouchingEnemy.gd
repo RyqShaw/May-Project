@@ -2,8 +2,10 @@ extends Area2D
 
 signal battleStart
 
+export(PackedScene) var Battle
+
 func _on_TouchingEnemy_body_entered(body):
-	var battle = load("res://Battle/Battle.tscn").instance()
+	var battle = Battle.instance()
 	get_tree().get_root().add_child(battle)
 	emit_signal("battleStart")
 	$'../'.queue_free()

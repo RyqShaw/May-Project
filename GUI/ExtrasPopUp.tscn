@@ -27,7 +27,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Tutorial" type="Tabs" parent="OptionsPanel/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -53,24 +52,33 @@ margin_bottom = 387.0
 margin_right = 1192.0
 margin_bottom = 323.0
 size_flags_vertical = 3
-text = "Goal: Get to the Teleporter at the end of each room
-
+text = "Controls:
 Basic Movement
 W or UP: Move Up
 A or LEFT: Move LEft
 S or DOWN: Move Down
 D or RIGHT: Move RIGHT
 
-Upon hitting an Enemy you are put in combat
-Your cards are displayed at the bottom of your screen, 
-You have limited Move Points(3 By default)
-Each Card Displays their Move Points at the Top right
-After you are out of Move points, or you are done with your turn, 
-Hit confirm to go to Enemy Turn
-Reduce the enemies \"Confidence\" to Win the Battle!
-After a combat, you will be rewarded with a new Card"
+Drag and Drop Cards to Play them
+move Points are Listed Above Confirm Button
+Hit Confirm to end Turn
+
+Press Esc to pause game"
+
+[node name="Tutorial" type="Button" parent="OptionsPanel/TabContainer/Tutorial"]
+margin_left = 15.0
+margin_top = 298.0
+margin_right = 188.324
+margin_bottom = 340.251
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Play Tutorial"
 
 [node name="Credits" type="Tabs" parent="OptionsPanel/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -113,6 +121,8 @@ Claudia Roeder-Leuz
 Christian Leuz
 Myles
 squid
+Lucothy
+Danu
 
 Thank You for Playing Our Game, Its all of our first real Big Game Project, so All the Support on it Means the world to us. WE had tons of Fun Making this game, so we Hope You Enjoy it as much as we did making it!"
 
@@ -213,4 +223,5 @@ custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Back"
 
+[connection signal="pressed" from="OptionsPanel/TabContainer/Tutorial/Tutorial" to="." method="_on_Tutorial_pressed"]
 [connection signal="pressed" from="OptionsPanel/Leave Options" to="." method="_on_Leave_Options_pressed"]

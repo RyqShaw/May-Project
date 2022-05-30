@@ -8,7 +8,7 @@
 script = ExtResource( 2 )
 moveValue = 0
 card_name = "Dab"
-card_info = "Deals 2 CP"
+card_info = "Deals 3 CP"
 
 [node name="Card" parent="." index="1"]
 position = Vector2( 0, 0 )
