@@ -22,7 +22,7 @@ var dmgBoostGF = 0
 
 func _ready():
 	dmgBoostGF = 0
-	$AnimatedSprite/HitAnimation.play("RESET")
+	#$AnimatedSprite/HitAnimation.play("RESET")
 
 func attack() -> void:
 	resetProbabilities()
