@@ -1,4 +1,4 @@
 extends "res://Battle/Cards/BaseCard/CardBase.gd"
 
 func action():
-	pass
+	SoundManager.play_sound(load("res://SoundAffects/explosion.wav"))

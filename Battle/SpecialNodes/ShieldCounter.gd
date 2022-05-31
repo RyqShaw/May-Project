@@ -15,6 +15,7 @@ func _on_ShieldCounter_tree_entered():
 		battleUnits.Enemy.shieldUp = true
 
 func _on_ShieldCounter_tree_exited():
-	if battleUnits.Enemy.shieldUp:
-		battleUnits.Enemy.shieldUp = false
-		buff.queue_free()
+	if battleUnits.Enemy != null:
+		if battleUnits.Enemy.shieldUp:
+			battleUnits.Enemy.shieldUp = false
+			buff.queue_free()
