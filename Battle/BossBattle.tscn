@@ -11,9 +11,6 @@ enemies = [ ExtResource( 2 ) ]
 song = ExtResource( 4 )
 
 [node name="Player" parent="." index="4"]
-frame = 0
-
-[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
-frame = 0
+frame = 3
 
 [editable path="Player"]

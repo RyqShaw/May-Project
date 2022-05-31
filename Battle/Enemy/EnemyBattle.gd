@@ -40,6 +40,9 @@ func set_confidence(new_confidence):
 func deal_damage(dmg):
 	var damage = int(dmg * enemyDamageMod * otherDamageMod)
 	var damage_dealt = damage - player.resistance
+	player.resistance = player.resistance - damage
+	if player.resistance < 0:
+		player.resistance = 0
 	if damage_dealt > 0:
 		player.confidence -= damage_dealt
 
