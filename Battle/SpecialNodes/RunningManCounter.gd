@@ -18,6 +18,7 @@ func _on_RunningManCounter_tree_entered():
 		battleUnits.Battle.get_node("PlayerBuffs/FlatDmgReduction/Resistance").text = str(playerStats.resistance)
 
 func _on_RunningManCounter_tree_exited():
-	if player.shieldUp:
+	if buff != null: buff.queue_free()
+	battleUnits.Battle.get_node("PlayerBuffs/FlatDmgReduction/Resistance").text = str(playerStats.resistance)
+	if player.shieldUp and player.resistance == 0:
 		player.shieldUp = false
-		buff.queue_free()

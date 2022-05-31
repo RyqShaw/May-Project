@@ -15,4 +15,4 @@ func _on_CaffinateCounter_tree_entered():
 func _on_CaffinateCounter_tree_exited():
 	player.max_moves -= 1
 	player.moves = player.max_moves
-	buff.queue_free()
+	if buff != null: buff.queue_free()
