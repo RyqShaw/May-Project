@@ -21,6 +21,10 @@ func _input(event):
 		$Pause.popup_centered()
 
 func _ready():
+	for card in cardHandler.deck:
+		if card.name == "Stumble":
+			cardHandler.deck.remove(cardHandler.deck.find(card))
+			card.queue_free()
 	SoundManager.play_music(song)
 	$AnimationPlayer.play("Scroll")
 	randomize()
