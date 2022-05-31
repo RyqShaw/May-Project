@@ -18,6 +18,17 @@ func reset_info():
 	deckSize = 10
 	cardHandler.deck = []
 	playerStats.confidence = playerStats.max_confidence
+	playerStats.max_moves = 3
+	playerStats.moves = playerStats.max_moves
+	playerStats.default_resistance = 0
+	playerStats.resistance = playerStats.default_resistance
+	playerStats.default_damage_mod = 1
+	playerStats.damage_mod = playerStats.default_damage_mod
+	playerStats.damageUp = false
+	playerStats.shieldUp = false
+	playerStats.enemyWeakened = false
+	playerStats.enemyDmgDown = false
+	playerStats.damageDouble = 1
 
 func toggle_fullScreen(value):
 	OS.window_fullscreen = value
