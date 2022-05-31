@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=1]
+[ext_resource path="res://Battle/Player/Buff.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Battle/ArtAssets/focus.png" type="Texture" id=3]
+
+[node name="FocusIndicator" instance=ExtResource( 2 )]
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="." index="0"]
+margin_left = -9.5
+margin_top = -17.0
+margin_right = 30.5
+margin_bottom = 1.0
+theme = ExtResource( 1 )
+text = "1"
+align = 1
+valign = 1

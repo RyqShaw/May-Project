@@ -1,8 +1,7 @@
 extends "res://Battle/Enemy/EnemyBattle.gd"
 
 const confuser = preload("res://Battle/SpecialNodes/ConfuseCounter.tscn")
-const focusIndicator = preload("res://Battle/Player/WaltzBuff.tscn")
-#temp indicator
+const focusIndicator = preload("res://Battle/Player/FocusIndicator.tscn")
 
 var attacks = [
 {"name": "hyperBeam", "weight": 0, "accumulated": 0}, 
