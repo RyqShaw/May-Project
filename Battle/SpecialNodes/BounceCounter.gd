@@ -10,6 +10,6 @@ func _on_BounceCounter_tree_entered():
 	var indicator = bounceIndicator.instance()
 	battleUnits.Battle.find_node("PlayerBuffs").add_child(indicator)
 	debuff = indicator
-  
+
 func _on_BounceCounter_tree_exited():
 	debuff.queue_free()
