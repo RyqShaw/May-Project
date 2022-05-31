@@ -1,8 +1,8 @@
-extends "res://Battle/SpecialNodes/TurnCounter.gd"
+extends "res://Battle/SpecialNodes/EnemyTurnCounter.gd"
 
 const battleUnits = preload("res://Battle/BattleUnits.tres")
-const distractIndicator = preload("res://Battle/Player/DamageDown.tscn")
-#temp indicator
+const distractIndicator = preload("res://Battle/Player/MPDown.tscn")
+var player = battleUnits.Player
 var buff
 
 func _ready(): last_turn = 1
