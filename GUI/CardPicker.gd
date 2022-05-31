@@ -72,8 +72,10 @@ func pick_card(card, panel, rarity):
 func nameResize(panel,name):
 	if name == "Drop It Down" or name == "Running Man" or name == "Breakdance" or name == "Widen Stance":
 		panel.get_node("Name").rect_scale = panel.get_node("Name").rect_scale/1.2
-	elif name == "Mineral Water" or name == "Choreography":
+	elif name == "Mineral Water":
 		panel.get_node("Name").rect_scale = panel.get_node("Name").rect_scale/1.5
+	elif name == "Choreography":
+		panel.get_node("Name").rect_scale = panel.get_node("Name").rect_scale/1.4
 
 enum {
 	NO_CARD,
