@@ -29,7 +29,7 @@ region = Rect2( 0, 64, 64, 64 )
 atlas = ExtResource( 3 )
 region = Rect2( 64, 64, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
@@ -98,8 +98,8 @@ tracks/0/keys = {
 [node name="Player" type="AnimatedSprite"]
 material = SubResource( 13 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 4 )
-frame = 2
+frames = SubResource( 12 )
+frame = 3
 playing = true
 script = ExtResource( 4 )
 
@@ -110,6 +110,7 @@ position = Vector2( 15.5, -32 )
 position = Vector2( -32, -4 )
 frames = SubResource( 7 )
 animation = "aboveHalf"
+frame = 1
 playing = true
 
 [node name="TextureProgress" type="TextureProgress" parent="PlayerConfBar"]

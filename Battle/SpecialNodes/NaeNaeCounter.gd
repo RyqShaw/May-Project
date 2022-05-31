@@ -12,4 +12,4 @@ func _on_NaeNaeCounter_tree_entered():
 	buff = indicator
 
 func _on_NaeNaeCounter_tree_exited():
-	buff.queue_free()
+	if buff != null: buff.queue_free()

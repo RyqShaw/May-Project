@@ -36,13 +36,21 @@ func generate_level():
 	exit.connect("leaving_level", self, "reload_level")
 	
 	# Enemy Generation
+	var enemys = []
 	for i in rooms:
-		if randf() < 0.60:
+		if randf() < 0.90:
 			var enemy = Enemy.instance()
 			add_child(enemy)
 			enemy.position = walker.get_room().position * 32
 			if player.position.distance_to(enemy.position) <= 32 or exit.position.distance_to(enemy.position) <= 256 or enemy.inWall:
 				enemy.free()
+			else:
+				enemys.append(enemy)
+	for enemy in enemys:
+		for enemy2 in enemys:
+			if enemy.position.distance_to(enemy2.position) <= 128 and enemy != enemy2:
+				enemys.remove(enemys.find(enemy2))
+				enemy2.queue_free()
 	
 	walker.queue_free()
 	for location in map:

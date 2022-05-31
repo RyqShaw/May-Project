@@ -40,7 +40,7 @@ func get_card_texture(card, rarity) -> Texture:
 		elif cardDB.common_cards[card] == "Choreography":
 			texture = load("res://Battle/ArtAssets/runninMan.png")
 		elif cardDB.common_cards[card] == "Widen Stance":
-			texture = load("res://Battle/ArtAssets/runninMan.png")
+			texture = load("res://Battle/ArtAssets/widen.png")
 
 	#Rare
 	elif rarity == 1:
@@ -53,9 +53,9 @@ func get_card_texture(card, rarity) -> Texture:
 		elif cardDB.rare_cards[card] == "Drop It Down":
 			texture = load("res://Battle/ArtAssets/dropit.png")
 		elif cardDB.rare_cards[card] == "Waltz":
-			texture = load("res://Battle/ArtAssets/runninMan.png")
+			texture = load("res://Battle/ArtAssets/waltz.png")
 		elif cardDB.rare_cards[card] == "Glissade":
-			texture = load("res://Battle/ArtAssets/runninMan.png")
+			texture = load("res://Battle/ArtAssets/pirou.png")
 			
 	elif rarity == 2:
 		if cardDB.epic_cards[card] == "Fiji Water":

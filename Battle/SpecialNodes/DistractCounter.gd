@@ -15,4 +15,4 @@ func _on_DistractCounter_tree_entered():
 
 func _on_DistractCounter_tree_exited():
 	player.max_moves += 1
-	buff.queue_free()
+	if buff != null: buff.queue_free()
