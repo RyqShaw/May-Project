@@ -21,6 +21,10 @@ func _input(event):
 		$Pause.popup_centered()
 
 func _ready():
+	for card in cardHandler.deck:
+		if card.name == "Stumble":
+			cardHandler.deck.remove(cardHandler.deck.find(card))
+			card.queue_free()
 	SoundManager.play_music(song)
 	$AnimationPlayer.play("Scroll")
 	randomize()
@@ -127,6 +131,7 @@ func _on_Enemy_on_death():
 	naenae = false
 	glissadeDamage = 0
 	battleUnits.Player.default_resistance = 0
+	battleUnits.Player.resistance = 0
 	SoundManager.stop_music()
 	SoundManager.play_sound(load("res://SoundAffects/YouWin.wav"))
 	$FadeAnimator.play("FadeOut")

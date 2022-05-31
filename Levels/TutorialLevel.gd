@@ -9,6 +9,10 @@ func _input(event):
 
 func _ready():
 	if cardHandler.deck == []: cardHandler.init_starter()
+	for card in cardHandler.deck:
+		if card.name == "Stumble":
+			cardHandler.deck.remove(cardHandler.deck.find(card))
+			card.queue_free()
 	exit.connect("leaving_level", self, "reload_level")
 	$CanvasLayer/FadeAnimator.play("Fade")
 
