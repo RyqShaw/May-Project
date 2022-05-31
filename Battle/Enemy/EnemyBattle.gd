@@ -12,6 +12,8 @@ var enemyDamageMod = 1.0 setget setEnemyDamageMod
 var flatDamageReduction = 0 setget setFlatDamageReduction
 var otherDamageMod = 1.0 setget setOtherDamageMod
 var dmgBoost = 0 setget setDmgBoost
+var confuseOn = false
+var shieldUp = false
 
 #export(int) var damage = 5
 
@@ -25,7 +27,7 @@ func _ready():
 	set_confidence(max_confidence)
 	confBar.max_value = max_confidence
 	battleUnits.Enemy = self
-	setDmgBoost(0)
+	setDmgBoost(-dmgBoost)
 
 func _exit_tree():
 	battleUnits.Enemy = null
