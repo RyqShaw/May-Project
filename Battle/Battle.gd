@@ -122,6 +122,7 @@ func update_move_points():
 func _on_Enemy_on_death():
 	for card in cardHandler.deck:
 		if card.name == "Stumble":
+			cardHandler.deck.remove(cardHandler.deck.find(card))
 			card.queue_free()
 	naenae = false
 	glissadeDamage = 0
