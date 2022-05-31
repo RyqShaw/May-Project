@@ -13,6 +13,7 @@ func _ready():
 	$CanvasLayer/FadeAnimator.play("Fade")
 
 func reload_level():
-	cardHandler.deck == []
+	GlobalInfo.reset_info()
+	cardHandler.deck = []
 	get_tree().reload_current_scene()
 	get_tree().change_scene("res://MainMenu/MainMenu.tscn")

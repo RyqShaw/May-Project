@@ -125,6 +125,7 @@ func _on_Enemy_on_death():
 			card.queue_free()
 	naenae = false
 	glissadeDamage = 0
+	battleUnits.Player.default_resistance = 0
 	SoundManager.stop_music()
 	SoundManager.play_sound(load("res://SoundAffects/YouWin.wav"))
 	$FadeAnimator.play("FadeOut")

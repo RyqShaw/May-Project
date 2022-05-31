@@ -14,6 +14,7 @@ func _on_ConfuseCounter_tree_entered():
 		battleUnits.Enemy.confuseOn = true
 
 func _on_ConfuseCounter_tree_exited():
-	if battleUnits.Enemy.confuseOn:
-		battleUnits.Enemy.confuseOn = false
-		buff.queue_free()
+	if battleUnits.Enemy != null:
+		if battleUnits.Enemy.confuseOn:
+			battleUnits.Enemy.confuseOn = false
+			buff.queue_free()

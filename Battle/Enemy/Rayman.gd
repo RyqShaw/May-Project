@@ -95,7 +95,7 @@ func focus():
 		battleUnits.Battle.find_node("EnemyBuffs").add_child(indicator)
 		firstFocus = true
 	else:
-		battleUnits.Battle.get_node("EnemyBuffs/WaltzBuff/Label").text = "+" + str(focus)
+		battleUnits.Battle.get_node("EnemyBuffs/FocusIndicator/Label").text = "+" + str(focus)
 	
 	if "focus" in playedAttacks:
 		for attack in attacks:
