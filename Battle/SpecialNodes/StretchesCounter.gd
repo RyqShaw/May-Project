@@ -20,4 +20,4 @@ func _on_StretchesCounter_tree_exited():
 		if player.enemyWeakened == false:
 			player.damage_mod = 1.0
 		player.damageUp = false
-		buff.queue_free()
+		if buff != null: buff.queue_free()

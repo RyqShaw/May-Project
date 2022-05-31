@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Cards/Glissade.gd" type="Script" id=2]
+[ext_resource path="res://Battle/ArtAssets/pirou.png" type="Texture" id=3]
 
 [node name="Glissade" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 card_name = "Glissade"
 card_cost = 1
 card_info = "Deal 5 dmg, each play +1 or +2 dmg"
+
+[node name="Card" parent="." index="1"]
+position = Vector2( 0, 0 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )

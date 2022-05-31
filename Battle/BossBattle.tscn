@@ -10,4 +10,7 @@ script = ExtResource( 3 )
 enemies = [ ExtResource( 2 ) ]
 song = ExtResource( 4 )
 
+[node name="Player" parent="." index="4"]
+frame = 3
+
 [editable path="Player"]

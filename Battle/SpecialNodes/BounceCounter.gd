@@ -16,4 +16,4 @@ func _on_StretchesCounter_tree_entered():
 func _on_StretchesCounter_tree_exited():
 	if player.damageUp:
 		player.damageUp = false
-		buff.queue_free()
+		if buff != null: buff.queue_free()

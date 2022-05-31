@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Battle/Cards/BaseCard/CardBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Battle/Cards/Waltz.gd" type="Script" id=2]
+[ext_resource path="res://Battle/ArtAssets/waltz.png" type="Texture" id=3]
 
 [node name="Waltz" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 card_name = "Waltz"
 card_cost = 1
 card_info = "Permanent +2 Damage"
+
+[node name="Card" parent="." index="1"]
+position = Vector2( 0, 0 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
