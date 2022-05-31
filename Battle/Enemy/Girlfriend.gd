@@ -2,6 +2,9 @@ extends "res://Battle/Enemy/EnemyBattle.gd"
 
 const cardHandler = preload("res://Battle/Cards/CardHandler.tres")
 const distraction = preload("res://Battle/SpecialNodes/DistractCounter.tscn")
+const shielder = preload("res://Battle/SpecialNodes/ShieldCounterGF.tscn")
+const whipr = preload("res://Battle/SpecialNodes/BounceCounter.tscn")
+const boostIndicator = preload("res://Battle/Player/WaltzBuff.tscn")
 
 var attacks = [
 {"name": "whip", "weight": 20, "accumulated": 20}, 
@@ -19,9 +22,11 @@ enum {
 var moveSet = A
 var total = 0.0
 var dmgBoostGF = 0
+var firstBoost = false
 
 func _ready():
 	dmgBoostGF = 0
+	firstBoost = false
 	#$AnimatedSprite/HitAnimation.play("RESET")
 
 func attack() -> void:
@@ -84,10 +89,19 @@ func get_attack() -> Dictionary:
 
 func boost():
 	dmgBoostGF += 2
-	$Boost.text = "+" + str(dmgBoostGF)
+	if not firstBoost:
+		var indicator = boostIndicator.instance()
+		indicator.get_node("Label").text = "+" + str(dmgBoostGF)
+		battleUnits.Battle.find_node("EnemyBuffs").add_child(indicator)
+		firstBoost = true
+	else:
+		battleUnits.Battle.get_node("EnemyBuffs/WaltzBuff/Label").text = "+" + str(dmgBoostGF)
 
 func shield():
 	setFlatDamageReduction(10)
+	var battle = battleUnits.Battle
+	var c = shielder.instance()
+	battle.get_node("PlayerCounters").add_child(c)
 
 func slowDown():
 	cardHandler.deck.append(preload("res://Battle/Cards/Stumble.tscn").instance())
@@ -95,6 +109,9 @@ func slowDown():
 func whip():
 	deal_damage(6)
 	setDamageReduction(0.8)
+	var battle = battleUnits.Battle
+	var c = whipr.instance()
+	battle.get_node("PlayerCounters").add_child(c)
 
 func kick():
 	var damage = 3 + dmgBoostGF

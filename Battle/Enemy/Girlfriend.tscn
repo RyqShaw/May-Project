@@ -55,12 +55,3 @@ margin_top = -44.25
 margin_right = 21.5
 margin_bottom = -26.25
 text = "100/100"
-
-[node name="Boost" type="Label" parent="." index="4"]
-margin_left = -28.75
-margin_top = -50.25
-margin_right = 11.25
-margin_bottom = -32.25
-rect_scale = Vector2( 0.3, 0.3 )
-theme = ExtResource( 3 )
-custom_fonts/font = SubResource( 1 )

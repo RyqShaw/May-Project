@@ -1,6 +1,7 @@
 extends "res://Battle/Enemy/EnemyBattle.gd"
 
 const shielder = preload("res://Battle/SpecialNodes/ShieldCounter.tscn")
+const boostIndicator = preload("res://Battle/Player/WaltzBuff.tscn")
 
 var attacks = [
 {"name": "whip", "weight": 20, "accumulated": 20}, 
@@ -10,9 +11,11 @@ var attacks = [
 
 var total = 0.0
 var dmgBoostTM = 0
+var firstBoost = false
 
 func _ready():
 	dmgBoostTM = 0
+	firstBoost = false
 	$AnimatedSprite/HitAnimation.play("RESET")
 
 func attack() -> void:
@@ -73,7 +76,13 @@ func shield():
 func boost():
 	if randf() < 0.9:
 		dmgBoostTM += 1
-		$Boost.text = "+" + str(dmgBoostTM)
+		if not firstBoost:
+			var indicator = boostIndicator.instance()
+			indicator.get_node("Label").text = "+" + str(dmgBoostTM)
+			battleUnits.Battle.find_node("EnemyBuffs").add_child(indicator)
+			firstBoost = true
+		else:
+			battleUnits.Battle.get_node("EnemyBuffs/WaltzBuff/Label").text = "+" + str(dmgBoostTM)
 
 func _on_Enemy_health_lowered():
 	$AnimatedSprite/HitAnimation.play("Hit")

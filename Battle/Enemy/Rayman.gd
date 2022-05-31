@@ -1,6 +1,8 @@
 extends "res://Battle/Enemy/EnemyBattle.gd"
 
 const confuser = preload("res://Battle/SpecialNodes/ConfuseCounter.tscn")
+const focusIndicator = preload("res://Battle/Player/WaltzBuff.tscn")
+#temp indicator
 
 var attacks = [
 {"name": "hyperBeam", "weight": 0, "accumulated": 0}, 
@@ -12,8 +14,10 @@ var attacks = [
 var playedAttacks = []
 var total = 0.0
 var focus = 0 setget setFocus
+var firstFocus = false
 
 func _ready():
+	firstFocus = false
 	$AnimatedSprite/HitAnimation.play("RESET")
 
 func attack() -> void:
@@ -66,6 +70,7 @@ func get_attack() -> Dictionary:
 func hyperBeam():
 	deal_damage(16)
 	setFocus(0)
+	battleUnits.Battle.get_node("EnemyBuffs/WaltzBuff/Label").text = "+" + str(focus)
 	resetProbabilities()
 
 func beam():
@@ -84,6 +89,15 @@ func focus():
 			else:
 				attack.weight = 0
 	init_probabilities()
+	
+	if not firstFocus:
+		var indicator = focusIndicator.instance()
+		indicator.get_node("Label").text = "+" + str(focus)
+		battleUnits.Battle.find_node("EnemyBuffs").add_child(indicator)
+		firstFocus = true
+	else:
+		battleUnits.Battle.get_node("EnemyBuffs/WaltzBuff/Label").text = "+" + str(focus)
+	
 	if "focus" in playedAttacks:
 		for attack in attacks:
 			if attack.name == "focus":

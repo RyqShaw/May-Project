@@ -1,8 +1,7 @@
 extends "res://Battle/SpecialNodes/TurnCounter.gd"
 
 const battleUnits = preload("res://Battle/BattleUnits.tres")
-const naeNaeIndicator = preload("res://Battle/Player/DamageDown.tscn")
-#temp indicator
+const naeNaeIndicator = preload("res://Battle/Player/TurnSkipped.tscn")
 var buff
 
 func _ready(): last_turn = 1
