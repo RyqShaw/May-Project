@@ -69,7 +69,7 @@ func get_attack() -> Dictionary:
 func hyperBeam():
 	deal_damage(16)
 	setFocus(0)
-	battleUnits.Battle.get_node("EnemyBuffs/WaltzBuff/Label").text = "+" + str(focus)
+	battleUnits.Battle.get_node("EnemyBuffs/FocusIndicator/Label").text = str(focus)
 	resetProbabilities()
 
 func beam():
@@ -91,11 +91,11 @@ func focus():
 	
 	if not firstFocus:
 		var indicator = focusIndicator.instance()
-		indicator.get_node("Label").text = "+" + str(focus)
+		indicator.get_node("Label").text = str(focus)
 		battleUnits.Battle.find_node("EnemyBuffs").add_child(indicator)
 		firstFocus = true
 	else:
-		battleUnits.Battle.get_node("EnemyBuffs/FocusIndicator/Label").text = "+" + str(focus)
+		battleUnits.Battle.get_node("EnemyBuffs/FocusIndicator/Label").text = str(focus)
 	
 	if "focus" in playedAttacks:
 		for attack in attacks:
