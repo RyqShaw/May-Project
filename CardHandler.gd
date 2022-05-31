@@ -9,7 +9,9 @@ export(Array, PackedScene) var exhaustPile = []
 
 func init_starter():
 	var cards = []
-	for i in 10:
+	for i in 3:
+		deck.append(preload("res://Battle/Cards/The Whip.tscn").instance())
+	for i in 7:
 		if randf() < 0.2:
 			cards.append(cardDB.rare_cards[randi() % cardDB.rare_cards.size()])
 		else:
@@ -36,9 +38,9 @@ func get_card_texture(card, rarity) -> Texture:
 		elif cardDB.common_cards[card] == "Running Man":
 			texture = load("res://Battle/ArtAssets/runninMan.png")
 		elif cardDB.common_cards[card] == "Cha Cha":
-			texture = load("res://Battle/ArtAssets/runninMan.png")
+			texture = load("res://Battle/ArtAssets/chacha.png")
 		elif cardDB.common_cards[card] == "Choreography":
-			texture = load("res://Battle/ArtAssets/runninMan.png")
+			texture = load("res://Battle/ArtAssets/choreography.png")
 		elif cardDB.common_cards[card] == "Widen Stance":
 			texture = load("res://Battle/ArtAssets/widen.png")
 

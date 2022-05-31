@@ -27,7 +27,7 @@ var firstBoost = false
 func _ready():
 	dmgBoostGF = 0
 	firstBoost = false
-	#$AnimatedSprite/HitAnimation.play("RESET")
+	$AnimatedSprite/HitAnimation.play("RESET")
 
 func attack() -> void:
 	resetProbabilities()
@@ -128,8 +128,7 @@ func hydrate():
 		set_confidence(max_confidence)
 
 func _on_Enemy_health_lowered():
-	pass
-#	$AnimatedSprite/HitAnimation.play("Hit")
-#	yield(get_tree().create_timer(0.4), "timeout")
-#	$AnimatedSprite/HitAnimation.stop()
-#	$AnimatedSprite/HitAnimation.play("RESET")
+	$AnimatedSprite/HitAnimation.play("Hit")
+	yield(get_tree().create_timer(0.4), "timeout")
+	$AnimatedSprite/HitAnimation.stop()
+	$AnimatedSprite/HitAnimation.play("RESET")

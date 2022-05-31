@@ -15,4 +15,4 @@ func _ready():
 func reload_level():
 	cardHandler.deck == []
 	get_tree().reload_current_scene()
-	get_tree().change_scene("res://MainMenu/MainMenu.tscn")
+	get_tree().change_scene("res://Levels/BaseLevel.tscn")

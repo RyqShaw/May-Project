@@ -3,7 +3,7 @@
 [ext_resource path="res://Theme/kenneyUI.tres" type="Theme" id=1]
 [ext_resource path="res://WinScreen.gd" type="Script" id=2]
 [ext_resource path="res://Theme/kenvector_future.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://MainMenu/bootsplash.png" type="Texture" id=4]
+[ext_resource path="res://GUI/gays.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -72,9 +72,14 @@ anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1403.0
+margin_bottom = 801.0
+color = Color( 0.164706, 0.164706, 0.160784, 1 )
+
+[node name="Gays" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 
 [node name="Title" type="Label" parent="."]
@@ -89,9 +94,9 @@ autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 32.0
-margin_top = 512.0
+margin_top = 562.0
 margin_right = 1253.0
-margin_bottom = 608.0
+margin_bottom = 658.0
 
 [node name="Main Menu" type="Button" parent="HBoxContainer"]
 margin_right = 461.324

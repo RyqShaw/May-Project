@@ -200,11 +200,34 @@ margin_bottom = 96.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 308.0
-margin_top = 408.0
-margin_right = 983.0
-margin_bottom = 684.0
-text = "[WORDS FILL IN WORDS]"
+margin_left = 216.0
+margin_top = 406.0
+margin_right = 1064.0
+margin_bottom = 713.0
+rect_pivot_offset = Vector2( 401, -150 )
+text = "A long time ago in a galaxy far, far away... er, for you. I live here.
+ 
+An antisocial pink haired alien (Me.)  was travelling to the party of the ages with their girlfriend, because she asked me very nicely and would *you* say no to her? Exactly. This party is rumored to never end, and so my lovely, frustrating girlfriend dragged me all the way to the Infinite Floor UFO where the party was...
+
+This was fun for about five minutes, until the pink haired alien realized that they did not want to be here anymore. One thing was stopping them from leaving, though... they lost their girlfriend in the labyrinth, and she had the keys to the spaceship. Meaning no girlfriend, no space apartment. Now, they have to find and get her if they want to leave...
+
+Alright, that's enough of self-narration. I want out. Let's go find my girl.
+
+
+
+
+"
+scroll_active = false
+
+[node name="Start" type="Button" parent="."]
+margin_left = 1053.0
+margin_top = 20.0
+margin_right = 1254.0
+margin_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+text = "Continue"
 
 [node name="Fade" type="ColorRect" parent="."]
 margin_left = -6.0
@@ -222,3 +245,5 @@ root_node = NodePath("../Fade")
 anims/Fade = SubResource( 14 )
 anims/FadeOut = SubResource( 15 )
 anims/RESET = SubResource( 16 )
+
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
