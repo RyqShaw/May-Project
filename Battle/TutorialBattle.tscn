@@ -45,10 +45,4 @@ text = "Dont Let your Confidence Reach 0!"
 align = 1
 autowrap = true
 
-[node name="Player" parent="." index="4"]
-frame = 3
-
-[node name="emptyBarPart1" parent="Player/PlayerConfBar" index="0"]
-frame = 1
-
 [editable path="Player"]

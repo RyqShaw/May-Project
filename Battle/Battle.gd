@@ -32,7 +32,8 @@ func _ready():
 	cardHandler.deck.shuffle()
 	cardHandler.exhaustPile = []
 	var player = battleUnits.Player
-	
+	player.resistance = player.default_resistance
+	player.widenTrue = false
 	battleUnits.Battle = self
 	turnManager.connect("player_turn_started",self,"_player_turn_started")
 	turnManager.connect("enemy_turn_started",self,"_enemy_turn_started")
@@ -63,12 +64,9 @@ func _player_turn_started():
 	while $PlayerSpace/Cards.get_child_count() < 5: deal_card() #Change if we need to
 	#update_deck_label()
 	var player = battleUnits.Player
-	if not player.resistance <= 0:
-		player.shieldUp = true
-		$"PlayerBuffs/FlatDmgReduction/Resistance".text = str(player.resistance)
-	else:
-		player.shieldUp = false
 	player.resistance = player.default_resistance
+	if player.shieldUp and player.resistance == 0:
+		player.shieldUp = false
 	if player.enemyWeakened == false:
 		player.damage_mod = player.default_damage_mod
 	if player.confidence == 0:
