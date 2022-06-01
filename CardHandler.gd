@@ -9,8 +9,9 @@ export(Array, PackedScene) var exhaustPile = []
 
 func init_starter():
 	var cards = []
-	for i in 3:
+	for i in 2:
 		deck.append(preload("res://Battle/Cards/The Whip.tscn").instance())
+	deck.append(preload("res://Battle/Cards/Waltz.tscn").instance())
 	for i in 7:
 		if randf() < 0.2:
 			cards.append(cardDB.rare_cards[randi() % cardDB.rare_cards.size()])
