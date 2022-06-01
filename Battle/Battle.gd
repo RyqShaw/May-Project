@@ -33,6 +33,7 @@ func _ready():
 	cardHandler.exhaustPile = []
 	var player = battleUnits.Player
 	player.resistance = player.default_resistance
+	player.widenTrue = false
 	battleUnits.Battle = self
 	turnManager.connect("player_turn_started",self,"_player_turn_started")
 	turnManager.connect("enemy_turn_started",self,"_enemy_turn_started")

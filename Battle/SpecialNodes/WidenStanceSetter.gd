@@ -4,6 +4,7 @@ const turnManager = preload("res://Battle/TurnManager.tres")
 const player = preload("res://Battle/Player/PlayerStats.tres")
 const battleUnits = preload("res://Battle/BattleUnits.tres")
 const shieldIndicator = preload("res://Battle/Player/FlatDmgReduction.tscn")
+const shield = preload("res://Battle/SpecialNodes/WidenCounter.tscn")
 var buff
 
 func _ready():
@@ -12,6 +13,9 @@ func _ready():
 
 func _on_WidenStanceSetter_tree_entered():
 	player.resistance += 2
+	var battle = battleUnits.Battle
+	var s = shield.instance()
+	battle.get_node("PlayerCounters").add_child(s)
 #	if not player.shieldUp:
 #		var indicator = shieldIndicator.instance()
 #		indicator.get_node("Resistance").text = str(player.resistance)
@@ -30,3 +34,6 @@ func _on_WidenStanceSetter_tree_exited():
 		
 func on_new_turn():
 	player.resistance += 2
+	var battle = battleUnits.Battle
+	var s = shield.instance()
+	battle.get_node("PlayerCounters").add_child(s)

@@ -9,23 +9,13 @@ export(Array, PackedScene) var exhaustPile = []
 
 func init_starter():
 	var cards = []
-	deck.append(preload("res://Battle/Cards/Widen Stance.tscn").instance())
-	deck.append(preload("res://Battle/Cards/Widen Stance.tscn").instance())
-	deck.append(preload("res://Battle/Cards/Widen Stance.tscn").instance())
-	deck.append(preload("res://Battle/Cards/RunningMan.tscn").instance())
-	deck.append(preload("res://Battle/Cards/RunningMan.tscn").instance())
-	deck.append(preload("res://Battle/Cards/RunningMan.tscn").instance())
-	deck.append(preload("res://Battle/Cards/Twirlnado.tscn").instance())
-	deck.append(preload("res://Battle/Cards/Twirlnado.tscn").instance())
-	deck.append(preload("res://Battle/Cards/Twirlnado.tscn").instance())
-	
-#	for i in 3:
-#		deck.append(preload("res://Battle/Cards/The Whip.tscn").instance())
-#	for i in 7:
-#		if randf() < 0.2:
-#			cards.append(cardDB.rare_cards[randi() % cardDB.rare_cards.size()])
-#		else:
-#			cards.append(cardDB.common_cards[randi() % cardDB.common_cards.size()])
+	for i in 3:
+		deck.append(preload("res://Battle/Cards/The Whip.tscn").instance())
+	for i in 7:
+		if randf() < 0.2:
+			cards.append(cardDB.rare_cards[randi() % cardDB.rare_cards.size()])
+		else:
+			cards.append(cardDB.common_cards[randi() % cardDB.common_cards.size()])
 	cards.shuffle()
 	discardPile = cards
 	append_discard()

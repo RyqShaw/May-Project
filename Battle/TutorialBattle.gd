@@ -21,14 +21,19 @@ func _input(event):
 		$Pause.popup_centered()
 
 func _ready():
+	for card in cardHandler.deck:
+		if card.name == "Stumble":
+			cardHandler.deck.remove(cardHandler.deck.find(card))
+			card.queue_free()
 	SoundManager.play_music(song)
 	$AnimationPlayer.play("Scroll")
 	randomize()
 	$UI.hide()
 	cardHandler.deck.shuffle()
+	cardHandler.exhaustPile = []
 	var player = battleUnits.Player
 	player.resistance = player.default_resistance
-	
+	player.widenTrue = false
 	battleUnits.Battle = self
 	turnManager.connect("player_turn_started",self,"_player_turn_started")
 	turnManager.connect("enemy_turn_started",self,"_enemy_turn_started")
@@ -60,6 +65,8 @@ func _player_turn_started():
 	#update_deck_label()
 	var player = battleUnits.Player
 	player.resistance = player.default_resistance
+	if player.shieldUp and player.resistance == 0:
+		player.shieldUp = false
 	if player.enemyWeakened == false:
 		player.damage_mod = player.default_damage_mod
 	if player.confidence == 0:
