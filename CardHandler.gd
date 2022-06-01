@@ -113,3 +113,4 @@ func append_exhaust():
 	for each in exhaustPile:
 		if each == "Waltz":
 			deck.append(preload("res://Battle/Cards/Waltz.tscn").instance())
+	exhaustPile = []
