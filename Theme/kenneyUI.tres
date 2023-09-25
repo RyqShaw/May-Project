@@ -1,10 +1,13 @@
-[gd_resource type="Theme" load_steps=34 format=2]
+[gd_resource type="Theme" load_steps=33 format=2]
 
-[ext_resource path="res://Theme/UIpack_vector.svg" type="Texture" id=1]
 [ext_resource path="res://Theme/kenvector_future.ttf" type="DynamicFontData" id=2]
 
+[sub_resource type="DynamicFont" id=23]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
 [sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 1 )
 region_rect = Rect2( 211, 0, 190, 49 )
 margin_left = 12.5436
 margin_right = 8.78053
@@ -14,7 +17,6 @@ margin_bottom = 14.2161
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 1 )
 region_rect = Rect2( 1, 0, 190, 49 )
 margin_left = 12.5436
 margin_right = 8.78053
@@ -22,7 +24,6 @@ margin_top = 10.0349
 margin_bottom = 14.2161
 
 [sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 1 )
 region_rect = Rect2( 211, 0, 190, 49 )
 margin_left = 12.5436
 margin_right = 8.78053
@@ -30,7 +31,6 @@ margin_top = 10.0349
 margin_bottom = 14.2161
 
 [sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 1 )
 region_rect = Rect2( 421, 4, 190, 45 )
 margin_left = 12.5436
 margin_right = 8.78053
@@ -38,23 +38,15 @@ margin_top = 10.0349
 margin_bottom = 14.2161
 
 [sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 250, 544, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 251, 440, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 1, 440, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=9]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 0, 544, 36, 36 )
 
 [sub_resource type="StyleBoxEmpty" id=10]
@@ -66,28 +58,20 @@ region = Rect2( 0, 544, 36, 36 )
 [sub_resource type="StyleBoxEmpty" id=13]
 
 [sub_resource type="AtlasTexture" id=31]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 250, 644, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=32]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 250, 544, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 872, 444, 28, 42 )
 
 [sub_resource type="StyleBoxTexture" id=15]
-texture = ExtResource( 1 )
 region_rect = Rect2( 840, 316, 192, 6 )
 
 [sub_resource type="StyleBoxEmpty" id=16]
 
 [sub_resource type="StyleBoxTexture" id=17]
-texture = ExtResource( 1 )
 region_rect = Rect2( 629, 317, 194, 49 )
 margin_left = 17.1475
 margin_right = 13.718
@@ -95,12 +79,9 @@ margin_top = 12.0032
 margin_bottom = 9.43112
 
 [sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 812, 458, 28, 10 )
 
 [sub_resource type="StyleBoxTexture" id=19]
-texture = ExtResource( 1 )
 region_rect = Rect2( 1, 310, 100, 100 )
 margin_left = 12.3202
 margin_right = 13.3469
@@ -108,23 +89,15 @@ margin_top = 13.3469
 margin_bottom = 11.2935
 
 [sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 250, 544, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=26]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 251, 440, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=27]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 1, 440, 36, 36 )
 
 [sub_resource type="AtlasTexture" id=28]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 0, 544, 36, 36 )
 
 [sub_resource type="StyleBoxTexture" id=29]
@@ -132,7 +105,6 @@ content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-texture = ExtResource( 1 )
 region_rect = Rect2( 321, 440, 49, 49 )
 margin_left = 7.94429
 margin_right = 8.73872
@@ -144,7 +116,6 @@ content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
-texture = ExtResource( 1 )
 region_rect = Rect2( 321, 440, 49, 49 )
 margin_left = 7.94429
 margin_right = 8.73872
@@ -156,7 +127,6 @@ expand_margin_bottom = 10.0
 [sub_resource type="StyleBoxTexture" id=22]
 content_margin_left = 12.0
 content_margin_top = 10.0
-texture = ExtResource( 1 )
 region_rect = Rect2( 1, 310, 100, 100 )
 margin_left = 10.8072
 margin_right = 9.71325
@@ -165,27 +135,19 @@ margin_bottom = 14.7561
 axis_stretch_vertical = 1
 
 [sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 1 )
 region = Rect2( 1007, 450, 39, 31 )
 
 [sub_resource type="StyleBoxTexture" id=25]
-texture = ExtResource( 1 )
 region_rect = Rect2( 1051, 317, 4, 100 )
-
-[sub_resource type="DynamicFont" id=23]
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 2 )
 
 [resource]
 default_font = SubResource( 23 )
-Button/colors/font_color = Color( 0, 0, 0, 1 )
+Button/colors/font_color = Color( 1, 0.980392, 0.980392, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.34902, 0.34902, 0.34902, 1 )
 Button/colors/font_color_pressed = Color( 0.388235, 0.388235, 0.388235, 1 )
 Button/constants/hseparation = 2
-Button/fonts/font = null
+Button/fonts/font = SubResource( 23 )
 Button/styles/disabled = SubResource( 1 )
 Button/styles/focus = SubResource( 2 )
 Button/styles/hover = SubResource( 3 )
@@ -198,7 +160,7 @@ CheckBox/colors/font_color_hover_pressed = Color( 0.34902, 0.34902, 0.34902, 1 )
 CheckBox/colors/font_color_pressed = Color( 0.388235, 0.388235, 0.388235, 1 )
 CheckBox/constants/check_vadjust = 0
 CheckBox/constants/hseparation = 4
-CheckBox/fonts/font = null
+CheckBox/fonts/font = SubResource( 23 )
 CheckBox/icons/checked = SubResource( 6 )
 CheckBox/icons/radio_checked = SubResource( 7 )
 CheckBox/icons/radio_unchecked = SubResource( 8 )
@@ -217,7 +179,7 @@ CheckButton/colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
 CheckButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
 CheckButton/constants/check_vadjust = 0
 CheckButton/constants/hseparation = 4
-CheckButton/fonts/font = null
+CheckButton/fonts/font = SubResource( 23 )
 CheckButton/icons/off = SubResource( 31 )
 CheckButton/icons/off_disabled = SubResource( 31 )
 CheckButton/icons/on = SubResource( 32 )
@@ -243,7 +205,7 @@ LineEdit/colors/font_color_selected = Color( 0.894118, 0.894118, 0.894118, 1 )
 LineEdit/colors/font_color_uneditable = Color( 0.88, 0.88, 0.88, 0.5 )
 LineEdit/colors/selection_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 LineEdit/constants/minimum_spaces = 12
-LineEdit/fonts/font = null
+LineEdit/fonts/font = SubResource( 23 )
 LineEdit/icons/clear = null
 LineEdit/styles/focus = SubResource( 16 )
 LineEdit/styles/normal = SubResource( 17 )
@@ -254,7 +216,7 @@ OptionButton/colors/font_color_hover = Color( 0.34902, 0.34902, 0.34902, 1 )
 OptionButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
 OptionButton/constants/arrow_margin = 2
 OptionButton/constants/hseparation = 2
-OptionButton/fonts/font = null
+OptionButton/fonts/font = SubResource( 23 )
 OptionButton/icons/arrow = SubResource( 18 )
 OptionButton/styles/disabled = null
 OptionButton/styles/focus = null
@@ -268,7 +230,7 @@ PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
 PopupMenu/colors/font_color_hover = Color( 0.388235, 0.388235, 0.388235, 1 )
 PopupMenu/constants/hseparation = 4
 PopupMenu/constants/vseparation = 32
-PopupMenu/fonts/font = null
+PopupMenu/fonts/font = SubResource( 23 )
 PopupMenu/icons/checked = SubResource( 20 )
 PopupMenu/icons/radio_checked = SubResource( 26 )
 PopupMenu/icons/radio_unchecked = SubResource( 27 )
@@ -310,7 +272,7 @@ TextEdit/constants/completion_lines = 7
 TextEdit/constants/completion_max_width = 50
 TextEdit/constants/completion_scroll_width = 3
 TextEdit/constants/line_spacing = 4
-TextEdit/fonts/font = null
+TextEdit/fonts/font = SubResource( 23 )
 TextEdit/icons/fold = null
 TextEdit/icons/folded = null
 TextEdit/icons/space = null

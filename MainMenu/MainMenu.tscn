@@ -139,7 +139,6 @@ text = "Party in the UFO!"
 align = 1
 
 [node name="OptionsPopup" parent="VBoxContainer" instance=ExtResource( 5 )]
-visible = false
 
 [node name="Buttons" type="HBoxContainer" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -147,6 +146,7 @@ margin_left = 20.0
 margin_top = 608.0
 margin_right = 1260.0
 margin_bottom = 666.0
+theme = ExtResource( 2 )
 alignment = 1
 
 [node name="Start" type="Button" parent="Buttons"]
