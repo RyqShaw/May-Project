@@ -1,5 +1,5 @@
 # May-Project
-By Sharyq Siddiqi, Yannik Leuz, and Sarai Harper
+By Sharyq Siddiqi(RyqShaw), Symber, and Lyko
 
 During the Month of May at our school, Seniors are given an opportunity to pursue a project of their choosing!
 
